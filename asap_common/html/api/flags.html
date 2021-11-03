@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masks/Flags manipulation helpers &#8212; asap/common 0.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Hedley" href="hedley.html" />
+    <link rel="prev" title="Unicode" href="unicode.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="masks-flags-manipulation-helpers">
+<h1>Masks/Flags manipulation helpers<a class="headerlink" href="#masks-flags-manipulation-helpers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="non-copiable-class">
+<h2>Non copiable class<a class="headerlink" href="#non-copiable-class" title="Permalink to this headline">¶</a></h2>
+<p>The header &lt;common/flag_ops.h&gt; defines a number of helper template functions
+to set, clear, flip, and test flags in a bitset mask. All these functions
+can only be instantiated with an arithmetic type (e.g. int) or an enum type.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#flagset"><span class="std std-ref">FlagSet</span></a></p></li>
+<li><p><a class="reference internal" href="#flagclear"><span class="std std-ref">FlagClear</span></a></p></li>
+<li><p><a class="reference internal" href="#flagflip"><span class="std std-ref">FlagFlip</span></a></p></li>
+<li><p><a class="reference internal" href="#flagtest"><span class="std std-ref">FlagTest</span></a></p></li>
+</ul>
+</div></blockquote>
+<span class="target" id="flagset"></span><dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap7FlagSetEvR1T1T">
+<span id="_CPPv3I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap7FlagSetER1T1T"></span><span id="_CPPv2I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap7FlagSetER1T1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">enable_if</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cpp.html#_CPPv4IDpEN4asap11disjunctionE" title="asap::disjunction"><span class="n"><span class="pre">disjunction</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_arithmetic</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap7FlagSetEvR1T1T" title="asap::FlagSet::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_enum</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap7FlagSetEvR1T1T" title="asap::FlagSet::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespaceasap_1a3d26c6bc46a8414ae0e300a0ade265e7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlagSet</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap7FlagSetEvR1T1T" title="asap::FlagSet::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mask</span></span>, <a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap7FlagSetEvR1T1T" title="asap::FlagSet::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap7FlagSetEvR1T1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set bits in a mask based on the bits set in flags. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[inout]</strong> the bitset mask to be changed. </p></li>
+<li><p><strong>flags</strong> – <strong>[in]</strong> the flags to set in the mask. May contain one or more bits to set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="flagclear"></span><dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap9FlagClearEvR1T1T">
+<span id="_CPPv3I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap9FlagClearER1T1T"></span><span id="_CPPv2I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap9FlagClearER1T1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">enable_if</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cpp.html#_CPPv4IDpEN4asap11disjunctionE" title="asap::disjunction"><span class="n"><span class="pre">disjunction</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_arithmetic</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap9FlagClearEvR1T1T" title="asap::FlagClear::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_enum</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap9FlagClearEvR1T1T" title="asap::FlagClear::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespaceasap_1a7bf4db8e07c108f6564d5395e5bfa336"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlagClear</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap9FlagClearEvR1T1T" title="asap::FlagClear::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mask</span></span>, <a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap9FlagClearEvR1T1T" title="asap::FlagClear::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap9FlagClearEvR1T1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clear bits in a mask based on the bits set in flags. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[inout]</strong> the bitset mask to be changed. </p></li>
+<li><p><strong>flags</strong> – <strong>[in]</strong> the flags to clear in the mask. May contain one or more bits to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="flagflip"></span><dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagFlipEvR1T1T">
+<span id="_CPPv3I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagFlipER1T1T"></span><span id="_CPPv2I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagFlipER1T1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">enable_if</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cpp.html#_CPPv4IDpEN4asap11disjunctionE" title="asap::disjunction"><span class="n"><span class="pre">disjunction</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_arithmetic</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagFlipEvR1T1T" title="asap::FlagFlip::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_enum</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagFlipEvR1T1T" title="asap::FlagFlip::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespaceasap_1a677a1574c289da322e45cb7a67588cb1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlagFlip</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagFlipEvR1T1T" title="asap::FlagFlip::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mask</span></span>, <a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagFlipEvR1T1T" title="asap::FlagFlip::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagFlipEvR1T1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Flip bits (‘0’ to ‘1’ and ‘1’ to ‘0’) in a mask based on the bits set in flags. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[inout]</strong> the bitset mask to be changed. </p></li>
+<li><p><strong>flags</strong> – <strong>[in]</strong> the flags to flip in the mask. May contain one or more bits to set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="flagtest"></span><dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagTestEb1T1T">
+<span id="_CPPv3I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagTestE1T1T"></span><span id="_CPPv2I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagTestE1T1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">enable_if</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cpp.html#_CPPv4IDpEN4asap11disjunctionE" title="asap::disjunction"><span class="n"><span class="pre">disjunction</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_arithmetic</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagTestEb1T1T" title="asap::FlagTest::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">is_enum</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagTestEb1T1T" title="asap::FlagTest::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="namespaceasap_1a712473963f1fe4665ce406ace3a6f3b4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlagTest</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagTestEb1T1T" title="asap::FlagTest::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mask</span></span>, <a class="reference internal" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagTestEb1T1T" title="asap::FlagTest::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0_PNSt9enable_ifIN4asap11disjunctionINSt13is_arithmeticI1TEENSt7is_enumI1TEEE5valueEE4typeEEN4asap8FlagTestEb1T1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the bits set in <code class="docutils literal notranslate"><span class="pre">flags</span></code> are also set in <code class="docutils literal notranslate"><span class="pre">mask</span></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[in]</strong> the bitset mask to be tested. </p></li>
+<li><p><strong>flags</strong> – <strong>[in]</strong> the flags to check in the mask. May contain one or more bits to set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>true</strong> if the flags are set in mask; otherwise <strong>false</strong>; </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">asap/common</a></h1>
+
+
+
+<p class="blurb">Common functionality for asap based projects</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=abdes&repo=asap_common&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="platform.html">Platform detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assert.html">Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp.html">C++ language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode support</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mask/Flags manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hedley.html">Hedley</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html">API reference</a><ul>
+      <li>Previous: <a href="unicode.html" title="previous chapter">Unicode</a></li>
+      <li>Next: <a href="hedley.html" title="next chapter">Hedley </a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, The Authors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/flags.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/abdes/asap_common" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logging &#8212; asap/common 0.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unicode" href="unicode.html" />
+    <link rel="prev" title="C++ language helpers" href="cpp.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="logging">
+<h1>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h1>
+<p>Logging features provided by the <code class="docutils literal notranslate"><span class="pre">asap</span></code> <code class="docutils literal notranslate"><span class="pre">common</span></code> module are abstracted into
+a simple and minimalistic interface. Under the hood, the logging framework used
+for the implementation is the excellent <a class="reference external" href="https://github.com/gabime/spdlog">spdlog</a>
+selected for its performance, light weight and clean interface.</p>
+<div class="section" id="design-rationale">
+<h2>Design Rationale<a class="headerlink" href="#design-rationale" title="Permalink to this headline">¶</a></h2>
+<p>While spdlog or other frameworks offer a nice interface and can achieve the
+expected results with no abstraction layer above, they are designed as a
+generic framework that caters for many more scenarios than what is required.</p>
+<p>Over the course of the development of the <code class="docutils literal notranslate"><span class="pre">asap</span></code> modules, a certain usage
+model became stronger, and that usage model (described below) resulted in the
+current design of the logging interface.</p>
+<ul class="simple">
+<li><p>We encapsulate the underlying framework logger into a smaller interface
+that just offers what is needed. This is represented by
+the <a class="reference internal" href="#_CPPv4N4asap7logging6LoggerE" title="asap::logging::Logger"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">asap::logging::Logger</span></code></a> class.</p></li>
+<li><p>Most of the boilerplate code should be written only once and totally hidden
+from the application. This includes formatters, sinks, filtering, etc… and
+this is mostly provided through the <a class="reference internal" href="#_CPPv4N4asap7logging8RegistryE" title="asap::logging::Registry"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">asap::logging::Registry</span></code></a> class.</p></li>
+<li><p>Logging is mostly done and is required within the implementation code of
+classes. We offer a mixin interface <a class="reference internal" href="#_CPPv4I0EN4asap7logging8LoggableE" title="asap::logging::Loggable"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">asap::logging::Loggable</span></code></a> that
+when inherited from, adds support for logging from anywhere within the
+class’s implementation by simply using <a class="reference internal" href="#c.ASLOG" title="ASLOG"><code class="xref c c-macro docutils literal notranslate"><span class="pre">ASLOG</span></code></a> macro.</p></li>
+<li><p>An advanced use case requiring the logging sink to be changed at runtime
+(something not allowed by spdlog) was identified and handled through the
+introduction of a special purpose sink implemented by the
+<a class="reference internal" href="#_CPPv4N4asap7logging14DelegatingSinkE" title="asap::logging::DelegatingSink"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">asap::logging::DelegatingSink</span></code></a> class.</p></li>
+</ul>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#_CPPv4N4asap7logging6LoggerE" title="asap::logging::Logger"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">asap::logging::Logger</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv4N4asap7logging8RegistryE" title="asap::logging::Registry"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">asap::logging::Registry</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv4I0EN4asap7logging8LoggableE" title="asap::logging::Loggable"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">asap::logging::Loggable</span></code></a></p></li>
+<li><p><a class="reference internal" href="#_CPPv4N4asap7logging14DelegatingSinkE" title="asap::logging::DelegatingSink"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">asap::logging::DelegatingSink</span></code></a></p></li>
+</ul>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6LoggerE">
+<span id="_CPPv3N4asap7logging6LoggerE"></span><span id="_CPPv2N4asap7logging6LoggerE"></span><span id="asap::logging::Logger"></span><span class="target" id="classasap_1_1logging_1_1_logger"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">logging</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Logger</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">private</span></span><span class="w"> </span><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cpp.html#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><a class="headerlink" href="#_CPPv4N4asap7logging6LoggerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classasap_1_1logging_1_1_logger"><span class="std std-ref">Logger</span></a> wrapper for a spdlog logger. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger5LevelE">
+<span id="_CPPv3N4asap7logging6Logger5LevelE"></span><span id="_CPPv2N4asap7logging6Logger5LevelE"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a99e12b3db9bfa317a273649cdb87b8f4"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Level</span></span></span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger5LevelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A simple mapping between <a class="reference internal" href="#classasap_1_1logging_1_1_logger"><span class="std std-ref">Logger</span></a> severity levels and spdlog severity levels. </p>
+<p>The only reason for this mapping is to go around the fact that spdlog defines level as err but the method to log at err level is called LOGGER.error not LOGGER.err. All other levels are fine. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger5Level5traceE">
+<span id="_CPPv3N4asap7logging6Logger5Level5traceE"></span><span id="_CPPv2N4asap7logging6Logger5Level5traceE"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a99e12b3db9bfa317a273649cdb87b8f4a04a75036e9d520bb983c5ed03b8d0182"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trace</span></span></span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger5Level5traceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger5Level5debugE">
+<span id="_CPPv3N4asap7logging6Logger5Level5debugE"></span><span id="_CPPv2N4asap7logging6Logger5Level5debugE"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a99e12b3db9bfa317a273649cdb87b8f4aad42f6697b035b7580e4fef93be20b4d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">debug</span></span></span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger5Level5debugE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger5Level4infoE">
+<span id="_CPPv3N4asap7logging6Logger5Level4infoE"></span><span id="_CPPv2N4asap7logging6Logger5Level4infoE"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a99e12b3db9bfa317a273649cdb87b8f4acaf9b6b99962bf5c2264824231d7a40c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">info</span></span></span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger5Level4infoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger5Level4warnE">
+<span id="_CPPv3N4asap7logging6Logger5Level4warnE"></span><span id="_CPPv2N4asap7logging6Logger5Level4warnE"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a99e12b3db9bfa317a273649cdb87b8f4a1ea4c3ab05ee0c6d4de30740443769cb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">warn</span></span></span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger5Level4warnE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger5Level5errorE">
+<span id="_CPPv3N4asap7logging6Logger5Level5errorE"></span><span id="_CPPv2N4asap7logging6Logger5Level5errorE"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a99e12b3db9bfa317a273649cdb87b8f4acb5e100e5a9a3e7f6d1fd97512215282"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">error</span></span></span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger5Level5errorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger5Level8criticalE">
+<span id="_CPPv3N4asap7logging6Logger5Level8criticalE"></span><span id="_CPPv2N4asap7logging6Logger5Level8criticalE"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a99e12b3db9bfa317a273649cdb87b8f4a7e85bcb66fb9a809d5ab4f62a8b8bea8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">critical</span></span></span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger5Level8criticalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger5Level3offE">
+<span id="_CPPv3N4asap7logging6Logger5Level3offE"></span><span id="_CPPv2N4asap7logging6Logger5Level3offE"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a99e12b3db9bfa317a273649cdb87b8f4a3262d48df5d75e3452f0f16b313b7808"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">off</span></span></span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger5Level3offE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger6LoggerERR6Logger">
+<span id="_CPPv3N4asap7logging6Logger6LoggerERR6Logger"></span><span id="_CPPv2N4asap7logging6Logger6LoggerERR6Logger"></span><span id="asap::logging::Logger::Logger__LoggerRR"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a74976d4ef8521703ea98d17258833f83"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Logger</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4asap7logging6Logger6LoggerERR6Logger" title="asap::logging::Logger::Logger"><span class="n"><span class="pre">Logger</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger6LoggerERR6Logger" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6LoggeraSERR6Logger">
+<span id="_CPPv3N4asap7logging6LoggeraSERR6Logger"></span><span id="_CPPv2N4asap7logging6LoggeraSERR6Logger"></span><span id="asap::logging::Logger::assign-operator__LoggerRR"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a48d5ace9f01cad83bec4724356263ef1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap7logging6LoggerE" title="asap::logging::Logger"><span class="n"><span class="pre">Logger</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4asap7logging6LoggerE" title="asap::logging::Logger"><span class="n"><span class="pre">Logger</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv4N4asap7logging6LoggeraSERR6Logger" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move assignment. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6LoggerD0Ev">
+<span id="_CPPv3N4asap7logging6LoggerD0Ev"></span><span id="_CPPv2N4asap7logging6LoggerD0Ev"></span><span id="asap::logging::Logger::~Logger"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a259311ce076478f3f8de5eea267ff809"></span><span class="sig-name descname"><span class="n"><span class="pre">~Logger</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap7logging6LoggerD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default trivial destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger4swapER6Logger">
+<span id="_CPPv3N4asap7logging6Logger4swapER6Logger"></span><span id="_CPPv2N4asap7logging6Logger4swapER6Logger"></span><span id="asap::logging::Logger::swap__LoggerR"></span><span class="target" id="classasap_1_1logging_1_1_logger_1af3fc10358ec0a01e0bbcaf2576d59d54"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">swap</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4asap7logging6LoggerE" title="asap::logging::Logger"><span class="n"><span class="pre">Logger</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger4swapER6Logger" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Implementation of the swap operation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other</strong> – <a class="reference internal" href="#classasap_1_1logging_1_1_logger"><span class="std std-ref">Logger</span></a> object to swap with. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4asap7logging6Logger4NameEv">
+<span id="_CPPv3NK4asap7logging6Logger4NameEv"></span><span id="_CPPv2NK4asap7logging6Logger4NameEv"></span><span id="asap::logging::Logger::NameC"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a2f355391ec68ab5e74deb683444ef07d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">Name</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4asap7logging6Logger4NameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get this logger’s name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the logger name. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger8SetLevelEN6spdlog5level10level_enumE">
+<span id="_CPPv3N4asap7logging6Logger8SetLevelEN6spdlog5level10level_enumE"></span><span id="_CPPv2N4asap7logging6Logger8SetLevelEN6spdlog5level10level_enumE"></span><span id="asap::logging::Logger::SetLevel__spdlog::level::level_enum"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a54b25b13f459ae8ab9a0464e22423a77"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetLevel</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">spdlog</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">level_enum</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">level</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger8SetLevelEN6spdlog5level10level_enumE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the logging level for this logger (e.g. debug, warning…). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>level</strong> – <strong>[in]</strong> logging level. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4asap7logging6Logger8GetLevelEv">
+<span id="_CPPv3NK4asap7logging6Logger8GetLevelEv"></span><span id="_CPPv2NK4asap7logging6Logger8GetLevelEv"></span><span id="asap::logging::Logger::GetLevelC"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a02d94d1a18e92c25ae0a171ef41c6088"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">spdlog</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">level_enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetLevel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4asap7logging6Logger8GetLevelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the logging level for this logger. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>This logger’s logging level. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging6Logger18DEFAULT_LOG_FORMATE">
+<span id="_CPPv3N4asap7logging6Logger18DEFAULT_LOG_FORMATE"></span><span id="_CPPv2N4asap7logging6Logger18DEFAULT_LOG_FORMATE"></span><span id="asap::logging::Logger::DEFAULT_LOG_FORMAT__cCP"></span><span class="target" id="classasap_1_1logging_1_1_logger_1a748c5064298688200903fa3228757037"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">DEFAULT_LOG_FORMAT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;[%Y-%m-%d</span> <span class="pre">%T.%e]</span> <span class="pre">[%t]</span> <span class="pre">[%^%l%$]</span> <span class="pre">[%n]</span> <span class="pre">%v&quot;</span></span><a class="headerlink" href="#_CPPv4N4asap7logging6Logger18DEFAULT_LOG_FORMATE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The default logging format. </p>
+<p>Default format for all loggers. <dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference external" href="https://github.com/gabime/spdlog/wiki/3.-Custom-formatting">https://github.com/gabime/spdlog/wiki/3.-Custom-formatting</a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging8RegistryE">
+<span id="_CPPv3N4asap7logging8RegistryE"></span><span id="_CPPv2N4asap7logging8RegistryE"></span><span id="asap::logging::Registry"></span><span class="target" id="classasap_1_1logging_1_1_registry"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">logging</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Registry</span></span></span><a class="headerlink" href="#_CPPv4N4asap7logging8RegistryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A registry of all named loggers and the single point of access to the logging API. </p>
+<p>The logging registry creates and manages all the named loggers in the application. It can be used to:<ul class="simple">
+<li><p>obtain any registered logger by its name,</p></li>
+<li><p>set logging level for all registered loggers,</p></li>
+<li><p>change the logging format,</p></li>
+<li><p>manage a stack of sinks where the current sink can be temporarily swapped with another sink, to be restored later</p></li>
+</ul>
+</p>
+<p>The <a class="reference internal" href="#classasap_1_1logging_1_1_registry"><span class="std std-ref">Registry</span></a> creates a default sink at startup to be used by all registered loggers, until an explicit call to <a class="reference internal" href="#classasap_1_1logging_1_1_registry_1ae424e29ddf7436b3b4378d1854099e07"><span class="std std-ref">PushSink()</span></a> is made. The default sink is a console logger (color).</p>
+<p>Example: <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="n">asap</span><span class="o">::</span><span class="n">logging</span><span class="o">::</span><span class="n">Registry</span><span class="o">::</span><span class="n">GetLogger</span><span class="p">(</span><span class="s">&quot;testing&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">ASLOG_TO_LOGGER</span><span class="p">(</span><span class="n">debug</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;starting...&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Initialize a complex GUI system</span>
+<span class="w">  </span><span class="p">...</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Start logging to the graphical console</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">ui_console</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">MyCustomSink</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">asap</span><span class="o">::</span><span class="n">logging</span><span class="o">::</span><span class="n">Registry</span><span class="o">::</span><span class="n">PushSink</span><span class="p">(</span><span class="n">ui_console</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">...</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Shutdown the GUI, switch back to the primitive logging sink</span>
+<span class="w">  </span><span class="n">asap</span><span class="o">::</span><span class="n">logging</span><span class="o">::</span><span class="n">Registry</span><span class="o">::</span><span class="n">PopSink</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+</div>
+</p>
+<p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Todo:</span></em></dt>
+<dd><p>TODO: Add Init() method with format, sinks and level </p>
+</dd></dl>
+
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging8Registry11SetLogLevelEN6spdlog5level10level_enumE">
+<span id="_CPPv3N4asap7logging8Registry11SetLogLevelEN6spdlog5level10level_enumE"></span><span id="_CPPv2N4asap7logging8Registry11SetLogLevelEN6spdlog5level10level_enumE"></span><span id="asap::logging::Registry::SetLogLevel__spdlog::level::level_enum"></span><span class="target" id="classasap_1_1logging_1_1_registry_1a477c390500078b0099e44c61bab2b407"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetLogLevel</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">spdlog</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">level_enum</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">log_level</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap7logging8Registry11SetLogLevelEN6spdlog5level10level_enumE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the minimum log severity required to print messages. </p>
+<p>Messages below this loglevel will be suppressed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>log_level</strong> – <strong>[in]</strong> the logging severity to be applied to all registered loggers. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging8Registry12SetLogFormatERKNSt6stringE">
+<span id="_CPPv3N4asap7logging8Registry12SetLogFormatERKNSt6stringE"></span><span id="_CPPv2N4asap7logging8Registry12SetLogFormatERKNSt6stringE"></span><span id="asap::logging::Registry::SetLogFormat__ssCR"></span><span class="target" id="classasap_1_1logging_1_1_registry_1aa87a19cc694a85bc7a9203968229b4d5"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetLogFormat</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">log_format</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap7logging8Registry12SetLogFormatERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Change the format string used by the registered loggers. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference external" href="https://github.com/gabime/spdlog/wiki/3.-Custom-formatting">https://github.com/gabime/spdlog/wiki/3.-Custom-formatting</a> </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>log_format</strong> – <strong>[in]</strong> new format string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging8Registry9GetLoggerERKNSt6stringE">
+<span id="_CPPv3N4asap7logging8Registry9GetLoggerERKNSt6stringE"></span><span id="_CPPv2N4asap7logging8Registry9GetLoggerERKNSt6stringE"></span><span id="asap::logging::Registry::GetLogger__ssCR"></span><span class="target" id="classasap_1_1logging_1_1_registry_1ae15fbc9e53049b7eaf40df557595253b"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">spdlog</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">logger</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">GetLogger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap7logging8Registry9GetLoggerERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a logger by its name. </p>
+<p>This method automatically registers a new logger for the given name if no corresponding one has been already registered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – <strong>[in]</strong> the name of the logger to fetch.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The logger corresponding to the given name. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging8Registry7LoggersEv">
+<span id="_CPPv3N4asap7logging8Registry7LoggersEv"></span><span id="_CPPv2N4asap7logging8Registry7LoggersEv"></span><span id="asap::logging::Registry::Loggers"></span><span class="target" id="classasap_1_1logging_1_1_registry_1a699036bf53136aa8162188040c10acdb"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap7logging6LoggerE" title="asap::logging::Logger"><span class="n"><span class="pre">Logger</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">Loggers</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap7logging8Registry7LoggersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>API access to the collection of registered loggers. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging8Registry8PushSinkEN6spdlog8sink_ptrE">
+<span id="_CPPv3N4asap7logging8Registry8PushSinkEN6spdlog8sink_ptrE"></span><span id="_CPPv2N4asap7logging8Registry8PushSinkEN6spdlog8sink_ptrE"></span><span id="asap::logging::Registry::PushSink__spdlog::sink_ptr"></span><span class="target" id="classasap_1_1logging_1_1_registry_1ae424e29ddf7436b3b4378d1854099e07"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PushSink</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">spdlog</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">sink_ptr</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sink</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap7logging8Registry8PushSinkEN6spdlog8sink_ptrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use the given sink for all subsequent logging operations until a call to <a class="reference internal" href="#classasap_1_1logging_1_1_registry_1a19885ed6d36786edf96e18622f4b964f"><span class="std std-ref">PopSink()</span></a> is made. </p>
+<p>This method, together with <a class="reference internal" href="#classasap_1_1logging_1_1_registry_1a19885ed6d36786edf96e18622f4b964f"><span class="std std-ref">PopSink()</span></a>, enable to switch sinks at runtime temporarily or permanently for all registered loggers.</p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#classasap_1_1logging_1_1_registry_1a19885ed6d36786edf96e18622f4b964f"><span class="std std-ref">PopSink()</span></a> </p>
+</dd>
+</dl>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sink</strong> – <strong>[in]</strong> new sink to replace the existing one. The existing one is pushed on top of an internally managed stack of sinks.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging8Registry7PopSinkEv">
+<span id="_CPPv3N4asap7logging8Registry7PopSinkEv"></span><span id="_CPPv2N4asap7logging8Registry7PopSinkEv"></span><span id="asap::logging::Registry::PopSink"></span><span class="target" id="classasap_1_1logging_1_1_registry_1a19885ed6d36786edf96e18622f4b964f"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PopSink</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap7logging8Registry7PopSinkEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Restore the top of sinks stack as the current sink for all registered loggers. </p>
+<p><dl class="simple">
+<dt><strong>See</strong></dt><dd><p><a class="reference internal" href="#classasap_1_1logging_1_1_registry_1ae424e29ddf7436b3b4378d1854099e07"><span class="std std-ref">PushSink(spdlog::sink_ptr)</span></a> </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN4asap7logging8LoggableE">
+<span id="_CPPv3I0EN4asap7logging8LoggableE"></span><span id="_CPPv2I0EN4asap7logging8LoggableE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classasap_1_1logging_1_1_loggable"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Loggable</span></span></span><a class="headerlink" href="#_CPPv4I0EN4asap7logging8LoggableE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mixin class that allows any class to perform logging with a logger of a particular name. </p>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging14DelegatingSinkE">
+<span id="_CPPv3N4asap7logging14DelegatingSinkE"></span><span id="_CPPv2N4asap7logging14DelegatingSinkE"></span><span id="asap::logging::DelegatingSink"></span><span class="target" id="classasap_1_1logging_1_1_delegating_sink"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">logging</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">DelegatingSink</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">spdlog</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">sinks</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">base_sink</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">mutex</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">private</span></span><span class="w"> </span><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="cpp.html#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><a class="headerlink" href="#_CPPv4N4asap7logging14DelegatingSinkE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A logging sink implementation that delegates all its logging calls to an encapsulated delegate. </p>
+<p>This class is used to work around the limitation of spdlog that forces the same sink(s) to be used for the lifetime of a logger. Two important application scenarios require the sink to be changed after the logger object is created:<ul class="simple">
+<li><p>If the application starts logging early to console and then later needs to log to some different sink after the proper resources for that sink have been initialized (e.g. GUI),</p></li>
+<li><p>If the application needs to temporarily switch logging output to a different sink (e.g. dumping diagnostic data) and then switch back to original sink after it’s done. This requires two loggers in the current implementation.</p></li>
+</ul>
+</p>
+<p>The <a class="reference internal" href="#classasap_1_1logging_1_1_delegating_sink"><span class="std std-ref">DelegatingSink</span></a> class supports switching its delegate at any time. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging14DelegatingSink14DelegatingSinkEN6spdlog8sink_ptrE">
+<span id="_CPPv3N4asap7logging14DelegatingSink14DelegatingSinkEN6spdlog8sink_ptrE"></span><span id="_CPPv2N4asap7logging14DelegatingSink14DelegatingSinkEN6spdlog8sink_ptrE"></span><span id="asap::logging::DelegatingSink::DelegatingSink__spdlog::sink_ptr"></span><span class="target" id="classasap_1_1logging_1_1_delegating_sink_1a8808fd493fb276df4410044fa21c4460"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DelegatingSink</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">spdlog</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">sink_ptr</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">delegate</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap7logging14DelegatingSink14DelegatingSinkEN6spdlog8sink_ptrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a <a class="reference internal" href="#classasap_1_1logging_1_1_delegating_sink"><span class="std std-ref">DelegatingSink</span></a> which delegates all its logging to the given delegate sink. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>delegate</strong> – <strong>[in]</strong> the sink to which logging calls will be delegated. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging14DelegatingSink14DelegatingSinkERR14DelegatingSink">
+<span id="_CPPv3N4asap7logging14DelegatingSink14DelegatingSinkERR14DelegatingSink"></span><span id="_CPPv2N4asap7logging14DelegatingSink14DelegatingSinkERR14DelegatingSink"></span><span id="asap::logging::DelegatingSink::DelegatingSink__DelegatingSinkRR"></span><span class="target" id="classasap_1_1logging_1_1_delegating_sink_1a56081749dc9c6a0e5b459165f89d73cf"></span><span class="sig-name descname"><span class="n"><span class="pre">DelegatingSink</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4asap7logging14DelegatingSink14DelegatingSinkERR14DelegatingSink" title="asap::logging::DelegatingSink::DelegatingSink"><span class="n"><span class="pre">DelegatingSink</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4asap7logging14DelegatingSink14DelegatingSinkERR14DelegatingSink" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging14DelegatingSinkaSERR14DelegatingSink">
+<span id="_CPPv3N4asap7logging14DelegatingSinkaSERR14DelegatingSink"></span><span id="_CPPv2N4asap7logging14DelegatingSinkaSERR14DelegatingSink"></span><span id="asap::logging::DelegatingSink::assign-operator__DelegatingSinkRR"></span><span class="target" id="classasap_1_1logging_1_1_delegating_sink_1af852b6d7abf0711429093d8f549a67ec"></span><a class="reference internal" href="#_CPPv4N4asap7logging14DelegatingSinkE" title="asap::logging::DelegatingSink"><span class="n"><span class="pre">DelegatingSink</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4asap7logging14DelegatingSinkE" title="asap::logging::DelegatingSink"><span class="n"><span class="pre">DelegatingSink</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4asap7logging14DelegatingSinkaSERR14DelegatingSink" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move assignment. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging14DelegatingSink14DelegatingSinkEv">
+<span id="_CPPv3N4asap7logging14DelegatingSink14DelegatingSinkEv"></span><span id="_CPPv2N4asap7logging14DelegatingSink14DelegatingSinkEv"></span><span id="asap::logging::DelegatingSink::DelegatingSink"></span><span class="target" id="classasap_1_1logging_1_1_delegating_sink_1a11c45238e2c81bdec368feb495f4ee65"></span><span class="sig-name descname"><span class="n"><span class="pre">DelegatingSink</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap7logging14DelegatingSink14DelegatingSinkEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default trivial destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap7logging14DelegatingSink8SwapSinkEN6spdlog8sink_ptrE">
+<span id="_CPPv3N4asap7logging14DelegatingSink8SwapSinkEN6spdlog8sink_ptrE"></span><span id="_CPPv2N4asap7logging14DelegatingSink8SwapSinkEN6spdlog8sink_ptrE"></span><span id="asap::logging::DelegatingSink::SwapSink__spdlog::sink_ptr"></span><span class="target" id="classasap_1_1logging_1_1_delegating_sink_1a0fec5b183d0e693401b0b55119909926"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">spdlog</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">sink_ptr</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SwapSink</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">spdlog</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">sink_ptr</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sink</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap7logging14DelegatingSink8SwapSinkEN6spdlog8sink_ptrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use the given sink as a new delegate and return the old one. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sink</strong> – the new delegate. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the previously used delegate. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="helper-macros">
+<h2>Helper macros<a class="headerlink" href="#helper-macros" title="Permalink to this headline">¶</a></h2>
+<p>A set of convenience macros are provided and in 99% of the cases, these macros
+will fulfill the logging requirements.</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASLOGGER">
+<span class="target" id="logging_8h_1a5e3b0dcfc4b69f3a509867ffefcf6d0f"></span><span class="sig-name descname"><span class="n"><span class="pre">ASLOGGER</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASLOGGER" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convenience macro to get the class logger. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASLOG">
+<span class="target" id="logging_8h_1a6835a35e372e972b5b4fa634584d4bf8"></span><span class="sig-name descname"><span class="n"><span class="pre">ASLOG</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">LEVEL</span></span>, <span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASLOG" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convenience macro to log to the class logger. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASLOG_CHECK_LEVEL">
+<span class="target" id="logging_8h_1acfb283e8cc66c0077bd03f5f546a33e3"></span><span class="sig-name descname"><span class="n"><span class="pre">ASLOG_CHECK_LEVEL</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">LEVEL</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASLOG_CHECK_LEVEL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check the class logger level against the provided one. Resolves to true if the class logger level is &lt;= to the given level. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASFLUSH_LOG">
+<span class="target" id="logging_8h_1a51551b9ce44d4663698a41772db58fb8"></span><span class="sig-name descname"><span class="n"><span class="pre">ASFLUSH_LOG</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASFLUSH_LOG" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convenience macro to flush logger. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASLOG_TO_LOGGER">
+<span class="target" id="logging_8h_1a750eb8a8ca386fdd53dd4ad807e82080"></span><span class="sig-name descname"><span class="n"><span class="pre">ASLOG_TO_LOGGER</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">LOGGER</span></span>, <span class="n"><span class="pre">LEVEL</span></span>, <span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASLOG_TO_LOGGER" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convenience macro to log to a user-specified logger. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASLOG_MISC">
+<span class="target" id="logging_8h_1a774459c36fb897e1518455b0bf49b4a8"></span><span class="sig-name descname"><span class="n"><span class="pre">ASLOG_MISC</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">LEVEL</span></span>, <span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASLOG_MISC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convenience macro to log to the misc logger, which allows for logging without direct access to a logger. </p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">asap/common</a></h1>
+
+
+
+<p class="blurb">Common functionality for asap based projects</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=abdes&repo=asap_common&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="platform.html">Platform detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assert.html">Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp.html">C++ language</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flags.html">Mask/Flags manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hedley.html">Hedley</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html">API reference</a><ul>
+      <li>Previous: <a href="cpp.html" title="previous chapter">C++ language helpers</a></li>
+      <li>Next: <a href="unicode.html" title="next chapter">Unicode</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, The Authors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/logging.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/abdes/asap_common" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

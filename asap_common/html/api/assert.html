@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assertions &#8212; asap/common 0.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C++ language helpers" href="cpp.html" />
+    <link rel="prev" title="Platform and environment preprocessor symbols" href="platform.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="assertions">
+<h1>Assertions<a class="headerlink" href="#assertions" title="Permalink to this headline">¶</a></h1>
+<p>Header file &lt;common/assert.h&gt; provides a number of macros that can be used to
+implement assertions in C++ code.</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_ASSERT_PRECOND">
+<span class="target" id="assert_8h_1a36ee80e99ee8cb40e4572a41d5ca80ee"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_ASSERT_PRECOND</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">a</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_ASSERT_PRECOND" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check the expression <em>a</em> and if it evaluates to 0 print an assertion diagnostic message and abort the program. </p>
+<p>This assertion macro explicitly states that the expression must be true as a precondition and its failure is most likely due to a logic or design error in the program. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_ASSERT">
+<span class="target" id="assert_8h_1a7d132731b70f64053f5639e2ad4d2a97"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_ASSERT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">a</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_ASSERT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check the expression <em>a</em> and if it evaluates to 0 print an assertion diagnostic message and abort the program. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_ASSERT_VAL">
+<span class="target" id="assert_8h_1a85f1a4335b83571a7881f49d819fb10f"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_ASSERT_VAL</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">a</span></span>, <span class="n"><span class="pre">x</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_ASSERT_VAL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check the expression <em>a</em> and if it evaluates to 0 print an assertion diagnostic message including the value <em>x</em> and abort the program. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_ASSERT_FAIL">
+<span class="target" id="assert_8h_1a3730d4a5bc3cb2dcaa33a45c1bd35df1"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_ASSERT_FAIL</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_ASSERT_FAIL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Unconditionally fail, printing an assertion diagnostic message and abort the program. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_ASSERT_FAIL_VAL">
+<span class="target" id="assert_8h_1a1c49a3b9f6738f56ab4461389ac548e0"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_ASSERT_FAIL_VAL</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">x</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_ASSERT_FAIL_VAL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Unconditionally fail, printing an assertion diagnostic message including the value <em>x</em> and abort the program. </p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The behavior of the assertion macros can be controlled through the
+<a class="reference internal" href="platform.html#feature-symbols"><span class="std std-ref">Feature symbols</span></a> defined in &lt;common/config.h&gt;:</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">asap/common</a></h1>
+
+
+
+<p class="blurb">Common functionality for asap based projects</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=abdes&repo=asap_common&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="platform.html">Platform detection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp.html">C++ language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flags.html">Mask/Flags manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hedley.html">Hedley</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html">API reference</a><ul>
+      <li>Previous: <a href="platform.html" title="previous chapter">Platform and environment preprocessor symbols</a></li>
+      <li>Next: <a href="cpp.html" title="next chapter">C++ language helpers</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, The Authors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/assert.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/abdes/asap_common" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C++ language helpers &#8212; asap/common 0.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logging" href="logging.html" />
+    <link rel="prev" title="Assertions" href="assert.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="c-language-helpers">
+<h1>C++ language helpers<a class="headerlink" href="#c-language-helpers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="non-copiable-class">
+<h2>Non copiable class<a class="headerlink" href="#non-copiable-class" title="Permalink to this headline">¶</a></h2>
+<p>The header &lt;common/non_copyable.h&gt; defines the class
+<a class="reference internal" href="#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">asap::NonCopiable</span></code></a>.</p>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiableE">
+<span id="_CPPv3N4asap11NonCopiableE"></span><span id="_CPPv2N4asap11NonCopiableE"></span><span id="asap::NonCopiable"></span><span class="target" id="classasap_1_1_non_copiable"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">NonCopiable</span></span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiableE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classasap_1_1_non_copiable"><span class="std std-ref">NonCopiable</span></a> is intended to be used as a <strong>private</strong> base class. It has deleted (C++11) copy constructor and copy assignment operator and can’t be copied or assigned; a class that derives from it inherits these properties. </p>
+<p>Subclassed by <a class="reference internal" href="logging.html#classasap_1_1logging_1_1_delegating_sink"><span class="std std-ref">asap::logging::DelegatingSink</span></a>, <a class="reference internal" href="logging.html#classasap_1_1logging_1_1_logger"><span class="std std-ref">asap::logging::Logger</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiable11NonCopiableERK11NonCopiable">
+<span id="_CPPv3N4asap11NonCopiable11NonCopiableERK11NonCopiable"></span><span id="_CPPv2N4asap11NonCopiable11NonCopiableERK11NonCopiable"></span><span id="asap::NonCopiable::NonCopiable__NonCopiableCR"></span><span class="target" id="classasap_1_1_non_copiable_1aef211f5b9e6e7878738025c965e95f09"></span><span class="sig-name descname"><span class="n"><span class="pre">NonCopiable</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap11NonCopiable11NonCopiableERK11NonCopiable" title="asap::NonCopiable::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiable11NonCopiableERK11NonCopiable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor (deleted) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiableaSERK11NonCopiable">
+<span id="_CPPv3N4asap11NonCopiableaSERK11NonCopiable"></span><span id="_CPPv2N4asap11NonCopiableaSERK11NonCopiable"></span><span id="asap::NonCopiable::assign-operator__NonCopiableCR"></span><span class="target" id="classasap_1_1_non_copiable_1ad1e461518c4472f646203e39da631197"></span><a class="reference internal" href="#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiableaSERK11NonCopiable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy assignment operator (deleted) </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-functions">Protected Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiable11NonCopiableEv">
+<span id="_CPPv3N4asap11NonCopiable11NonCopiableEv"></span><span id="_CPPv2N4asap11NonCopiable11NonCopiableEv"></span><span id="asap::NonCopiable::NonCopiable"></span><span class="target" id="classasap_1_1_non_copiable_1a6c8812c3fea6cf92f3d83ca7d1da4a1e"></span><span class="sig-name descname"><span class="n"><span class="pre">NonCopiable</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiable11NonCopiableEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default constructor (default) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiableD0Ev">
+<span id="_CPPv3N4asap11NonCopiableD0Ev"></span><span id="_CPPv2N4asap11NonCopiableD0Ev"></span><span id="asap::NonCopiable::~NonCopiable"></span><span class="target" id="classasap_1_1_non_copiable_1aae36c72abef6817cd1d779a8f3030090"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~NonCopiable</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiableD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor (default) </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<p>Class <a class="reference internal" href="#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">asap::NonCopiable</span></code></a> has protected constructor and destructor
+members to emphasize that it is only intended to be inherited from. Both use
+the C++ 11 trivial implementation by marking them <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p>
+</div>
+<div class="section" id="logical-traits">
+<h2>Logical traits<a class="headerlink" href="#logical-traits" title="Permalink to this headline">¶</a></h2>
+<p>The header &lt;common/traits/logical.h&gt; defines equivalent of the C++ 17 logical
+operations on type traits, reducing the requirement to just C++ 14.</p>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4IDpEN4asap11conjunctionE">
+<span id="_CPPv3IDpEN4asap11conjunctionE"></span><span id="_CPPv2IDpEN4asap11conjunctionE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structasap_1_1conjunction"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">conjunction</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">true_type</span></span><a class="headerlink" href="#_CPPv4IDpEN4asap11conjunctionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Forms the logical conjunction of the type traits …, effectively performing a logical AND on the sequence of traits. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4IDpEN4asap11disjunctionE">
+<span id="_CPPv3IDpEN4asap11disjunctionE"></span><span id="_CPPv2IDpEN4asap11disjunctionE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structasap_1_1disjunction"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">disjunction</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">false_type</span></span><a class="headerlink" href="#_CPPv4IDpEN4asap11disjunctionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Forms the logical disjunction of the type traits …, effectively performing a logical OR on the sequence of traits. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN4asap8negationE">
+<span id="_CPPv3I0EN4asap8negationE"></span><span id="_CPPv2I0EN4asap8negationE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">B</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structasap_1_1negation"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">negation</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">bool_constant</span></span><span class="p"><span class="pre">&lt;</span></span><span class="o"><span class="pre">!</span></span><span class="kt"><span class="pre">bool</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4I0EN4asap8negationE" title="asap::negation::B"><span class="n"><span class="pre">B</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0EN4asap8negationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Forms the logical negation of the type trait B. </p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/types/conjunction">std::conjunction</a></dt><dd><p>Documentation of the standard C++ conjunction operation.</p>
+</dd>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/types/disjunction">std::disjunction</a></dt><dd><p>Documentation of the standard C++ disjunction operation.</p>
+</dd>
+<dt><a class="reference external" href="https://en.cppreference.com/w/cpp/types/negation">std::negation</a></dt><dd><p>Documentation of the standard C++ negation operation.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="helper-variables-for-c-14-and-above">
+<h3>Helper variables for C++ 14 and above<a class="headerlink" href="#helper-variables-for-c-14-and-above" title="Permalink to this headline">¶</a></h3>
+<p>If the C++ compiler provides support for C++ 14 or above, the following two
+helper variables are also defined:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Bi</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">conjunction_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">conjunction</span><span class="o">&lt;</span><span class="n">Bi</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Bi</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">disjunction_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">disjunction</span><span class="o">&lt;</span><span class="n">Bi</span><span class="p">...</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">B</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">negation_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">negation</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">asap/common</a></h1>
+
+
+
+<p class="blurb">Common functionality for asap based projects</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=abdes&repo=asap_common&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="platform.html">Platform detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assert.html">Assertions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">C++ language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flags.html">Mask/Flags manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hedley.html">Hedley</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html">API reference</a><ul>
+      <li>Previous: <a href="assert.html" title="previous chapter">Assertions</a></li>
+      <li>Next: <a href="logging.html" title="next chapter">Logging</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, The Authors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/cpp.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/abdes/asap_common" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

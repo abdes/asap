@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Development Process &#8212; Start Now!</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Documentation with Sphinx and restructured text" href="sphinx-doc.html" />
+    <link rel="prev" title="Build instructions" href="build.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Start Now!</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-getting-started/index.html">
+   Getting Started!
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-getting-started/structure.html">
+     Project structure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   Developer Guides
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="build.html">
+     Build instructions
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Development Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sphinx-doc.html">
+     Documentation with Sphinx and restructured text
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-library-modules/index.html">
+   Library Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../license.html">
+   License
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02-developer-guides/devflow.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/abdes/asap"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/abdes/asap/issues/new?title=Issue%20on%20page%20%2F02-developer-guides/devflow.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/abdes/asap/edit/master/02-developer-guides/devflow.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-control">
+   Version control
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cloning-for-the-first-time">
+     Cloning for the first time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-remotes">
+     Setting up remotes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pulling-updates">
+     Pulling updates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pushing-commits">
+     Pushing commits
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#development-workflow">
+   Development workflow
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feature-branches">
+     Feature branches
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#start-a-new-feature">
+       Start a new feature
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finish-a-feature">
+       Finish a feature
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#release-process">
+     Release Process
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="development-process">
+<h1>Development Process<a class="headerlink" href="#development-process" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="version-control">
+<h2>Version control<a class="headerlink" href="#version-control" title="Permalink to this headline">¶</a></h2>
+<p>We use Git and we require a recent version of the git tools to take advantage of
+enhanced features and avoid unnecessary bugs. It is strongly recommended to use
+the latest available version of git on the supported platforms.</p>
+<p>We maintain the code on both github and gitlab for redundancy and give the
+freedom of choice to the users of whatever platform they prefer. They are both
+suitable for this project and offer similar tools and in some instances offer
+complementary features that can be useful.</p>
+<div class="section" id="cloning-for-the-first-time">
+<h3>Cloning for the first time<a class="headerlink" href="#cloning-for-the-first-time" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone --recurse-submodules https://gitlab.com/absassi/asap.github
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone --recurse-submodules https://github.com/abdes/asap.github
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-remotes">
+<h3>Setting up remotes<a class="headerlink" href="#setting-up-remotes" title="Permalink to this headline">¶</a></h3>
+<p>Immediately after the cloning, the local git repo is setup with only one remote,
+<code class="docutils literal notranslate"><span class="pre">origin</span></code>, pointing to whichever of the repos that was used to clone.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> asap
+$ git remote -v
+origin  https://gitlab.com/absassi/asap.git <span class="o">(</span>fetch<span class="o">)</span>
+origin  https://gitlab.com/absassi/asap.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+<p>We keep the remote repos always in-sync by setting up the <code class="docutils literal notranslate"><span class="pre">origin</span></code> to have two
+push urls. To achieve that, edit the local git config and define new remotes as
+following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config -e
+</pre></div>
+</div>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[remote &quot;gitlab&quot;]</span>
+    <span class="na">url</span> <span class="o">=</span> <span class="s">https://gitlab.com/absassi/asap.git</span>
+    <span class="na">fetch</span> <span class="o">=</span> <span class="s">+refs/heads/*:refs/remotes/origin/*</span>
+<span class="k">[remote &quot;github&quot;]</span>
+    <span class="na">url</span> <span class="o">=</span> <span class="s">https://github.com/abdes/asap.git</span>
+    <span class="na">fetch</span> <span class="o">=</span> <span class="s">+refs/heads/*:refs/remotes/github/*</span>
+<span class="k">[remote &quot;origin&quot;]</span>
+    <span class="na">url</span> <span class="o">=</span> <span class="s">https://gitlab.com/absassi/asap.git</span>
+    <span class="na">url</span> <span class="o">=</span> <span class="s">https://github.com/abdes/asap.git</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+github  https://github.com/abdes/asap.git <span class="o">(</span>fetch<span class="o">)</span>
+github  https://github.com/abdes/asap.git <span class="o">(</span>push<span class="o">)</span>
+gitlab  https://gitlab.com/absassi/asap.git <span class="o">(</span>fetch<span class="o">)</span>
+gitlab  https://gitlab.com/absassi/asap.git <span class="o">(</span>push<span class="o">)</span>
+origin  https://gitlab.com/absassi/asap.git <span class="o">(</span>fetch<span class="o">)</span>
+origin  https://gitlab.com/absassi/asap.git <span class="o">(</span>push<span class="o">)</span>
+origin  https://github.com/abdes/asap.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pulling-updates">
+<h3>Pulling updates<a class="headerlink" href="#pulling-updates" title="Permalink to this headline">¶</a></h3>
+<p>You can pull from either of the remotes or from all of them. It should not make
+a difference if both remotes are always kept in sync by always pushing to both
+of them.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull gitlab master
+From https://gitlab.com/absassi/asap
+ * branch            master     -&gt; FETCH_HEAD
+Already up to date.
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull github master
+From https://github.com/abdes/asap
+ * branch            master     -&gt; FETCH_HEAD
+Already up to date.
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull origin master
+From https://gitlab.com/absassi/asap
+ * branch            master     -&gt; FETCH_HEAD
+Already up to date.
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull --all
+Fetching gitlab
+Fetching github
+Fetching origin
+From https://gitlab.com/absassi/asap
+ * branch            HEAD       -&gt; FETCH_HEAD
+Already up to date.
+</pre></div>
+</div>
+</div>
+<div class="section" id="pushing-commits">
+<h3>Pushing commits<a class="headerlink" href="#pushing-commits" title="Permalink to this headline">¶</a></h3>
+<p>Because we have defined <code class="docutils literal notranslate"><span class="pre">origin</span></code> as a remote with two push urls pointing to
+both remotes we use, pushing is transparent. When you <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> it will push
+sequentially to both remotes repos. If any of them is already up-to-date, git
+will simply skip it.</p>
+</div>
+</div>
+<div class="section" id="development-workflow">
+<h2>Development workflow<a class="headerlink" href="#development-workflow" title="Permalink to this headline">¶</a></h2>
+<p>We adopt a simplified git-flow workflow, keeping only the develop and master
+branches (no release branch), with the following principles:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The master branch should be the stable, golden version of the repos</p></li>
+<li><p>The develop branch is the current stable, buildable version of the repos</p></li>
+<li><p>New feature development is done in feature branches</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="feature-branches">
+<h3>Feature branches<a class="headerlink" href="#feature-branches" title="Permalink to this headline">¶</a></h3>
+<p>The workflow for feature branches is similar ot git-flow except that the
+git-flow tools are not used.  Instead, either the git commands are used directly
+from the command line or via the web interface of github/gitlab.</p>
+<div class="section" id="start-a-new-feature">
+<h4>Start a new feature<a class="headerlink" href="#start-a-new-feature" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git checkout -b feature/MYFEATURE develop
+</pre></div>
+</div>
+</div>
+<div class="section" id="finish-a-feature">
+<h4>Finish a feature<a class="headerlink" href="#finish-a-feature" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout develop
+git merge --no-ff feature/MYFEATURE
+git branch -d feature/MYFEATURE
+</pre></div>
+</div>
+<div class="admonition important" id="fast-forward-label">
+<p class="admonition-title">Important</p>
+<p>Whenever possible, Git normally tries to “fast forward” commits during a
+merge. The decision to FF is based upon whether or not the commit’s ancestry
+in the history doesn’t require a branch in the commit graph. However, in some
+cases it may be preferable to create a dedicated merge commit (effectively
+resulting in a commit graph branch), even though technically-speaking the
+linear commit ancestry does not require it.</p>
+<p>The –no-ff flag forces the creation of such “merge commit”, which thereby
+records the merge as a distinct branch in the commit graph. This can be
+useful for reverting a set of commits (e.g. the entirety of a feature branch,
+or release branch).</p>
+<p>This flag is used by default by git-flow, and by GitHub’s Pull Request
+“merge” button (thus why the “revert” button is available in the GitHub web
+user interface).</p>
+</div>
+</div>
+</div>
+<div class="section" id="release-process">
+<h3>Release Process<a class="headerlink" href="#release-process" title="Permalink to this headline">¶</a></h3>
+<p>A key element of the release approach for the project is that there is NO
+release branch.  Instead, the process is:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Once the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch has the right set of features and is stable,</p></li>
+<li><p>Changes to <code class="docutils literal notranslate"><span class="pre">develop</span></code> are “closed” for the interim,</p></li>
+<li><p>The release process is followed (see table below),</p></li>
+<li><p>Once the release is complete (merged to <code class="docutils literal notranslate"><span class="pre">master</span></code>, tagged) the <code class="docutils literal notranslate"><span class="pre">develop</span></code>
+branch is open for work again.</p></li>
+</ul>
+</div></blockquote>
+<table class="colwidths-given table" id="id6">
+<caption><span class="caption-text">Frozen Delights!</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 46%" />
+<col style="width: 46%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>git checkout develop</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>git pull</p></td>
+<td><p>make sure we’ve got the latest code</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>git commit -a</p></td>
+<td><p>make sure we don’t have any pending changes</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>git push</p></td>
+<td><p>make sure the server is up to date too</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>git checkout master</p></td>
+<td><p>make sure we don’t have any pending changes</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>git pull</p></td>
+<td><p>make sure we’ve got the latest code</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>git merge –no-ff develop</p></td>
+<td><p>Merge into master from the develop branch (no fast-forward =&gt; ensure
+there is always a dedicated merge commit)</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>update version numbers</p>
+</div>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>update build badges in README.md to use master branch</p>
+</div>
+</td>
+<td><p>See <a class="reference external" href="https://semver.org">semantic versioning</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>git commit -a -m “version bump to M.m.p”</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>git push</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>git tag -a M.m.p -m “release M.m.p”</p></td>
+<td><p>Tag <cite>master</cite> with appropriate label.
+See <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">here</a></p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>git push origin M.m.p</p></td>
+<td><p>Pushes the tag to the remote repository</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>git checkout develop</p></td>
+<td><p>Once all master branches are done, only then back-merge into develop</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>git merge master</p></td>
+<td><p>Merge master back into develop to include the merge commit
+(see –no-ff notes below)</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>version bump for develop</p>
+</div>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>update build badges in README.md to use develop branch</p>
+</div>
+</td>
+<td><p>Version bump (e.g. from 0.9.0 to 0.9.1,
+see <a class="reference external" href="https://semver.org">semantic versioning</a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>git commit -a -m “version bump to M.m.p”</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>git push</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See the <a class="reference internal" href="#fast-forward-label"><span class="std std-ref">Feature branches</span></a> section above to read
+more about –no-ff.</p>
+<p>Because a separate “merge commit” is created, it is important to merge the
+master branch back into develop as-is, so that master and develop are in
+sync (just as per <cite>git-flow</cite>). In fact, the tag will be associated with the
+merge commit, so it is important to have this tag present in the develop
+branch too.</p>
+</div>
+<p>This process needs to be done carefully to avoid any problems from the
+submodules. Always check that the <cite>master</cite> and <cite>develop</cite> branches still have
+the same, correct submodule pointer:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git checkout master
+$ git submodule status
+$ git checkout develop
+$ git submodule status
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="build.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Build instructions</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="sphinx-doc.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Documentation with Sphinx and restructured text</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Abdessattar Sassi<br/>
+        
+            &copy; Copyright 2018, The Authors.<br/>
+          Last updated on Nov 03, 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
