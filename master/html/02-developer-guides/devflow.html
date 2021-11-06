@@ -228,21 +228,6 @@
      Cloning for the first time
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-remotes">
-     Setting up remotes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pulling-updates">
-     Pulling updates
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pushing-commits">
-     Pushing commits
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -292,97 +277,11 @@
 <p>We use Git and we require a recent version of the git tools to take advantage of
 enhanced features and avoid unnecessary bugs. It is strongly recommended to use
 the latest available version of git on the supported platforms.</p>
-<p>We maintain the code on both github and gitlab for redundancy and give the
-freedom of choice to the users of whatever platform they prefer. They are both
-suitable for this project and offer similar tools and in some instances offer
-complementary features that can be useful.</p>
 <div class="section" id="cloning-for-the-first-time">
 <h3>Cloning for the first time<a class="headerlink" href="#cloning-for-the-first-time" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone --recurse-submodules https://gitlab.com/absassi/asap.github
-</pre></div>
-</div>
-<p>or</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone --recurse-submodules https://github.com/abdes/asap.github
 </pre></div>
 </div>
-</div>
-<div class="section" id="setting-up-remotes">
-<h3>Setting up remotes<a class="headerlink" href="#setting-up-remotes" title="Permalink to this headline">¶</a></h3>
-<p>Immediately after the cloning, the local git repo is setup with only one remote,
-<code class="docutils literal notranslate"><span class="pre">origin</span></code>, pointing to whichever of the repos that was used to clone.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> asap
-$ git remote -v
-origin  https://gitlab.com/absassi/asap.git <span class="o">(</span>fetch<span class="o">)</span>
-origin  https://gitlab.com/absassi/asap.git <span class="o">(</span>push<span class="o">)</span>
-</pre></div>
-</div>
-<p>We keep the remote repos always in-sync by setting up the <code class="docutils literal notranslate"><span class="pre">origin</span></code> to have two
-push urls. To achieve that, edit the local git config and define new remotes as
-following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config -e
-</pre></div>
-</div>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[remote &quot;gitlab&quot;]</span>
-    <span class="na">url</span> <span class="o">=</span> <span class="s">https://gitlab.com/absassi/asap.git</span>
-    <span class="na">fetch</span> <span class="o">=</span> <span class="s">+refs/heads/*:refs/remotes/origin/*</span>
-<span class="k">[remote &quot;github&quot;]</span>
-    <span class="na">url</span> <span class="o">=</span> <span class="s">https://github.com/abdes/asap.git</span>
-    <span class="na">fetch</span> <span class="o">=</span> <span class="s">+refs/heads/*:refs/remotes/github/*</span>
-<span class="k">[remote &quot;origin&quot;]</span>
-    <span class="na">url</span> <span class="o">=</span> <span class="s">https://gitlab.com/absassi/asap.git</span>
-    <span class="na">url</span> <span class="o">=</span> <span class="s">https://github.com/abdes/asap.git</span>
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote -v
-github  https://github.com/abdes/asap.git <span class="o">(</span>fetch<span class="o">)</span>
-github  https://github.com/abdes/asap.git <span class="o">(</span>push<span class="o">)</span>
-gitlab  https://gitlab.com/absassi/asap.git <span class="o">(</span>fetch<span class="o">)</span>
-gitlab  https://gitlab.com/absassi/asap.git <span class="o">(</span>push<span class="o">)</span>
-origin  https://gitlab.com/absassi/asap.git <span class="o">(</span>fetch<span class="o">)</span>
-origin  https://gitlab.com/absassi/asap.git <span class="o">(</span>push<span class="o">)</span>
-origin  https://github.com/abdes/asap.git <span class="o">(</span>push<span class="o">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="pulling-updates">
-<h3>Pulling updates<a class="headerlink" href="#pulling-updates" title="Permalink to this headline">¶</a></h3>
-<p>You can pull from either of the remotes or from all of them. It should not make
-a difference if both remotes are always kept in sync by always pushing to both
-of them.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull gitlab master
-From https://gitlab.com/absassi/asap
- * branch            master     -&gt; FETCH_HEAD
-Already up to date.
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull github master
-From https://github.com/abdes/asap
- * branch            master     -&gt; FETCH_HEAD
-Already up to date.
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull origin master
-From https://gitlab.com/absassi/asap
- * branch            master     -&gt; FETCH_HEAD
-Already up to date.
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git pull --all
-Fetching gitlab
-Fetching github
-Fetching origin
-From https://gitlab.com/absassi/asap
- * branch            HEAD       -&gt; FETCH_HEAD
-Already up to date.
-</pre></div>
-</div>
-</div>
-<div class="section" id="pushing-commits">
-<h3>Pushing commits<a class="headerlink" href="#pushing-commits" title="Permalink to this headline">¶</a></h3>
-<p>Because we have defined <code class="docutils literal notranslate"><span class="pre">origin</span></code> as a remote with two push urls pointing to
-both remotes we use, pushing is transparent. When you <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> it will push
-sequentially to both remotes repos. If any of them is already up-to-date, git
-will simply skip it.</p>
 </div>
 </div>
 <div class="section" id="development-workflow">
@@ -400,7 +299,7 @@ branches (no release branch), with the following principles:</p>
 <h3>Feature branches<a class="headerlink" href="#feature-branches" title="Permalink to this headline">¶</a></h3>
 <p>The workflow for feature branches is similar ot git-flow except that the
 git-flow tools are not used.  Instead, either the git commands are used directly
-from the command line or via the web interface of github/gitlab.</p>
+from the command line or via the web interface of github.</p>
 <div class="section" id="start-a-new-feature">
 <h4>Start a new feature<a class="headerlink" href="#start-a-new-feature" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git checkout -b feature/MYFEATURE develop

@@ -14,7 +14,7 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Logging" href="logging.html" />
+    <link rel="next" title="Unicode" href="unicode.html" />
     <link rel="prev" title="Assertions" href="assert.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -42,7 +42,6 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiableE">
 <span id="_CPPv3N4asap11NonCopiableE"></span><span id="_CPPv2N4asap11NonCopiableE"></span><span id="asap::NonCopiable"></span><span class="target" id="classasap_1_1_non_copiable"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">NonCopiable</span></span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiableE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><a class="reference internal" href="#classasap_1_1_non_copiable"><span class="std std-ref">NonCopiable</span></a> is intended to be used as a <strong>private</strong> base class. It has deleted (C++11) copy constructor and copy assignment operator and can’t be copied or assigned; a class that derives from it inherits these properties. </p>
-<p>Subclassed by <a class="reference internal" href="logging.html#classasap_1_1logging_1_1_delegating_sink"><span class="std std-ref">asap::logging::DelegatingSink</span></a>, <a class="reference internal" href="logging.html#classasap_1_1logging_1_1_logger"><span class="std std-ref">asap::logging::Logger</span></a></p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -53,8 +52,20 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiableaSERK11NonCopiable">
-<span id="_CPPv3N4asap11NonCopiableaSERK11NonCopiable"></span><span id="_CPPv2N4asap11NonCopiableaSERK11NonCopiable"></span><span id="asap::NonCopiable::assign-operator__NonCopiableCR"></span><span class="target" id="classasap_1_1_non_copiable_1ad1e461518c4472f646203e39da631197"></span><a class="reference internal" href="#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiableaSERK11NonCopiable" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4asap11NonCopiableaSERK11NonCopiable"></span><span id="_CPPv2N4asap11NonCopiableaSERK11NonCopiable"></span><span id="asap::NonCopiable::assign-operator__NonCopiableCR"></span><span class="target" id="classasap_1_1_non_copiable_1a8b6f4b3fa4c9dcb676890a4886da1837"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiableaSERK11NonCopiable" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Copy assignment operator (deleted) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiable11NonCopiableERR11NonCopiable">
+<span id="_CPPv3N4asap11NonCopiable11NonCopiableERR11NonCopiable"></span><span id="_CPPv2N4asap11NonCopiable11NonCopiableERR11NonCopiable"></span><span id="asap::NonCopiable::NonCopiable__NonCopiableRR"></span><span class="target" id="classasap_1_1_non_copiable_1a75a02f15c43cdffe093cc6f80d0981c4"></span><span class="sig-name descname"><span class="n"><span class="pre">NonCopiable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4asap11NonCopiable11NonCopiableERR11NonCopiable" title="asap::NonCopiable::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiable11NonCopiableERR11NonCopiable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move constructor (default) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiableaSERR11NonCopiable">
+<span id="_CPPv3N4asap11NonCopiableaSERR11NonCopiable"></span><span id="_CPPv2N4asap11NonCopiableaSERR11NonCopiable"></span><span id="asap::NonCopiable::assign-operator__NonCopiableRR"></span><span class="target" id="classasap_1_1_non_copiable_1a8fe4dcf4fde83e5b49bd6b470638d71c"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap11NonCopiableE" title="asap::NonCopiable"><span class="n"><span class="pre">NonCopiable</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiableaSERR11NonCopiable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move assignment operator (default) </p>
 </dd></dl>
 
 </div>
@@ -62,13 +73,13 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-functions">Protected Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiable11NonCopiableEv">
-<span id="_CPPv3N4asap11NonCopiable11NonCopiableEv"></span><span id="_CPPv2N4asap11NonCopiable11NonCopiableEv"></span><span id="asap::NonCopiable::NonCopiable"></span><span class="target" id="classasap_1_1_non_copiable_1a6c8812c3fea6cf92f3d83ca7d1da4a1e"></span><span class="sig-name descname"><span class="n"><span class="pre">NonCopiable</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiable11NonCopiableEv" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4asap11NonCopiable11NonCopiableEv"></span><span id="_CPPv2N4asap11NonCopiable11NonCopiableEv"></span><span id="asap::NonCopiable::NonCopiable"></span><span class="target" id="classasap_1_1_non_copiable_1aabb5979b62f49d20e3f24ebde6260c42"></span><span class="sig-name descname"><span class="n"><span class="pre">NonCopiable</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap11NonCopiable11NonCopiableEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Default constructor (default) </p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4asap11NonCopiableD0Ev">
-<span id="_CPPv3N4asap11NonCopiableD0Ev"></span><span id="_CPPv2N4asap11NonCopiableD0Ev"></span><span id="asap::NonCopiable::~NonCopiable"></span><span class="target" id="classasap_1_1_non_copiable_1aae36c72abef6817cd1d779a8f3030090"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~NonCopiable</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap11NonCopiableD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4asap11NonCopiableD0Ev"></span><span id="_CPPv2N4asap11NonCopiableD0Ev"></span><span id="asap::NonCopiable::~NonCopiable"></span><span class="target" id="classasap_1_1_non_copiable_1ab490211db0b2ea665a1c2fb42d9a1a44"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~NonCopiable</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap11NonCopiableD0Ev" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Destructor (default) </p>
 </dd></dl>
 
@@ -162,7 +173,6 @@ helper variables are also defined:</p>
 <li class="toctree-l2"><a class="reference internal" href="platform.html">Platform detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="assert.html">Assertions</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">C++ language</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unicode.html">Unicode support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flags.html">Mask/Flags manipulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hedley.html">Hedley</a></li>
@@ -178,7 +188,7 @@ helper variables are also defined:</p>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../api.html">API reference</a><ul>
       <li>Previous: <a href="assert.html" title="previous chapter">Assertions</a></li>
-      <li>Next: <a href="logging.html" title="next chapter">Logging</a></li>
+      <li>Next: <a href="unicode.html" title="next chapter">Unicode</a></li>
   </ul></li>
   </ul></li>
 </ul>

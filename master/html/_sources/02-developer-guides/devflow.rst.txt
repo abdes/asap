@@ -16,113 +16,13 @@ We use Git and we require a recent version of the git tools to take advantage of
 enhanced features and avoid unnecessary bugs. It is strongly recommended to use
 the latest available version of git on the supported platforms.
 
-We maintain the code on both github and gitlab for redundancy and give the
-freedom of choice to the users of whatever platform they prefer. They are both
-suitable for this project and offer similar tools and in some instances offer
-complementary features that can be useful.
-
-
 Cloning for the first time
 --------------------------
 
 .. code-block:: bash
 
-  $ git clone --recurse-submodules https://gitlab.com/absassi/asap.github
-
-or
-
-.. code-block:: bash
-
   $ git clone --recurse-submodules https://github.com/abdes/asap.github
 
-
-Setting up remotes
-------------------
-Immediately after the cloning, the local git repo is setup with only one remote,
-``origin``, pointing to whichever of the repos that was used to clone.
-
-.. code-block:: bash
-
-  $ cd asap
-  $ git remote -v
-  origin  https://gitlab.com/absassi/asap.git (fetch)
-  origin  https://gitlab.com/absassi/asap.git (push)
-
-We keep the remote repos always in-sync by setting up the ``origin`` to have two
-push urls. To achieve that, edit the local git config and define new remotes as
-following:
-
-.. code-block:: bash
-
-  $ git config -e
-
-.. code-block:: ini
-
-  [remote "gitlab"]
-      url = https://gitlab.com/absassi/asap.git
-      fetch = +refs/heads/*:refs/remotes/origin/*
-  [remote "github"]
-      url = https://github.com/abdes/asap.git
-      fetch = +refs/heads/*:refs/remotes/github/*
-  [remote "origin"]
-      url = https://gitlab.com/absassi/asap.git
-      url = https://github.com/abdes/asap.git
-
-.. code-block:: bash
-
-  $ git remote -v
-  github  https://github.com/abdes/asap.git (fetch)
-  github  https://github.com/abdes/asap.git (push)
-  gitlab  https://gitlab.com/absassi/asap.git (fetch)
-  gitlab  https://gitlab.com/absassi/asap.git (push)
-  origin  https://gitlab.com/absassi/asap.git (fetch)
-  origin  https://gitlab.com/absassi/asap.git (push)
-  origin  https://github.com/abdes/asap.git (push)
-
-Pulling updates
----------------
-You can pull from either of the remotes or from all of them. It should not make
-a difference if both remotes are always kept in sync by always pushing to both
-of them.
-
-.. code-block:: bash
-
-  $ git pull gitlab master
-  From https://gitlab.com/absassi/asap
-   * branch            master     -> FETCH_HEAD
-  Already up to date.
-
-.. code-block:: bash
-
-  $ git pull github master
-  From https://github.com/abdes/asap
-   * branch            master     -> FETCH_HEAD
-  Already up to date.
-
-.. code-block:: bash
-
-  $ git pull origin master
-  From https://gitlab.com/absassi/asap
-   * branch            master     -> FETCH_HEAD
-  Already up to date.
-
-.. code-block:: bash
-
-  $ git pull --all
-  Fetching gitlab
-  Fetching github
-  Fetching origin
-  From https://gitlab.com/absassi/asap
-   * branch            HEAD       -> FETCH_HEAD
-  Already up to date.
-
-Pushing commits
----------------
-
-Because we have defined ``origin`` as a remote with two push urls pointing to
-both remotes we use, pushing is transparent. When you ``git push`` it will push
-sequentially to both remotes repos. If any of them is already up-to-date, git
-will simply skip it.
 
 Development workflow
 ====================
@@ -137,7 +37,7 @@ Feature branches
 ----------------
 The workflow for feature branches is similar ot git-flow except that the
 git-flow tools are not used.  Instead, either the git commands are used directly
-from the command line or via the web interface of github/gitlab.
+from the command line or via the web interface of github.
 
 Start a new feature
 ^^^^^^^^^^^^^^^^^^^

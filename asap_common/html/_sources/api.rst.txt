@@ -13,7 +13,6 @@ API reference
    Platform detection <api/platform>
    Assertions <api/assert>
    C++ language <api/cpp>
-   Logging <api/logging>
    Unicode support <api/unicode>
    Mask/Flags manipulation <api/flags>
    Hedley <api/hedley>
