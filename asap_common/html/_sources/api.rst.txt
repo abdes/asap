@@ -11,9 +11,7 @@ API reference
    :hidden:
 
    Platform detection <api/platform>
-   Assertions <api/assert>
+   Compiler detection <api/compilers>
    C++ language <api/cpp>
-   Unicode support <api/unicode>
    Mask/Flags manipulation <api/flags>
-   Hedley <api/hedley>
-
+   Contract checking API <api/contract>

@@ -1,5 +1,14 @@
+.. Structure conventions
+     # with overline, for parts
+     * with overline, for chapters
+     = for sections
+     - for subsections
+     ^ for subsubsections
+     " for paragraphs
+
+*******
 Logging
-=======
+*******
 
 Logging features provided by the ``asap`` ``common`` module are abstracted into
 a simple and minimalistic interface. Under the hood, the logging framework used

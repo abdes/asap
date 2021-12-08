@@ -1,8 +1,14 @@
-Masks/Flags manipulation helpers
-================================
+.. Structure conventions
+     # with overline, for parts
+     * with overline, for chapters
+     = for sections
+     - for subsections
+     ^ for subsubsections
+     " for paragraphs
 
-Non copiable class
-------------------
+********************************
+Masks/Flags manipulation helpers
+********************************
 
 The header <common/flag_ops.h> defines a number of helper template functions 
 to set, clear, flip, and test flags in a bitset mask. All these functions

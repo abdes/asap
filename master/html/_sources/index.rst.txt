@@ -6,9 +6,13 @@
      ^ for subsubsections
      " for paragraphs
 
-*******************
+###################
 ASAP documentation!
-*******************
+###################
+
+.. |date| date::
+
+Last Updated on |date|
 
 .. toctree::
    :maxdepth: 2
@@ -16,10 +20,12 @@ ASAP documentation!
    :hidden:
 
    01-getting-started/index
-   02-developer-guides/index
-   03-library-modules/index
+   02-project-development/index
+   03-documentation/index
+   04-library-modules/index
    license
    changelog.md
+   version
 
 Welcome! This is the documentation for the *asap* project. This is the top level
 container project for the asap modules. It provides the integrated build system
@@ -34,30 +40,33 @@ Parts of the documentation
 
 :doc:`Getting Started! <01-getting-started/index>`
 --------------------------------------------------
-*start here to understand how to use this project as a starter for your own
-project*
 
-:doc:`Developer Guides <02-developer-guides/index>`
+*start here to understand how to use this project as a starter for your own project*
+
+:doc:`Project Development <02-project-development/index>`
+---------------------------------------------------------
+
+*refer to this part of the documentation to understand the build system specifics for this project,
+the development workflow, coding and unit testing guidelines*
+
+:doc:`Documentation <03-documentation/index>`
 ---------------------------------------------------
-*refer to this part of the documentation to understand the build system
-specifics for this project, the development workflow, coding and unit testing
-guidelines*
+*refer to this part of the documentation to understand how project documentation is structured and
+built from source using `doxygen` and `sphinx`.*
 
-:doc:`Library Modules <03-library-modules/index>`
+:doc:`Library Modules <04-library-modules/index>`
 -------------------------------------------------
 *check this out to explore the different modules part of this project. From
 there, you can also jump to the detailed API documentation of each of those
 modules.*
 
-Indices and tables
-==================
-
-  | :ref:`genindex`
-  | :ref:`search`
-
-Meta information
+Acknowledgements
 ================
 
-This documentation was generated from version: |release|.
+.. figure:: https://executablebooks.org/en/latest/_static/logo-wide.png
+  :figclass: margin
+  :alt: Executable Books Project
+  :name: executable_book_logo
 
-  | :doc:`License <license>`
+This documentation uses the theme provided by the `Executable Books Project
+<https://executablebooks.org/>`_ Project.

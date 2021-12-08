@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Development environment &#8212; Start Now!</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Get the code" href="get-the-code.html" />
+    <link rel="prev" title="Get Started" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Start Now!</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   Get Started
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Development environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get-the-code.html">
+     Get the code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="structure.html">
+     Understand the project structure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="useful-commands.html">
+     Know the useful commands
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="customizing.html">
+     Make it your own
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get-updates.html">
+     Get updates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-project-development/index.html">
+   Developer Guides
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-project-development/build.html">
+     Build instructions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-project-development/devflow.html">
+     Development Process
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-documentation/index.html">
+   Documentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-documentation/sphinx-doc.html">
+     Sphinx and restructured text
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-library-modules/index.html">
+   Library Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../license.html">
+   License
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../changelog.html">
+   Changelog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../version.html">
+   Version
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/01-getting-started/devenv.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com//https://github.com/abdes/asap"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com//https://github.com/abdes/asap/issues/new?title=Issue%20on%20page%20%2F01-getting-started/devenv.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/abdes/asap/edit/master/01-getting-started/devenv.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements-overview">
+   Requirements overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choices-made-and-rationale">
+   Choices made and rationale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommended-environment">
+   Recommended Environment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#foundation-tools">
+     Foundation Tools
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#operating-system">
+       Operating System
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#powershell-opensource">
+       PowerShell (OpenSource)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#windows-terminal">
+       Windows Terminal
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git">
+       Git
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#oh-my-posh">
+       Oh My Posh
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Visual Studio Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-development">
+     Local Development
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cmake">
+       CMake
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ninja-build">
+       Ninja Build
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-3-via-miniconda">
+       Python 3 via Miniconda
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Doxygen
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#graphviz">
+       Graphviz
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#nodejs">
+       NodeJS
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#visual-studio">
+       Visual Studio
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dev-containers">
+     Dev Containers
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#windows-wsl2">
+       Windows WSL2
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#docker-desktop">
+       Docker Desktop
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="development-environment">
+<h1>Development environment<a class="headerlink" href="#development-environment" title="Permalink to this headline">¶</a></h1>
+<p>Last Updated on 2021-12-08</p>
+<p>In the past, software development comes with a lot of pain. It takes many steps beginning from
+Coding, Compiling, Testing, Debugging, Build, and Deployment. All these different phases would need
+many commands, scripts and different packages to be installed and was difficult to maintain by a
+Developer.</p>
+<p>Luckily, most of these activities are now integrated or combined into single environments known as
+IDE (Integrated Development Environment), which made modern software development more productive and
+more fun. A typical IDE today provides several essential features such as <strong>syntax highlighting</strong>,
+<strong>auto-code completion</strong>, <strong>search and replace</strong>, <strong>refactoring</strong>, <strong>compiler integration</strong>,
+<strong>debugging</strong>, <strong>version control</strong>, <strong>build</strong> and <strong>deployment</strong> etc.</p>
+<p>Developers tend to be quite opinionated when it comes to selecting the IDE, the source code editor,
+automation tools, etc. Therefore, it is not the intent here to force a certain toolkit but rather to
+provide a coherent project structure and build system that can work in any environment while staying
+simple and easily maintainable. If you are starting as a C++ developer then the recommendations
+provided here will get you started faster. If you are an experienced developer, it is always
+important to understand the rationale behind some of the choices made in the <cite>asap</cite> project so that
+you can own the design and adapt it to your specific needs.</p>
+<div class="section" id="requirements-overview">
+<h2>Requirements overview<a class="headerlink" href="#requirements-overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>This is a starter project</strong> and as such, starting a new project based on <cite>asap</cite> should be a
+straightforward and simple task. The process should be automated when possible, customization
+should be clearly indicated when relevant and by default the starting project should work out of
+the box.</p></li>
+<li><p><strong>Onboarding of new developers</strong> on the project should be easy. When it makes sense, conventions
+and best practices should be implemented in the tooling, not the docs.</p></li>
+<li><p>The overall goal is to create an environment for developing software <em>primarily</em> in C++ but it is
+often the case that scripts, tools and even system modules may be developed in other languages.</p></li>
+<li><p>Development may target multiple Operating Systems and developers may use different desktop
+environments. At a minimum, it should be possible to develop for/on <strong>Windows 10+</strong>, <strong>Linux</strong>,
+and <strong>Mac OS X</strong>.</p></li>
+<li><p>The build system should provide support for implementing and <strong>automating</strong> most of the steps of
+the development lifecycle including system build, documentation generation, deployment package
+creation, software quality checks (linting, static analysis, testing, metrics).</p></li>
+<li><p>The tools used and automation scripts may be invoked in an <strong>interactive terminal</strong> session or in
+a completely hands-free CI (<strong>Continuous Integration</strong>) environment.</p></li>
+</ul>
+</div>
+<div class="section" id="choices-made-and-rationale">
+<h2>Choices made and rationale<a class="headerlink" href="#choices-made-and-rationale" title="Permalink to this headline">¶</a></h2>
+<div class="margin admonition note">
+<p class="admonition-title">Note</p>
+<p>These are the fundamental choices made in ` asap` that significantly influence its design and
+impact the extent to which it achieves the goals. There are many other small choices made which
+will be encountered in the build scripts, coding standards, style, etc… which are documented in
+the relevant places. None of these choices is cast in stone and they all can be changed or simply
+eliminated.</p>
+</div>
+<p>Choices were made in the design of the <cite>asap</cite> starter project, some of them are hard choices, and
+some are more flexible. Nothing is cast in stone in software development but some decisions will
+require more effort than others to change. The table below summarizes such decisions:</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Decision</p></th>
+<th class="head"><p>Rationale</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Version control: <strong>git</strong></p></td>
+<td><p>It’s just the most widely used VCS and the one that works with github, gitlab, etc.</p>
+<p><strong>Variability</strong>: Not recommended.</p>
+<p>You can use a different one if you want, but you will need to adapt the versioning and
+release management tooling and slightly modify the build scripts.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Build system: <strong>CMake</strong></p></td>
+<td><p>We need a system that works across platforms and IDEs and that can allow us to easily
+reuse existing OpenSource software projects. The C++ ecosystem is seriously lacking the
+diversity we can find for other languages, but CMake emerges as the community choice for
+now. The <a class="reference external" href="https://www.jetbrains.com/lp/devecosystem-2021/cpp/#Which-project-models-or-build-systems-do-you-regularly-use">2021 C++ ecosystem survey</a>
+puts CMake at the top with <strong>55%</strong> market share.</p>
+<p><strong>Variability</strong>: None.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Compilers: <strong>Clang, GCC, MSVC</strong></p></td>
+<td><p>All three most used compilers are tested and work well with <cite>asap</cite>. <cite>Clang</cite> is also used for
+linting and static code analysis and as such occupies a more strategic place among compilers.</p>
+<p><strong>Variability</strong>: Possible.</p>
+<p>As long as the compiler kit is supported by <cite>CMake</cite> it is pretty straightforward to add
+support for it. Some changes may be required in the CMake scripts to customize compiler
+options, flags, etc…</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Documentation: <strong>Doxygen</strong></p></td>
+<td><p><a class="reference external" href="https://www.doxygen.nl/index.html">Doxygen</a> is the de-facto standard for C++ API
+documentation and is fully supported/integrated in the build system. It can generate
+documentation in multiple formats, and most importantly as XML which is used to generate the
+integrated project documentation with <cite>sphinx</cite>.</p>
+<p><strong>Variability</strong>: Possible.</p>
+<p>The use of doxygen is completely optional, and can be configured on a per-module basis. Full
+customization of the documentation generated is possible via the project-wide configuration
+file. A HTML theme is provided via <a class="reference external" href="https://jothepro.github.io/doxygen-awesome-css/">Doxygen Awesome</a> which can be easily customized or replaced
+if needed.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Documentation: <strong>sphinx</strong></p></td>
+<td><p>Project documentation may extend beyond APIs to include architecture, design, guides, etc. The
+OpenSource ecosystem has multiple alternatives for writing such documentation including
+<cite>markdown</cite>, <cite>restructuredText</cite>, <cite>html</cite>, <cite>ascii</cite>, and many variations of them.</p>
+<p><cite>asap</cite> recommends and has full support for <strong>restructuredText</strong> via <strong>sphinx</strong>.
+<cite>reStructuredText</cite> is an easy-to-read, what-you-see-is-what-you-get plaintext markup syntax
+and parser system. It is useful for in-line program documentation (such as Python docstrings),
+for quickly creating simple web pages, and for standalone documents. <cite>reStructuredText</cite> is the
+default plaintext markup language used by <cite>Sphinx</cite>.</p>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a> can generate documentation in many
+formats including HTML and has many useful extensions to augment its functionality. Among such
+extensions, <a class="reference external" href="https://breathe.readthedocs.io/en/latest/">Breathe</a> can be used to integrate
+API documentation generated by <cite>doxygen</cite>.</p>
+<p><strong>Variability</strong>: Possible.</p>
+<p>The use of sphinx totally optional and is opt-in on a per module basis. It is also possible to
+use sphinx as the master documentation system while writing mixed documents using <cite>markdown</cite>
+and other formats by adding extensions to <cite>sphinx</cite>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Preferred IDE: <strong>vscode</strong></p></td>
+<td><p>It’s free, OpenSource, extensible, fully functional, portable, and list goes on… There
+really is no reason not to use <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>.
+Therefore, full integration with and support for <cite>vscode</cite> is built into <cite>asap</cite>.</p>
+<p><strong>Variability</strong>: Possible.</p>
+<p>Nothing in <cite>asap</cite> is tied to a specific IDE. With <cite>CMake</cite> as the build system, it is easy to
+open the project in <cite>Visual Studio</cite>, <cite>CLion</cite>, <cite>XCode</cite>, <cite>CodeBlocks</cite>, or any other IDE.</p>
+<p>It is also totally acceptable to just use a terminal, and your favorite editor such as <cite>vi</cite>,
+<cite>Atom</cite>, <cite>Sublime</cite>, etc. Everything that can be done in the IDE can also be done via command
+line.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="recommended-environment">
+<h2>Recommended Environment<a class="headerlink" href="#recommended-environment" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a setup that takes 100% out of <cite>asap</cite> and will work with most developers. Refer to the
+variability guidelines above if you want to make your own setup and feel free to build an
+environment that allows you to <strong>have fun while coding</strong>.</p>
+</div>
+<p>The <cite>asap</cite> starter project offers two alternatives for the development methodology:</p>
+<ul class="simple">
+<li><p><strong>Develop everything on the local environment</strong>. All necessary tools, compilers, code, etc. reside
+on the developer desktop and are shared across projects.</p></li>
+<li><p><strong>Developing inside a Container</strong>. This is a VS Code feature that allows developers to package a
+local development tool stack into the internals of a Docker container while also bringing the VS
+Code UI experience with them. Workspace files are mounted from the local file system or copied
+or cloned into the container. Extensions are installed and run inside the container, where they
+have full access to the tools, platform, and file system. This means that you can seamlessly
+switch your entire development environment just by connecting to a different container. More
+about this can be found <a class="reference external" href="https://code.visualstudio.com/docs/remote/containers">here</a>.</p></li>
+</ul>
+<p>When developing for multiple platforms including Windows, Linux and Mac OS X, a combination of both
+models becomes quite important so that the development can happen locally for Windows, while the
+Linux version for example is done inside a container. This is much lighter weight than using
+full-blown Virtual Machines and much faster to setup.</p>
+<p>For the rest of this guide, we will split the environment into 3 parts:</p>
+<ol class="arabic simple">
+<li><p>The foundation</p></li>
+<li><p>Additional tools for local development</p></li>
+<li><p>Additional tools for development containers</p></li>
+</ol>
+<div class="section" id="foundation-tools">
+<h3>Foundation Tools<a class="headerlink" href="#foundation-tools" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="operating-system">
+<h4>Operating System<a class="headerlink" href="#operating-system" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Recommended</p></td>
+<td><p><strong>Windows 11</strong>
+So you can have access to MSVC for Windows builds while still easily targeting the other
+platforms via <a class="reference external" href="https://code.visualstudio.com/docs/remote/containers">containers</a> and
+<a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/compare-versions">WSL2</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>All instructions in the remainder of this guide are assuming a Windows 10/11 desktop.</p>
+</div>
+</div>
+<div class="section" id="powershell-opensource">
+<h4>PowerShell (OpenSource)<a class="headerlink" href="#powershell-opensource" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://github.com/PowerShell/PowerShell">PowerShell</a> Core is a cross-platform (Windows, Linux,
+and macOS) automation and configuration tool/framework that works well with your existing tools and
+is optimized for dealing with structured data (e.g. JSON, CSV, XML, etc.), REST APIs, and object
+models. It includes a command-line shell, an associated scripting language and a framework for
+processing cmdlets. It’s definitely better than <cite>command.exe</cite> and more open/portable than the
+default <cite>Windows PowerShell</cite>.</p>
+<p>It can be installed by following the steps described in the <a class="reference external" href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2">Installing PowerShell 7</a>
+guide.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As an alternative, you can use <cite>winget</cite> to install the PowerShell package by executing the
+following command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">PowerShell`</span></code>.</p>
+</div>
+</div>
+<div class="section" id="windows-terminal">
+<h4>Windows Terminal<a class="headerlink" href="#windows-terminal" title="Permalink to this headline">¶</a></h4>
+<p>Windows Terminal is a modern terminal application for users of command-line tools and shells like
+Command Prompt, PowerShell, and Windows Subsystem for Linux (WSL). Its main features include
+multiple tabs, panes, Unicode and UTF-8 character support, a GPU accelerated text rendering engine,
+and the ability to create your own themes and customize text, colors, backgrounds, and shortcuts.</p>
+<p>Install it from the Windows App Store or by following the steps described in
+<a class="reference external" href="https://docs.microsoft.com/en-us/windows/terminal/install">Install and get started setting up Windows Terminal</a> guide.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As an alternative, you can use <cite>winget</cite> to install the Windows Terminal package by executing the
+following command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">Microsoft.WindowsTerminal`</span></code>.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Configure the <cite>Windows Terminal</cite> to your liking but make sure you set the font for <cite>PowerShell</cite>
+profile (Settings-&gt;Profiles/PowerShell-&gt;Appearance-&gt;Font face) to one of the <a class="reference external" href="https://www.nerdfonts.com/">Nerd Fonts</a> e.g. <strong>MesloLGS Nerd Font Mono</strong>. This is required for a great user
+experience with <cite>Oh My Posh</cite>.</p>
+</div>
+</div>
+<div class="section" id="git">
+<h4>Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h4>
+<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
+<p>Git is easy to learn and has a tiny footprint with lightning fast performance. It outclasses SCM
+tools like Subversion, CVS, Perforce, and ClearCase with features like cheap local branching,
+convenient staging areas, and multiple workflows.</p>
+<p>Install it by following the steps described in <a class="reference external" href="https://git-scm.com/download/win">Downloading git</a>
+guide.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As an alternative, you can use <cite>winget</cite> to install the git package by executing the following
+command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">Git.Git`</span></code>.</p>
+</div>
+</div>
+<div class="section" id="oh-my-posh">
+<h4>Oh My Posh<a class="headerlink" href="#oh-my-posh" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://ohmyposh.dev/">Oh My Posh</a> is a custom prompt engine for any shell that has the ability
+to adjust the prompt string with a function or variable. It is customizable and offers many
+components in the prompt that can be useful during development such as the current git branch, the
+current python environment, etc..</p>
+<p>Install it by following the steps described in <a class="reference external" href="https://ohmyposh.dev/docs/pwsh">Oh My Posh Installation for PowerShell</a>.</p>
+<p>In summary:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Install-Module</span> <span class="n">oh-my-posh</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+<span class="nb">Install-Module</span> <span class="n">posh-git</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+</pre></div>
+</div>
+<p>Open the PowerShell profile settings file in notepad:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">notepad</span> <span class="nv">$PROFILE</span>
+</pre></div>
+</div>
+<p>Copy/Paste the following and save the file.</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Import-Module</span> <span class="n">oh-my-posh</span>
+<span class="nb">Import-Module</span> <span class="n">posh-git</span>
+<span class="nb">Set-PoshPrompt</span> <span class="n">-Theme</span> <span class="n">powerlevel10k_modern</span>
+</pre></div>
+</div>
+<p>If you now open a Windows Terminal with a PowerShell
+session, you should see something similar to the picture below:</p>
+<a class="reference internal image-reference" href="../_images/windows_terminal_posh.png"><img alt="Windows Terminal with Oh My Posh" src="../_images/windows_terminal_posh.png" style="width: 600px;" /></a>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Feel free to customize <cite>Oh My Posh</cite> and change the theme to your liking. All the documentation to
+do that is located at <a class="reference external" href="https://ohmyposh.dev/docs/">Oh My Posh documentation</a>.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h4>Visual Studio Code<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and
+is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript
+and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java,
+Python, PHP, Go) and runtimes (such as .NET and Unity). It is the recommended IDE for <cite>asap</cite>.</p>
+<p>Install by following the instructions at <a class="reference external" href="https://code.visualstudio.com/docs/setup/windows">Visual Studio Code Installation</a> guide and add it to the <strong>PATH</strong> environment
+variable.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As an alternative, you can use <cite>winget</cite> to install the Doxygen package by executing the following
+command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">Microsoft.VisualStudioCode`</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="local-development">
+<h3>Local Development<a class="headerlink" href="#local-development" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="cmake">
+<h4>CMake<a class="headerlink" href="#cmake" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://cmake.org/">CMake</a> is an open-source, cross-platform family of tools designed to build,
+test and package software. CMake is used to control the software compilation process using simple
+platform and compiler independent configuration files, and generate native makefiles and workspaces
+that can be used in the compiler environment of your choice. It is the build system used in <cite>asap</cite>.</p>
+<p>Install it by following the instructions described in <a class="reference external" href="https://cmake.org/download/">CMake Installation Guide</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As an alternative, you can use <cite>winget</cite> to install the CMake package by executing the following
+command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">Kitware.CMake`</span></code>.</p>
+</div>
+</div>
+<div class="section" id="ninja-build">
+<h4>Ninja Build<a class="headerlink" href="#ninja-build" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://ninja-build.org/">Ninja</a> is a small build system with a focus on speed. It differs from
+other build systems in two major respects: it is designed to have its input files generated by a
+higher-level build system, and it is designed to run builds as fast as possible. Ninja is the
+preferred generator for CMake in ` asap`.</p>
+<p>Install it by following the instructions described in <a class="reference external" href="https://ninja-build.org/">Getting Ninja</a>.
+Add the ninja executable to the <strong>PATH</strong> environment variable and restart your terminal.</p>
+</div>
+<div class="section" id="python-3-via-miniconda">
+<h4>Python 3 via Miniconda<a class="headerlink" href="#python-3-via-miniconda" title="Permalink to this headline">¶</a></h4>
+<p>Miniconda is a free minimal installer for conda. It is a small, bootstrap version of Anaconda that
+includes only conda, Python, the packages they depend on, and a small number of other useful
+packages, including pip, zlib and a few others.</p>
+<p>Miniconda is a simple and reliable way to manage python environments and is used in <cite>asap</cite> for the
+documentation generation. Even if you have python installed on your development environment, it is
+still <strong>recommended to install conda and use an isolated environment</strong> for each project needs.</p>
+<p>Install it by following the instructions described in <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda Installation</a> guide.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As an alternative, you can use <cite>winget</cite> to install the CMake package by executing the following
+command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">Anaconda.Miniconda3`</span></code>.</p>
+</div>
+<p>Locate the conda installation directory and add the following to your PowerShell profile (<cite>notepad
+$PROFILE</cite>):</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">.</span> <span class="p">&gt;&gt;</span><span class="n">replace-with-path-to-miniconda-install-dir</span><span class="p">&lt;&lt;\</span><span class="n">shell</span><span class="p">\</span><span class="n">condabin</span><span class="p">\</span><span class="n">conda-hook</span><span class="p">.</span><span class="n">ps1</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="s1">&#39;&gt;&gt;replace-with-path-to-miniconda-install-dir&lt;&lt;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h4>Doxygen<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Doxygen is the de facto standard tool for generating documentation from annotated C++ sources. It is
+the selected tool for generating API documentation in <cite>asap</cite>.</p>
+<p>Install by following the instructions described in <a class="reference external" href="https://www.doxygen.nl/download.html">Doxygen Downloads</a> and add it to the <strong>PATH</strong> environment variable.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As an alternative, you can use <cite>winget</cite> to install the Doxygen package by executing the following
+command <cite>winget install –id DimitriVanHeesch.Doxygen</cite>.</p>
+</div>
+</div>
+<div class="section" id="graphviz">
+<h4>Graphviz<a class="headerlink" href="#graphviz" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://graphviz.org/">Graphviz</a> is open source graph visualization software. Graph visualization
+is a way of representing structural information as diagrams of abstract graphs and networks. It is
+an optional tool used by doxygen to generate class diagrams and dependency graphs. It is recommended
+as it makes API documentation more complete.</p>
+<p>Install by following the steps at <a class="reference external" href="https://graphviz.org/download/">Graphviz Installation</a> guide
+and add it to the <strong>PATH</strong> environment variable.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As an alternative, you can use <cite>winget</cite> to install the Doxygen package by executing the following
+command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">Graphviz.Graphviz`</span></code>.</p>
+</div>
+</div>
+<div class="section" id="nodejs">
+<h4>NodeJS<a class="headerlink" href="#nodejs" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://nodejs.org/en/">NodeJS</a> is a JavaScript runtime built on Chrome’s V8 JavaScript engine.
+It’s used in <cite>asap</cite> to take advantage of some of the many tools written for the JavaScript
+ecosystem.</p>
+<p>Install it by following the instructions at <a class="reference external" href="https://nodejs.org/en/download/">NodeJS INstallation</a>
+guide and add it to the <strong>PATH</strong> environment variable.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As an alternative, you can use <cite>winget</cite> to install the Doxygen package by executing the following
+command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">OpenJS.NodeJS`</span></code>.</p>
+</div>
+</div>
+<div class="section" id="visual-studio">
+<h4>Visual Studio<a class="headerlink" href="#visual-studio" title="Permalink to this headline">¶</a></h4>
+<p>For the Windows Platform target you will need Visual Studio MSVC. You can install the community
+edition by following the instructions described in ‘Visual Studio Community
+Install&lt;<a class="reference external" href="https://visualstudio.microsoft.com/vs/community/">https://visualstudio.microsoft.com/vs/community/</a>&gt;`_ guide.`</p>
+<p>Once installed, open your PowerShell <strong>PROFILE</strong> (<code class="docutils literal notranslate"><span class="pre">`notepad</span> <span class="pre">$PROFILE`</span></code>), add the following lines
+to it and save it.</p>
+<p>for Visual Studio 2019</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Import-Module</span> <span class="s2">&quot;&gt;&gt;replace-with-path-to-vstudio&lt;&lt;\Microsoft Visual Studio\2019\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll&quot;</span>
+<span class="nb">Enter-VsDevShell</span> <span class="n">284a69d6</span>
+</pre></div>
+</div>
+<p>or for Visual Studio 2022</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Import-Module</span> <span class="s2">&quot;E:\dev\Microsoft Visual Studio\2022\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll&quot;</span>
+<span class="nb">Enter-VsDevShell</span> <span class="n">205f0af7</span>
+</pre></div>
+</div>
+<p>Restart your terminal to activate the changes.</p>
+</div>
+</div>
+<div class="section" id="dev-containers">
+<h3>Dev Containers<a class="headerlink" href="#dev-containers" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="windows-wsl2">
+<h4>Windows WSL2<a class="headerlink" href="#windows-wsl2" title="Permalink to this headline">¶</a></h4>
+<p>The Windows Subsystem for Linux lets developers run a GNU/Linux environment – including most
+command-line tools, utilities, and applications – directly on Windows, unmodified, without the
+overhead of a traditional virtual machine or dual-boot setup.</p>
+<p>You can install it by following the steps described at <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">Install WSL</a> guide.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Make sure virtualization is enabled at the BIOS and in Windows features.</p>
+</div>
+</div>
+<div class="section" id="docker-desktop">
+<h4>Docker Desktop<a class="headerlink" href="#docker-desktop" title="Permalink to this headline">¶</a></h4>
+<p>Docker is an open platform for developing, shipping, and running applications. Docker enables you to
+separate your applications from your infrastructure so you can deliver software quickly. With
+Docker, you can manage your infrastructure in the same ways you manage your applications. By taking
+advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can
+significantly reduce the delay between writing code and running it in production.</p>
+<p>In <cite>asap</cite>, <cite>Docker</cite> is used in conjunction with <cite>Visual Studio Code</cite> to offer the possibility to do
+the development completely within a development container, thus keeping the current host clean. This
+methodology can also be used for quick work on a branch without having the need to switch the local
+environment.</p>
+<p>Install it by following the instructions described at <a class="reference external" href="https://www.docker.com/products/docker-desktop">Docker Desktop Installation</a> guide and ensure that the necessary
+virtualization features inside Windows are installed and properly configured.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As an alternative, you can use <cite>winget</cite> to install the Doxygen package by executing the following
+command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">Docker.DockerDesktop`</span></code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Get Started</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="get-the-code.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Get the code</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2018, The Authors.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

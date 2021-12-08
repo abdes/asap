@@ -1,5 +1,14 @@
+.. Structure conventions
+     # with overline, for parts
+     * with overline, for chapters
+     = for sections
+     - for subsections
+     ^ for subsubsections
+     " for paragraphs
+
+*********************************************
 Platform and environment preprocessor symbols
-=============================================
+*********************************************
 
 The *common* module provides a number of preprocessor symbols that can be used
 to detect the current platform and features available on it. These symbols are
@@ -11,7 +20,7 @@ present in the following files:
       *features used in the common module and which can be enabled/disabled*
 
 Operating System detection
---------------------------
+==========================
 
 The following symbols are defined/undefined based on the operating system on
 which the module is being compiled.
@@ -58,7 +67,7 @@ An example fo how to use these symbols is as following:
 .. _feature-symbols:
 
 Feature symbols
----------------
+===============
 
 Special features implemented in this module can be enabled/disabled using
 preprocessor symbols as described in the table below:
