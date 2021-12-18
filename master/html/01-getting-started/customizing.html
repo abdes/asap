@@ -139,6 +139,16 @@
      Development Process
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-project-development/modules.html">
+     Modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-project-development/third_party.html">
+     Third party modules
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -151,6 +161,11 @@
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-documentation/doxygen-doc.html">
+     Documenting code
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../03-documentation/sphinx-doc.html">
      Sphinx and restructured text
@@ -279,8 +294,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generated-html-documentation">
-   Generated HTML Documentation
+  <a class="reference internal nav-link" href="#documentation">
+   Documentation
   </a>
  </li>
 </ul>
@@ -296,7 +311,7 @@
                 
   <div class="section" id="make-it-your-own">
 <span id="id1"></span><h1>Make it your own<a class="headerlink" href="#make-it-your-own" title="Permalink to this headline">¶</a></h1>
-<p>Last Updated on 2021-12-08</p>
+<p>Last Updated on 2021-12-18</p>
 <p>We’ve already seen in <a class="reference internal" href="get-the-code.html#get-the-code"><span class="std std-ref">Get the code</span></a>, the first step of making <cite>asap</cite> your own, that is
 renaming your fork to suit your project. There are many more things you may want to change or adjust
 to suit your needs.</p>
@@ -374,17 +389,21 @@ formatting the C++ source code.</p>
 </dd>
 </dl>
 </div>
-<div class="section" id="generated-html-documentation">
-<h2>Generated HTML Documentation<a class="headerlink" href="#generated-html-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <div class="margin admonition hint">
 <p class="admonition-title">Hint</p>
 <p><cite>asap</cite> uses <a class="reference external" href="https://jothepro.github.io/doxygen-awesome-css/">Doxygen Awesome</a> and <a class="reference external" href="https://sphinx-book-theme.readthedocs.io/en/latest/index.html">Executable
 Book</a> themes for <cite>doxygen</cite> and
 <cite>sphinx</cite> respectively.</p>
-</div>
 <p>Apart from the need to document your own project files, you may also want to change the themes used
 by <cite>doxygen</cite> or <cite>sphinx</cite> when generating the HTML documentation.</p>
-<p>Refer to the relevant documentation of <cite>doxygen</cite>, <cite>sphinx</cite> or the used themes for instructions.</p>
+</div>
+<p>The <cite>asap</cite> project comes with an extensive set of documents that you can keep part of your new
+project or change them as you wish.</p>
+<p>At a minimum, you need to replace the icon and the logo of the project with your own. They are both
+located in the <code class="docutils literal notranslate"><span class="pre">`doc/_static`</span></code> directory. You also need to change the <code class="docutils literal notranslate"><span class="pre">`README.md`</span></code> file content
+to adapt it to your new project.</p>
 </div>
 </div>
 

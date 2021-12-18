@@ -10,10 +10,6 @@
 Development Process
 *******************
 
-.. todo::
-
-  This chapter needs to be updated/restructured/completed.
-
 Version control
 ===============
 We use Git and we require a recent version of the git tools to take advantage of
@@ -86,67 +82,95 @@ release branch.  Instead, the process is:
   * Once the release is complete (merged to ``master``, tagged) the ``develop``
     branch is open for work again.
 
-.. list-table:: Frozen Delights!
-   :widths: 5 30 30
+.. list-table::
+   :widths: 10 90
    :header-rows: 0
 
    * - 1
      - git checkout develop
-     -
+
    * - 2
      - git pull
-     - make sure we’ve got the latest code
    * - 3
      - git commit -a
-     - make sure we don’t have any pending changes
+
    * - 4
      - git push
-     - make sure the server is up to date too
+
    * - 5
      - git checkout master
-     - make sure we don’t have any pending changes
+
    * - 6
      - git pull
-     - make sure we’ve got the latest code
+
    * - 7
-     - git merge --no-ff develop
-     - Merge into master from the develop branch (no fast-forward => ensure
-       there is always a dedicated merge commit)
+     - Merge into master from the develop branch (no fast-forward => ensure there is always a
+       dedicated merge commit)
+
+       .. code-block:: shell
+
+          git merge --no-ff develop
+
+.. tip::
+  :class: margin
+
+  This will generate the changelog, update version numbers in `CMakeLists.txt`, and create a
+  new tag.
+
+  See `Conventional Commits <https://www.conventionalcommits.org/en/v1.0.0/>`_ for more information
+  on how conventional commit messages can simplify changelog preparation.
+
+.. list-table::
+   :widths: 10 90
+   :header-rows: 0
+
    * - 8
-     - .. todo:: update version numbers
-       .. todo:: update build badges in README.md to use master branch
-     - See `semantic versioning <https://semver.org>`_
+     - Release a new version with `standard-version`.
+
+       .. code-block:: shell
+
+         npx standard-version --help
+
+         npx standard-version --dry-run
+
+         npx standard-version --skip.commit --skip.tag
+
+       Check the generated changelog and edit if needed. Verify the updated version number is
+       correct.
+
+       Commit the cnhages and push to the remote.
+
+       .. code-block:: shell
+
+          git commit -a -m "version bump to M.m.p"
+          git push
+
+       .. note::
+
+          These steps can be automatic with standard-version, but it is recommended to not automate them as
+          often the generated changelog needs some refinements before it is committed and a release tag is
+          made.
+
+.. list-table::
+   :widths: 10 90
+   :header-rows: 0
+
    * - 9
-     - git commit -a -m "version bump to M.m.p"
-     -
+     - Create a new tag on the `master` branch with appropriate label and push it to the remote.
+
+       .. code-block:: shell
+
+          git tag -a M.m.p -m "release M.m.p"
+          git push origin M.m.p
+
    * - 10
-     - git push
-     -
-   * - 11
-     - git tag -a M.m.p -m "release M.m.p"
-     - Tag `master` with appropriate label.
-       See `here <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_
-   * - 12
-     - git push origin M.m.p
-     - Pushes the tag to the remote repository
-   * - 13
-     - git checkout develop
-     - Once all master branches are done, only then back-merge into develop
-   * - 14
-     - git merge master
-     - Merge master back into develop to include the merge commit
-       (see --no-ff notes below)
-   * - 15
-     - .. todo:: version bump for develop
-       .. todo:: update build badges in README.md to use develop branch
-     - Version bump (e.g. from 0.9.0 to 0.9.1,
-       see `semantic versioning <https://semver.org>`_)
-   * - 16
-     - git commit -a -m "version bump to M.m.p"
-     -
-   * - 17
-     - git push
-     -
+     - Merge master back into develop to include the merge commit (see --no-ff notes below)
+
+       .. code-block:: shell
+
+          git checkout develop
+          git merge master
+          git push
 
 .. note::
    See the :ref:`Feature branches <fast-forward-label>` section above to read

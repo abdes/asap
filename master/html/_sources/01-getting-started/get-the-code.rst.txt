@@ -50,7 +50,7 @@ Follow the instructions described in the `Fork a repo
 <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_ documentation of GitHub to fork
 the `asap` project.
 
-.. important:: 
+.. important::
 
   Rename your fork to match your project name as early as possible in the process. Although you can
   do this step at any time in the future, it is recommended to do it immediately after the fork.
@@ -69,7 +69,7 @@ requests.
 
 #. List the current configured remote repository for your fork.
 
-   .. code:: bash
+   .. code-block:: bash
 
      $ git remote -v
      > origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
@@ -77,13 +77,13 @@ requests.
 
 2. Specify a new remote upstream repository that will be synced with the fork.
 
-   .. code:: bash
+   .. code-block:: bash
 
      $ git remote add upstream https://github.com/abdes/asap.git
 
 3. Verify the new upstream repository you've specified for your fork.
 
-   .. code:: bash
+   .. code-block:: bash
 
      $ git remote -v
        > origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
@@ -94,7 +94,7 @@ requests.
 2. Clone your fork
 ==================
 
-.. tip:: 
+.. tip::
   :class: margin
 
   -j4 requests git to parallelize cloning of repos. Needs a relatively recent version of git. If
@@ -107,7 +107,7 @@ submodules if any of the submodules in the repository have submodules themselves
 the `Git Submodules <https://git-scm.com/book/en/v2/Git-Tools-Submodules>`_ documentation for more
 details.
 
-.. code:: bash
+.. code-block:: bash
 
   git clone --recurse-submodules -j4 https://github.com/YOUR_USERNAME/YOUR_FORK.git
 
@@ -115,3 +115,20 @@ If you already cloned the project and forgot --recurse-submodules, you can combi
 init and git submodule update steps by running ```git submodule update --init```. To also initialize,
 fetch and checkout any nested submodules, you can use the foolproof ```git submodule update --init
 --recursive```.
+
+3. Post-clone setup
+===================
+
+.. note::
+  :class: margin
+
+  This step needs to be don eonly once after the project is cloned. It sets up the hooks and
+  additional tools needed for commit message linting and automatic changelog generation.
+
+Only once, after the project is cloned, do the following:
+
+.. code-block:: bash
+
+  npx husky install
+  npm install -g @commitlint/cli @commitlint/config-conventional
+  npm install -g standard-version

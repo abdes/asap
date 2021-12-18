@@ -38,7 +38,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Documentation" href="../03-documentation/index.html" />
+    <link rel="next" title="Modules" href="modules.html" />
     <link rel="prev" title="Build instructions" href="build.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -139,6 +139,16 @@
      Development Process
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modules.html">
+     Modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="third_party.html">
+     Third party modules
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -151,6 +161,11 @@
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-documentation/doxygen-doc.html">
+     Documenting code
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../03-documentation/sphinx-doc.html">
      Sphinx and restructured text
@@ -317,10 +332,6 @@
                 
   <div class="section" id="development-process">
 <h1>Development Process<a class="headerlink" href="#development-process" title="Permalink to this headline">¶</a></h1>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>This chapter needs to be updated/restructured/completed.</p>
-</div>
 <div class="section" id="version-control">
 <h2>Version control<a class="headerlink" href="#version-control" title="Permalink to this headline">¶</a></h2>
 <p>We use Git and we require a recent version of the git tools to take advantage of
@@ -393,101 +404,101 @@ release branch.  Instead, the process is:</p>
 branch is open for work again.</p></li>
 </ul>
 </div></blockquote>
-<table class="colwidths-given table" id="id7">
-<caption><span class="caption-text">Frozen Delights!</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 8%" />
-<col style="width: 46%" />
-<col style="width: 46%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>1</p></td>
 <td><p>git checkout develop</p></td>
-<td></td>
 </tr>
 <tr class="row-even"><td><p>2</p></td>
 <td><p>git pull</p></td>
-<td><p>make sure we’ve got the latest code</p></td>
 </tr>
 <tr class="row-odd"><td><p>3</p></td>
 <td><p>git commit -a</p></td>
-<td><p>make sure we don’t have any pending changes</p></td>
 </tr>
 <tr class="row-even"><td><p>4</p></td>
 <td><p>git push</p></td>
-<td><p>make sure the server is up to date too</p></td>
 </tr>
 <tr class="row-odd"><td><p>5</p></td>
 <td><p>git checkout master</p></td>
-<td><p>make sure we don’t have any pending changes</p></td>
 </tr>
 <tr class="row-even"><td><p>6</p></td>
 <td><p>git pull</p></td>
-<td><p>make sure we’ve got the latest code</p></td>
 </tr>
 <tr class="row-odd"><td><p>7</p></td>
-<td><p>git merge –no-ff develop</p></td>
-<td><p>Merge into master from the develop branch (no fast-forward =&gt; ensure
-there is always a dedicated merge commit)</p></td>
-</tr>
-<tr class="row-even"><td><p>8</p></td>
-<td><div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>update version numbers</p>
-</div>
-<div class="admonition-todo admonition" id="id3">
-<p class="admonition-title">Todo</p>
-<p>update build badges in README.md to use master branch</p>
+<td><p>Merge into master from the develop branch (no fast-forward =&gt; ensure there is always a
+dedicated merge commit)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git merge --no-ff develop
+</pre></div>
 </div>
 </td>
-<td><p>See <a class="reference external" href="https://semver.org">semantic versioning</a></p></td>
 </tr>
+</tbody>
+</table>
+<div class="margin admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This will generate the changelog, update version numbers in <cite>CMakeLists.txt</cite>, and create a
+new tag.</p>
+<p>See <a class="reference external" href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> for more information
+on how conventional commit messages can simplify changelog preparation.</p>
+</div>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Release a new version with <cite>standard-version</cite>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npx standard-version --help
+
+npx standard-version --dry-run
+
+npx standard-version --skip.commit --skip.tag
+</pre></div>
+</div>
+<p>Check the generated changelog and edit if needed. Verify the updated version number is
+correct.</p>
+<p>Commit the cnhages and push to the remote.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git commit -a -m <span class="s2">&quot;version bump to M.m.p&quot;</span>
+git push
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These steps can be automatic with standard-version, but it is recommended to not automate them as
+often the generated changelog needs some refinements before it is committed and a release tag is
+made.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
 <tr class="row-odd"><td><p>9</p></td>
-<td><p>git commit -a -m “version bump to M.m.p”</p></td>
-<td></td>
+<td><p>Create a new tag on the <cite>master</cite> branch with appropriate label and push it to the remote.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git tag -a M.m.p -m <span class="s2">&quot;release M.m.p&quot;</span>
+git push origin M.m.p
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>10</p></td>
-<td><p>git push</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>11</p></td>
-<td><p>git tag -a M.m.p -m “release M.m.p”</p></td>
-<td><p>Tag <cite>master</cite> with appropriate label.
-See <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">here</a></p></td>
-</tr>
-<tr class="row-even"><td><p>12</p></td>
-<td><p>git push origin M.m.p</p></td>
-<td><p>Pushes the tag to the remote repository</p></td>
-</tr>
-<tr class="row-odd"><td><p>13</p></td>
-<td><p>git checkout develop</p></td>
-<td><p>Once all master branches are done, only then back-merge into develop</p></td>
-</tr>
-<tr class="row-even"><td><p>14</p></td>
-<td><p>git merge master</p></td>
-<td><p>Merge master back into develop to include the merge commit
-(see –no-ff notes below)</p></td>
-</tr>
-<tr class="row-odd"><td><p>15</p></td>
-<td><div class="admonition-todo admonition" id="id4">
-<p class="admonition-title">Todo</p>
-<p>version bump for develop</p>
-</div>
-<div class="admonition-todo admonition" id="id5">
-<p class="admonition-title">Todo</p>
-<p>update build badges in README.md to use develop branch</p>
+<td><p>Merge master back into develop to include the merge commit (see –no-ff notes below)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git checkout develop
+git merge master
+git push
+</pre></div>
 </div>
 </td>
-<td><p>Version bump (e.g. from 0.9.0 to 0.9.1,
-see <a class="reference external" href="https://semver.org">semantic versioning</a>)</p></td>
-</tr>
-<tr class="row-even"><td><p>16</p></td>
-<td><p>git commit -a -m “version bump to M.m.p”</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>17</p></td>
-<td><p>git push</p></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -527,10 +538,10 @@ $ git submodule status
             <p class="prev-next-title">Build instructions</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../03-documentation/index.html" title="next page">
+    <a class='right-next' id="next-link" href="modules.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Documentation</p>
+        <p class="prev-next-title">Modules</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

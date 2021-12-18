@@ -139,6 +139,16 @@
      Development Process
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-project-development/modules.html">
+     Modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-project-development/third_party.html">
+     Third party modules
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -151,6 +161,11 @@
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-documentation/doxygen-doc.html">
+     Documenting code
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03-documentation/sphinx-doc.html">
      Sphinx and restructured text
@@ -265,7 +280,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   3.0.0 (2021-12-08)
+   3.1.0 (2021-12-18)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -287,23 +302,45 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   2.0.1 (2021-11-06)
+   3.0.0 (2021-12-08)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
+     ⚠ BREAKING CHANGES
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
      Bug Fixes
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id4">
+  <a class="reference internal nav-link" href="#id6">
+   2.0.1 (2021-11-06)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Bug Fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
    2.0.0 (2021-11-06)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
+    <a class="reference internal nav-link" href="#id9">
      Features
     </a>
    </li>
@@ -313,19 +350,19 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
+    <a class="reference internal nav-link" href="#id10">
      ⚠ BREAKING CHANGES
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id7">
+  <a class="reference internal nav-link" href="#id11">
    1.0.0 (2021-11-03)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id8">
+    <a class="reference internal nav-link" href="#id12">
      Features
     </a>
    </li>
@@ -346,9 +383,40 @@
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <p>All notable changes to this project will be documented in this file. See <a class="reference external" href="https://github.com/conventional-changelog/standard-version">standard-version</a> for commit guidelines.</p>
 <div class="section" id="id1">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v2.0.1...v3.0.0">3.0.0</a> (2021-12-08)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v3.0.0...v3.1.0">3.1.0</a> (2021-12-18)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="breaking-changes">
 <h3>⚠ BREAKING CHANGES<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The logging <code class="docutils literal notranslate"><span class="pre">Registry</span></code> is now implemented as a singleton class and therefore it needs to be
+accessed via its instance() method. All other methods in its interface are not static anymore.</p></li>
+<li><p>Prefix the build options with <code class="docutils literal notranslate"><span class="pre">ASAP_</span></code> to make them unique and avoid clashing with other projects
+that may use the generic <code class="docutils literal notranslate"><span class="pre">OPTION_xxx</span></code> names. Additionally, the build presets now always activate
+building of tests and examples except in release builds where examples are not built.</p></li>
+<li><p>The cmake option <code class="docutils literal notranslate"><span class="pre">OPTION_SELF_CONTAINED</span></code> is no longer relevant as we believe that 3rd party
+dependencies should be installed using their own projects. In the wrostcase scenario, they should
+be explicitly added as install instructions to the project in a visible and documented way.</p></li>
+</ul>
+</div>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>add support for .editorconfig (<a class="reference external" href="http://github.com/abdes/asap/commit/5a7a6892f7c05798e79c6f81e9eef3b0a6256ca1">5a7a689</a>)</p></li>
+<li><p>provide a way to distinguish between debug and release builds via preprocessor define (<a class="reference external" href="http://github.com/abdes/asap/commit/bbd84a2c32c9833f79b442e202b647f93946b105">bbd84a2</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>adjust doc target names to work in renamed projects (<a class="reference external" href="http://github.com/abdes/asap/commit/60acc65fcc8d529a69f3617d792376be3e54b6ce">60acc65</a>)</p></li>
+<li><p>cmake option was placed in the wrong command (<a class="reference external" href="http://github.com/abdes/asap/commit/b634b153db975a8bc8715e82f7fafdc214504cfa">b634b15</a>)</p></li>
+<li><p>clean the logging API implementation (<a class="reference external" href="http://github.com/abdes/asap/commit/25535c76c0586d53f7c6c55db250a251f0c5390b">25535c7</a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v2.0.1...v3.0.0">3.0.0</a> (2021-12-08)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>⚠ BREAKING CHANGES<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>The project requires C++17 as it is widely available in compilers now. Logical traits such as
 conjunction, disjunction and negation are available from the &lt;type_traits&gt; standard include.</p></li>
@@ -365,8 +433,8 @@ be provided separately and a mechanism to easily add it into an <code class="doc
 implemented in a future update.</p></li>
 </ul>
 </div>
-<div class="section" id="features">
-<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Features<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>add gsl library
 (<a class="reference external" href="http://github.com/abdes/asap/commit/9b982f17aeb9362619cf871ed9bbedb65344ab43">9b982f1</a>)</p></li>
@@ -386,8 +454,8 @@ implemented in a future update.</p></li>
 project docs</p></li>
 </ul>
 </div>
-<div class="section" id="bug-fixes">
-<h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Bug Fixes<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>configure compilation database for clangd when using cmake presets
 (<a class="reference external" href="http://github.com/abdes/asap/commit/7493c240ce97396040d9a7bd09cb32ed56ea2340">7493c24</a>)</p></li>
@@ -400,10 +468,10 @@ project docs</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="id2">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v2.0.0...v2.0.1">2.0.1</a> (2021-11-06)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3>Bug Fixes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v2.0.0...v2.0.1">2.0.1</a> (2021-11-06)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>Bug Fixes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>“-Wreserved-identifier” only if not APPLE (<a class="reference external" href="http://github.com/abdes/asap/commit/05fac12d37978c6651c299e6ad1cc64dfed88fa0">05fac12</a>)</p></li>
 <li><p>cmake require c++ 14 in all modules (<a class="reference external" href="http://github.com/abdes/asap/commit/f05c9a63e97dbcbef3e7d8188a04e719e2247d62">f05c9a6</a>)</p></li>
@@ -411,10 +479,10 @@ project docs</p></li>
 </ul>
 </div>
 </div>
-<div class="section" id="id4">
-<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v1.0.0...v2.0.0">2.0.0</a> (2021-11-06)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id5">
-<h3>Features<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h2><a class="reference external" href="http://github.com/abdes/asap/compare/v1.0.0...v2.0.0">2.0.0</a> (2021-11-06)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>Features<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Cleanup the code to remove most compiler and linter warnings.</p></li>
 <li><p>Refactor cmake build files to have robust support for sanitizers and linters.</p></li>
@@ -431,8 +499,8 @@ conflict with application decisions.</p></li>
 <li><p>Documenattion.</p></li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h3>⚠ BREAKING CHANGES<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>⚠ BREAKING CHANGES<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>logging is in a new module: asap::logging.</p></li>
 </ul>
@@ -445,10 +513,10 @@ submodule and moved to logging submodule.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>1.0.0 (2021-11-03)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id8">
-<h3>Features<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h2>1.0.0 (2021-11-03)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h3>Features<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>add support for Conventional Commits and auto Changelog (<a class="reference external" href="http://github.com/abdes/asap/commit/7b827fab2ae28ba903c69ab5acdf249cb3e55d85">7b827fa</a>)</p></li>
 <li><p>replace cmake compiler detection with hedley (<a class="reference external" href="http://github.com/abdes/asap/commit/8bf0a3d53fcdba65497491cbd63c1dcffcba8467">8bf0a3d</a>)</p></li>

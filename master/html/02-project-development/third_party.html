@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Third party modules &#8212; Start Now!</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Documentation" href="../03-documentation/index.html" />
+    <link rel="prev" title="Modules" href="modules.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Start Now!</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-getting-started/index.html">
+   Get Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-getting-started/devenv.html">
+     Development environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-getting-started/get-the-code.html">
+     Get the code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-getting-started/structure.html">
+     Understand the project structure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-getting-started/useful-commands.html">
+     Know the useful commands
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-getting-started/customizing.html">
+     Make it your own
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-getting-started/get-updates.html">
+     Get updates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   Developer Guides
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="build.html">
+     Build instructions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="devflow.html">
+     Development Process
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modules.html">
+     Modules
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Third party modules
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-documentation/index.html">
+   Documentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-documentation/doxygen-doc.html">
+     Documenting code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-documentation/sphinx-doc.html">
+     Sphinx and restructured text
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-library-modules/index.html">
+   Library Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../license.html">
+   License
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../changelog.html">
+   Changelog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../version.html">
+   Version
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02-project-development/third_party.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com//https://github.com/abdes/asap"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com//https://github.com/abdes/asap/issues/new?title=Issue%20on%20page%20%2F02-project-development/third_party.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/abdes/asap/edit/master/02-project-development/third_party.rst"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmake-externalproject">
+   CMake ExternalProject
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmake-fetchcontent">
+   CMake FetchContent
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git-submodules">
+   Git submodules
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-configuration">
+     Git configuration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-a-git-submodule">
+     Adding a git submodule
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grabbing-updates">
+     Grabbing updates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deleting-git-submodules">
+     Deleting git submodules
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="third-party-modules">
+<h1>Third party modules<a class="headerlink" href="#third-party-modules" title="Permalink to this headline">¶</a></h1>
+<p>Last Updated on 2021-12-18</p>
+<p>The <cite>asap</cite> project fully leverage the opensource development model by allowing to easily add third
+party libraries. We want to increase reuse of existing software but not at the cost of adding
+unnecessary complexity to the build environment.</p>
+<p>C++ does not provide any built-in package management mechanism like what we can find in
+<a class="reference external" href="https://doc.rust-lang.org/cargo/">Rust</a> or <a class="reference external" href="https://go.dev/doc/modules/managing-dependencies">Go</a>.</p>
+<p>Over time, many workaround were used to deal with this gap, including git submodules, independent
+package managers such as <a class="reference external" href="https://conan.io/">conan</a>, or even copying the thrid party code or
+binaries into the project.</p>
+<p>If we want to have any level of real dependency management, we’ll need some kind of package
+management. But then, the package manager itself becomes a dependency. Everyone that wants to build
+our project has to install the correct version. If you’re using CI, you have to set up everything
+on the build server as well, which can be a pain.</p>
+<p>It would be nice if we can achieve our goals with just cmake, and that’s what we’re gonna do. We’ll
+go through at least 3 methods of integrating third party libraries/modules.</p>
+<div class="section" id="cmake-externalproject">
+<h2>CMake ExternalProject<a class="headerlink" href="#cmake-externalproject" title="Permalink to this headline">¶</a></h2>
+<p>CMake introduced a module called ExternalProject in version 3.0. ExternalProject wraps dependencies
+into a CMake target and allows managing foreign code from your CMakeLists.txt.</p>
+<p>To use it, one must add a target via ExternalProject_Add(). CMake will then run the following steps
+for this target:</p>
+<dl class="field-list simple">
+<dt class="field-odd">DOWNLOAD</dt>
+<dd class="field-odd"><p>Download the dependency. Here one can use a version control system or download from an
+URL.</p>
+</dd>
+<dt class="field-even">UPDATE</dt>
+<dd class="field-even"><p>Update the downloaded code if anything changed since the last CMake run.</p>
+</dd>
+<dt class="field-odd">CONFIGURE</dt>
+<dd class="field-odd"><p>Configure the project code.</p>
+</dd>
+<dt class="field-even">BUILD</dt>
+<dd class="field-even"><p>Build the dependencies code.</p>
+</dd>
+<dt class="field-odd">INSTALL</dt>
+<dd class="field-odd"><p>Install the built code into a specified directory.</p>
+</dd>
+<dt class="field-even">TEST</dt>
+<dd class="field-even"><p>(optional) Run tests.</p>
+</dd>
+</dl>
+<p>All the above commands are configurable. ExternalProject also allows for custom steps. For more
+information, have a look at the <a class="reference external" href="https://cmake.org/cmake/help/latest/module/ExternalProject.html">documentation</a>.</p>
+<p>This definitely works with one smal issue: when using ExternalProject, all its steps will run at
+build time. This means that CMake downloads and builds your dependencies after the generation step.
+So your dependencies will not be available yet when CMake configures your project. If this is
+acceptable, then ExtenralProject is a go.</p>
+</div>
+<div class="section" id="cmake-fetchcontent">
+<h2>CMake FetchContent<a class="headerlink" href="#cmake-fetchcontent" title="Permalink to this headline">¶</a></h2>
+<p>With version 3.11 CMake introduced a new module:
+<a class="reference external" href="https://cmake.org/cmake/help/latest/module/FetchContent.html">FetchContent</a>. The module offers
+the same functionality as ExternalProject but will download dependencies before the configure step.</p>
+<p>Here is an example of how to use it to fetch, configure, build and make available the Google Test
+libraries in the project.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+<span class="c"># We make sure that we have &#39;thirdparty&#39; in the name so that the targets get excluded from the</span>
+<span class="c"># generated target lists for the various tools.</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">FETCHCONTENT_BASE_DIR</span> <span class="o">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="o">}</span><span class="s">/third_party_deps</span><span class="p">)</span>
+<span class="nb">FetchContent_Declare</span><span class="p">(</span>
+  <span class="s">googletest</span>
+  <span class="s">GIT_REPOSITORY</span> <span class="s">https://github.com/google/googletest.git</span>
+  <span class="s">GIT_TAG</span> <span class="c"># GoogleTest now follows the Abseil Live at Head philosophy. We recommend using the latest</span>
+          <span class="c"># commit in the main branch in your projects.</span>
+          <span class="s">origin/main</span><span class="p">)</span>
+<span class="c"># For Windows: Prevent overriding the parent project&#39;s compiler/linker settings</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">gtest_force_shared_crt</span>
+    <span class="s">ON</span>
+    <span class="s">CACHE</span> <span class="s">BOOL</span> <span class="s2">&quot;&quot;</span> <span class="s">FORCE</span><span class="p">)</span>
+<span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">googletest</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><cite>FetchContent</cite> works very well but there are a couple of things to keep in mind when using it:</p>
+<ul class="simple">
+<li><p><strong>Downloading requires an internet connection</strong>
+Of course, you have to be online for first downloading your dependencies. Compared to using
+git submodules, this requirement is now hidden. So you might forget about it when building your
+code. To mitigate this problem, there are options we can use:</p>
+<ul>
+<li><p><cite>FETCHCONTENT_FULLY_DISCONNECTED=ON</cite> will skip the DOWNLOAD and UPDATE steps</p></li>
+<li><p><cite>FETCHCONTENT_UPDATES_DISCONNECTED=ON</cite> will skip the UPDATE step</p></li>
+</ul>
+</li>
+<li><p><strong>The library has to be installable</strong>
+Every once in a while you will come across libraries that are missing the call to install() in
+their CMakeLists.txt. In this case, FetchContent does not know how to copy the built code into the
+install folder and will fail.</p></li>
+</ul>
+<p>FetchContent works best with CMake based dependencies. I haven’t had a chance to test it with
+libraries that are not built with CMake. But I would expect that some extra configuration is necessary to make it work.</p>
+</div>
+<div class="section" id="git-submodules">
+<h2>Git submodules<a class="headerlink" href="#git-submodules" title="Permalink to this headline">¶</a></h2>
+<p>For dependencies with a modern CMake setup, this is enough to make it available to your project.
+Several of the thrid party dependencies used in <cite>asap</cite> are integrated this way. It’s very simple to
+integrate in the master project CMakeLists.txt, just like adding a regular module in a subdirectory.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># ---------------------------------------------</span>
+<span class="c"># Third party modules</span>
+<span class="c"># ---------------------------------------------</span>
+
+<span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">third_party</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To keep third party modules configuration in a single place, all modules are located under the
+<code class="docutils literal notranslate"><span class="pre">`third_party`</span></code> subdirectory. That directory has a <cite>CMakeLists.txt</cite> file which only contains
+configuration for third party modules before they are included. Here is an example for <cite>spdlog</cite>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp"># -------------------------------------------------------</span>
+<span class="cp"># spdlog</span>
+<span class="cp"># -------------------------------------------------------</span>
+
+<span class="cp"># We want the spdlog install target to be generated even</span>
+<span class="cp"># though we are using it as a submodule. The reason for</span>
+<span class="cp"># that is that we want our project to be self contained</span>
+<span class="cp"># with all dependencies included.</span>
+<span class="n">set</span><span class="p">(</span><span class="n">SPDLOG_INSTALL</span><span class="w"></span>
+<span class="w">    </span><span class="n">ON</span><span class="w"></span>
+<span class="w">    </span><span class="n">CACHE</span><span class="w"> </span><span class="n">BOOL</span><span class="w"> </span><span class="s">&quot;Generate the spdlog install target&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">set</span><span class="p">(</span><span class="n">SPDLOG_FMT_EXTERNAL</span><span class="w"></span>
+<span class="w">    </span><span class="n">ON</span><span class="w"></span>
+<span class="w">    </span><span class="n">CACHE</span><span class="w"> </span><span class="n">BOOL</span><span class="w"> </span><span class="s">&quot;Use external fmt library instead of bundled&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">WIN32</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">set</span><span class="p">(</span><span class="n">SPDLOG_WCHAR_SUPPORT</span><span class="w"></span>
+<span class="w">      </span><span class="n">ON</span><span class="w"></span>
+<span class="w">      </span><span class="n">CACHE</span><span class="w"> </span><span class="n">BOOL</span><span class="w"> </span><span class="s">&quot;Support wchar api&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">set</span><span class="p">(</span><span class="n">SPDLOG_WCHAR_FILENAMES</span><span class="w"></span>
+<span class="w">      </span><span class="n">ON</span><span class="w"></span>
+<span class="w">      </span><span class="n">CACHE</span><span class="w"> </span><span class="n">BOOL</span><span class="w"> </span><span class="s">&quot;Support wchar filenames&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">endif</span><span class="p">()</span><span class="w"></span>
+
+<span class="n">add_subdirectory</span><span class="p">(</span><span class="n">spdlog</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This approach also works well and is the preferred approach for modules that use cmake as their
+build system. It does however require some familiarity with git submodules.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Visit the <a class="reference external" href="https://git.wiki.kernel.org/index.php/GitSubmoduleTutorial">Git Submodule Tutorial</a>.</p>
+</div>
+<div class="section" id="git-configuration">
+<h3>Git configuration<a class="headerlink" href="#git-configuration" title="Permalink to this headline">¶</a></h3>
+<p>To make the work with git submodules more reliable, it is strongly recommended to have the following
+git configuration setup:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "$ ";
+}
+</style><span class="prompt1">git config --global diff.submodule log</span>
+<span class="prompt1">git config --global status.submoduleSummary true</span>
+</pre></div></div></div>
+<div class="section" id="adding-a-git-submodule">
+<h3>Adding a git submodule<a class="headerlink" href="#adding-a-git-submodule" title="Permalink to this headline">¶</a></h3>
+<p>Adding submodules is easy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git submodule add https://github.com/gabime/spdlog.git</span>
+</pre></div></div><p>This will have created a .gitmodules in the project directory if none already exists. Future
+cloning of the project will automatically add the submodules while fetching the project repo.</p>
+<p>By default, submodules will add the subproject into a directory named the same as the repository,
+in this case <cite>spdlog</cite>. You can add a different path at the end of the command if you want it to go
+elsewhere.</p>
+<p>Finally we can commit the changes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git commit -m &quot;Added submodules&quot;</span>
+</pre></div></div></div>
+<div class="section" id="grabbing-updates">
+<h3>Grabbing updates<a class="headerlink" href="#grabbing-updates" title="Permalink to this headline">¶</a></h3>
+<p>When pulling updates from the conatiner repo’s remote, Git auto-fetches, but does not auto-update.
+The local cache is up-to-date with the submodule’s remote, but the submodule’s working directory
+stays with its former contents. Although this auto-fetching is limited to already-known submodules:
+any new ones, not yet copied into local configuration, are not auto-fetched.</p>
+<p>If you don’t explicitly update the submodule’s working directory, your next container commit will
+regress the submodule. Is is therefore mandatory that you finalize the update.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git pull</span>
+<span class="prompt1">git submodule sync --recursive</span>
+<span class="prompt1">git submodule update --init --recursive</span>
+</pre></div></div></div>
+<div class="section" id="deleting-git-submodules">
+<h3>Deleting git submodules<a class="headerlink" href="#deleting-git-submodules" title="Permalink to this headline">¶</a></h3>
+<p>To remove a submodule you need to:</p>
+<ol class="arabic">
+<li><p>Delete the relevant section from the <cite>.gitmodules</cite> file.</p></li>
+<li><p>Stage the .gitmodules changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git add .gitmodules</span>
+</pre></div></div></li>
+<li><p>Delete the relevant section from <cite>.git/config</cite>.</p></li>
+<li><p>Remove the submodule files from the working tree and index:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git rm --cached path_to_submodule (no trailing slash).</span>
+</pre></div></div></li>
+<li><p>Remove the submodule’s <cite>.git</cite> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">rm -rf .git/modules/path_to_submodule</span>
+</pre></div></div></li>
+<li><p>Commit the changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git commit -m &quot;Removed submodule &lt;name&gt;&quot;</span>
+</pre></div></div></li>
+<li><p>Delete the now untracked submodule files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">rm -rf path_to_submodule</span>
+</pre></div></div></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="modules.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Modules</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../03-documentation/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Documentation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2018, The Authors.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

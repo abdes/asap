@@ -93,17 +93,22 @@ The following list describes the available files and their usage:
 :.clang-format: `Clang-format <https://clang.llvm.org/extra/clang-format/>`_ rules used for
   formatting the C++ source code.
 
-Generated HTML Documentation
-============================
+Documentation
+=============
 
-.. hint:: 
+.. hint::
   :class: margin
 
   `asap` uses `Doxygen Awesome <https://jothepro.github.io/doxygen-awesome-css/>`_ and `Executable
   Book <https://sphinx-book-theme.readthedocs.io/en/latest/index.html>`_ themes for `doxygen` and
   `sphinx` respectively.
-  
-Apart from the need to document your own project files, you may also want to change the themes used
-by `doxygen` or `sphinx` when generating the HTML documentation.
 
-Refer to the relevant documentation of `doxygen`, `sphinx` or the used themes for instructions.
+  Apart from the need to document your own project files, you may also want to change the themes used
+  by `doxygen` or `sphinx` when generating the HTML documentation.
+
+The `asap` project comes with an extensive set of documents that you can keep part of your new
+project or change them as you wish.
+
+At a minimum, you need to replace the icon and the logo of the project with your own. They are both
+located in the ```doc/_static``` directory. You also need to change the ```README.md``` file content
+to adapt it to your new project.
