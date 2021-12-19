@@ -215,10 +215,16 @@ in a ```doc``` subdirectory under the module root.
     # --------------------------------------------
 
     asap_with_doxygen(
-      ${MODULE_TARGET_NAME} "\"MyApp Module\""
+      MODULE_NAME
+      ${MODULE_TARGET_NAME}
+      VERSION
+      ${META_MODULE_VERSION}
+      TITLE
+      "\"MyApp Module\""
+      BRIEF
       "\"Provides some stuff for MyApp.\""
-      "${CMAKE_CURRENT_SOURCE_DIR}/src
-      ${CMAKE_CURRENT_SOURCE_DIR}/include")
+      INPUT_PATH
+      "${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/include")
 
     asap_with_sphinx(${MODULE_TARGET_NAME})
 

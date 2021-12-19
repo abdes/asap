@@ -491,10 +491,16 @@ and used without modification.</p>
 <span class="c"># --------------------------------------------</span>
 
 <span class="nb">asap_with_doxygen</span><span class="p">(</span>
-  <span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span> <span class="s2">&quot;\&quot;</span><span class="s">MyApp</span> <span class="s">Module\</span><span class="s2">&quot;&quot;</span>
+  <span class="s">MODULE_NAME</span>
+  <span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span>
+  <span class="s">VERSION</span>
+  <span class="o">${</span><span class="nv">META_MODULE_VERSION</span><span class="o">}</span>
+  <span class="s">TITLE</span>
+  <span class="s2">&quot;\&quot;</span><span class="s">MyApp</span> <span class="s">Module\</span><span class="s2">&quot;&quot;</span>
+  <span class="s">BRIEF</span>
   <span class="s2">&quot;\&quot;</span><span class="s">Provides</span> <span class="s">some</span> <span class="s">stuff</span> <span class="s">for</span> <span class="s">MyApp.\</span><span class="s2">&quot;&quot;</span>
-  <span class="s2">&quot;${CMAKE_CURRENT_SOURCE_DIR}/src</span>
-<span class="s2">  ${CMAKE_CURRENT_SOURCE_DIR}/include&quot;</span><span class="p">)</span>
+  <span class="s">INPUT_PATH</span>
+  <span class="s2">&quot;${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/include&quot;</span><span class="p">)</span>
 
 <span class="nb">asap_with_sphinx</span><span class="p">(</span><span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span><span class="p">)</span>
 </pre></div>

@@ -6,9 +6,9 @@
      ^ for subsubsections
      " for paragraphs
 
-###########################
-ASAP common's documentation
-###########################
+##########################
+ASAP logging documentation
+##########################
 
 .. toctree::
    :maxdepth: 2
@@ -19,8 +19,8 @@ ASAP common's documentation
    Version <version>
 
 Welcome! This is the documentation for the *logging* module, part of the *asap*
-project. This is a small module that encapsulates and lightly augments the 
-logging functionality provided by a third party logging framework: 
+project. This is a small module that encapsulates and lightly augments the
+logging functionality provided by a third party logging framework:
 [spdlog](https://github.com/gabime/spdlog).
 
 Parts of the documentation
