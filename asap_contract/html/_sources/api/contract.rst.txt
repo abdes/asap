@@ -106,8 +106,8 @@ Testing contracts is tricky as violations often result in the program execution
 being abruptly terminated rendering it quite difficult to test without death
 test support by the testing framework.
 
-To simplify this situation, you can use the `contracts` helper library
-which provides special macros for testing contracts without death tests.
+To simplify this situation, you can use the special macros for testing contracts
+without death tests.
 
 .. doxygendefine:: CHECK_VIOLATES_CONTRACT
 

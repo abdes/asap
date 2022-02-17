@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modules &#8212; Start Now!</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Third party modules" href="third_party.html" />
+    <link rel="prev" title="Development Process" href="devflow.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Start Now!</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../getting-started/index.html">
+   Get Started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/devenv.html">
+     Development environment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/get-the-code.html">
+     Get the code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/structure.html">
+     Understand the project structure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/useful-commands.html">
+     Know the useful commands
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/customizing.html">
+     Make it your own
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/get-updates.html">
+     Get updates
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   Developer Guides
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="build.html">
+     Build instructions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="devflow.html">
+     Development Process
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="third_party.html">
+     Third party modules
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../documentation/index.html">
+   Documentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../documentation/doxygen-doc.html">
+     Documenting code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../documentation/sphinx-doc.html">
+     Sphinx and restructured text
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../library-modules/index.html">
+   Library Modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../license.html">
+   License
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../changelog.html">
+   Changelog
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../version.html">
+   Version
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Toggle navigation</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/project-development/modules.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/abdes/asap"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/abdes/asap/issues/new?title=Issue%20on%20page%20%2Fproject-development/modules.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-a-module">
+   Adding a module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-tests-to-a-module">
+   Adding tests to a module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-documentation-to-a-module">
+   Adding documentation to a module
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Modules</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-a-module">
+   Adding a module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-tests-to-a-module">
+   Adding tests to a module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-documentation-to-a-module">
+   Adding documentation to a module
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="modules">
+<h1>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
+<p>Last Updated on 2022-02-17</p>
+<p>The <cite>asap</cite> project architecture adopts a modular approach as described in
+<a class="reference internal" href="../getting-started/structure.html"><span class="doc">Understand the project structure</span></a> document. This structure allows you to
+easily add, remove and compose modules inside the project.</p>
+<div class="section" id="adding-a-module">
+<h2>Adding a module<a class="headerlink" href="#adding-a-module" title="Permalink to this headline">¶</a></h2>
+<div class="margin admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To add a library module, just look at one of the existing sub-modules in
+<cite>asap</cite> such as <cite>common</cite> or <cite>logging</cite>.</p>
+</div>
+<p>For the sake of illustrating this process, we’re gonna be adding a module for an
+executable program. The program will be called <cite>myapp</cite>, and so we will be
+calling our new module <cite>myapp-main</cite>.</p>
+<ol class="arabic">
+<li><p>Create the module structure as a sub-directory of the project. This would
+look something like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>│   CMakeLists.txt
+│   README.md
+└───src
+    ├───things.h
+    └───main.cpp
+</pre></div>
+</div>
+<p>It’s a minimal structure, and as the module gets more and more sophisticated,
+it will most likely have test cases, more implementation files, include
+headers, etc… It may even have submodules itself.</p>
+</li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">`CMakeLists.txt`</span></code> file and edit its content to describe how the
+targets in the module get built. Make sure to use the <cite>asap</cite> target helper
+functions so that you automatically benefit from all the goodness built into
+them such as linting, formatting, code coverage etc.</p>
+<p>For an executable target as simple as ours, the contents of the file would
+look something like this:</p>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="c"># -----------------------------------------------------</span>
+<span class="c"># Meta information about the this module</span>
+<span class="c"># -----------------------------------------------------</span>
+
+<span class="nb">asap_declare_module</span><span class="p">(</span>
+<span class="w">  </span><span class="s">MODULE_NAME</span>
+<span class="w">  </span><span class="s2">&quot;myapp-main&quot;</span>
+<span class="w">  </span><span class="s">DESCRIPTION</span>
+<span class="w">  </span><span class="s2">&quot;Main module for the `myapp` program&quot;</span>
+<span class="w">  </span><span class="s">GITHUB_REPO</span>
+<span class="w">  </span><span class="s2">&quot;https://github.com/xxx/myapp&quot;</span>
+<span class="w">  </span><span class="s">AUTHOR_MAINTAINER</span>
+<span class="w">  </span><span class="s2">&quot;The Author&quot;</span>
+<span class="w">  </span><span class="s">VERSION_MAJOR</span>
+<span class="w">  </span><span class="s2">&quot;1&quot;</span>
+<span class="w">  </span><span class="s">VERSION_MINOR</span>
+<span class="w">  </span><span class="s2">&quot;0&quot;</span>
+<span class="w">  </span><span class="s">VERSION_PATCH</span>
+<span class="w">  </span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+
+<span class="c"># =====================================================</span>
+<span class="c"># Build instructions</span>
+<span class="c"># =====================================================</span>
+
+<span class="c"># -----------------------------------------------------</span>
+<span class="c"># Main module target</span>
+<span class="c"># -----------------------------------------------------</span>
+
+<span class="nb">set</span><span class="p">(</span><span class="s">MODULE_TARGET_NAME</span><span class="w"> </span><span class="s2">&quot;myapp&quot;</span><span class="p">)</span>
+
+<span class="nb">asap_add_executable</span><span class="p">(</span>
+<span class="w">  </span><span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span>
+<span class="w">  </span><span class="s">WARNING</span>
+<span class="w">  </span><span class="s">SOURCES</span>
+<span class="w">  </span><span class="c"># Headers</span>
+<span class="w">  </span><span class="s">src/things.h</span>
+<span class="w">  </span><span class="c"># Sources</span>
+<span class="w">  </span><span class="s">src/main.cpp</span><span class="p">)</span>
+
+<span class="nb">target_link_libraries</span><span class="p">(</span>
+<span class="w">  </span><span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span>
+<span class="w">  </span><span class="s">PRIVATE</span>
+<span class="w">  </span><span class="s">GSL</span>
+<span class="w">  </span><span class="s">asap::common</span>
+<span class="w">  </span><span class="s">asap::logging</span><span class="p">)</span>
+
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="o">}</span><span class="s">/include</span><span class="p">)</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="s">/src</span><span class="p">)</span>
+
+<span class="c"># =====================================================</span>
+<span class="c"># Deployment instructions</span>
+<span class="c"># =====================================================</span>
+
+<span class="c"># Executable</span>
+<span class="nb">install</span><span class="p">(</span>
+<span class="w">  </span><span class="s">TARGETS</span><span class="w"> </span><span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span>
+<span class="w">  </span><span class="s">RUNTIME</span><span class="w"> </span><span class="s">DESTINATION</span><span class="w"> </span><span class="o">${</span><span class="nv">INSTALL_BIN</span><span class="o">}</span><span class="w"> </span><span class="s">COMPONENT</span><span class="w"> </span><span class="s">programs</span>
+<span class="w">  </span><span class="s">BUNDLE</span><span class="w"> </span><span class="s">DESTINATION</span><span class="w"> </span><span class="o">${</span><span class="nv">INSTALL_BIN</span><span class="o">}</span><span class="w"> </span><span class="s">COMPONENT</span><span class="w"> </span><span class="s">programs</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the module to main <cite>CMakeLists.txt</cite> by calling
+<code class="docutils literal notranslate"><span class="pre">`add_subdirectory(myapp-main)`</span></code></p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># =====================================================</span>
+<span class="c"># Project modules</span>
+<span class="c"># =====================================================</span>
+
+<span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">common</span><span class="p">)</span>
+<span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">logging</span><span class="p">)</span>
+<span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">myapp-main</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Reconfigure your project to regenerate CMake build files with the new targets
+for the new module. You should now have a target for building the <cite>myapp</cite>
+executable.</p></li>
+</ol>
+</div>
+<div class="section" id="adding-tests-to-a-module">
+<h2>Adding tests to a module<a class="headerlink" href="#adding-tests-to-a-module" title="Permalink to this headline">¶</a></h2>
+<p>Let’s add some tests to the module using <cite>Google Test Framework</cite> as the unit
+testing framework. If you decide to use a different framework, the instructions
+would still be similar although you will need to link to the appropriate
+libraries and add the appropriate include directories for that framework.</p>
+<ol class="arabic">
+<li><p>Add test cases to a <cite>test</cite> subdirectory under the module.</p></li>
+<li><p>Add <cite>CMakeLists.txt</cite> under the <cite>test</cite> subdirectory to describe how the test
+targets are built.</p>
+<p>The directory structure should now look like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>│   CMakeLists.txt
+│   README.md
+├───src
+└───test
+    ├───foo_test.cpp
+    └───main.cpp
+</pre></div>
+</div>
+<p>The new <cite>CMakeLists.txt</cite> for the test targets should contains something like
+this:</p>
+<blockquote>
+<div><div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="c"># ====================================================</span>
+<span class="c"># Build instructions</span>
+<span class="c"># ====================================================</span>
+
+<span class="nb">set</span><span class="p">(</span><span class="s">MAIN_TEST_TARGET_NAME</span><span class="w"> </span><span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span><span class="s">_test</span><span class="p">)</span>
+
+<span class="nb">asap_add_test</span><span class="p">(</span>
+<span class="w">  </span><span class="o">${</span><span class="nv">MAIN_TEST_TARGET_NAME</span><span class="o">}</span>
+<span class="w">  </span><span class="s">UNIT_TEST</span>
+<span class="w">  </span><span class="s">VALGRIND_MEMCHECK</span>
+<span class="w">  </span><span class="s">SRCS</span>
+<span class="w">  </span><span class="s2">&quot;foo_test.cpp&quot;</span>
+<span class="w">  </span><span class="s2">&quot;main.cpp&quot;</span>
+<span class="w">  </span><span class="s">LINK</span>
+<span class="w">  </span><span class="c"># Add any linked libraries here, including the module to be tested</span>
+<span class="w">  </span><span class="s">gtest</span>
+<span class="w">  </span><span class="s">gmock</span>
+<span class="w">  </span><span class="s">COMMENT</span>
+<span class="w">  </span><span class="s2">&quot;ASAP common unit tests&quot;</span><span class="p">)</span>
+
+<span class="nb">gtest_discover_tests</span><span class="p">(</span><span class="o">${</span><span class="nv">MAIN_TEST_TARGET_NAME</span><span class="o">}</span><span class="p">)</span>
+
+<span class="c"># Add support for (optional) code quality tools</span>
+<span class="nb">asap_add_sanitizers</span><span class="p">(</span><span class="o">${</span><span class="nv">MAIN_TEST_TARGET_NAME</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">swift_add_valgrind_massif</span><span class="p">(</span><span class="o">${</span><span class="nv">MAIN_TEST_TARGET_NAME</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">swift_add_valgrind_callgrind</span><span class="p">(</span><span class="o">${</span><span class="nv">MAIN_TEST_TARGET_NAME</span><span class="o">}</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Add the <cite>test</cite> subdirectory to the module’s <cite>CMakeLists.txt</cite></p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># -----------------------------------------------</span>
+<span class="c"># Tests</span>
+<span class="c"># -----------------------------------------------</span>
+
+<span class="nb">if</span><span class="p">(</span><span class="s">ASAP_BUILD_TESTS</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">test</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="adding-documentation-to-a-module">
+<h2>Adding documentation to a module<a class="headerlink" href="#adding-documentation-to-a-module" title="Permalink to this headline">¶</a></h2>
+<p>Documentation comes in two forms: <cite>doxygen</cite> API documentation and <cite>sphinx</cite>
+documentation. The former is embedded in the source code files, while the latter
+is written in its own separate files placed in a <code class="docutils literal notranslate"><span class="pre">`doc`</span></code> subdirectory under
+the module root.</p>
+<ol class="arabic">
+<li><p>The contents of the <cite>doc</cite> directory can be started by copying some of the
+files from another existing module. In particular, the <code class="docutils literal notranslate"><span class="pre">`conf.py.in`</span></code> file,
+can be copied from an existing module and used without modification.</p>
+<p>The module’s <cite>CMakeLists.txt</cite> should then be modified to add the targets for
+<cite>doxygen</cite> and <cite>sphinx</cite> documentation build as appropriate.</p>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="c"># --------------------------------------------</span>
+<span class="c"># API Documentation</span>
+<span class="c"># --------------------------------------------</span>
+
+<span class="nb">asap_with_doxygen</span><span class="p">(</span>
+<span class="w">  </span><span class="s">MODULE_NAME</span>
+<span class="w">  </span><span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span>
+<span class="w">  </span><span class="s">VERSION</span>
+<span class="w">  </span><span class="o">${</span><span class="nv">META_MODULE_VERSION</span><span class="o">}</span>
+<span class="w">  </span><span class="s">TITLE</span>
+<span class="w">  </span><span class="s2">&quot;\&quot;</span><span class="s">MyApp</span><span class="w"> </span><span class="s">Module\</span><span class="s2">&quot;&quot;</span>
+<span class="w">  </span><span class="s">BRIEF</span>
+<span class="w">  </span><span class="s2">&quot;\&quot;</span><span class="s">Provides</span><span class="w"> </span><span class="s">some</span><span class="w"> </span><span class="s">stuff</span><span class="w"> </span><span class="s">for</span><span class="w"> </span><span class="s">MyApp.\</span><span class="s2">&quot;&quot;</span>
+<span class="w">  </span><span class="s">INPUT_PATH</span>
+<span class="w">  </span><span class="s2">&quot;${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/include&quot;</span><span class="p">)</span>
+
+<span class="nb">asap_with_sphinx</span><span class="p">(</span><span class="o">${</span><span class="nv">MODULE_TARGET_NAME</span><span class="o">}</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add target dependencies from the master sphinx documentation target to the
+module’s sphinx documentation target. This step is only required if you have
+added a module sphinx documentation target.</p>
+<div class="highlight-CMake notranslate"><div class="highlight"><pre><span></span><span class="nb">add_dependencies</span><span class="p">(</span><span class="s">master_sphinx</span>
+<span class="w">  </span><span class="s">copy_doc_index</span>
+<span class="w">  </span><span class="c"># Hardcode `asap` in the module name as we do not want this prefix to</span>
+<span class="w">  </span><span class="c"># change with the forked project name.</span>
+<span class="w">  </span><span class="s">asap_common_sphinx</span>
+<span class="w">  </span><span class="s">asap_logging_sphinx</span>
+<span class="w">  </span><span class="c"># Add more submodule documentation targets after this, using variables</span>
+<span class="w">  </span><span class="c"># in the target names consistently with the module&#39;s CMakeLists.txt.</span>
+<span class="w">  </span><span class="s">myapp</span>
+<span class="w">  </span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="devflow.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Development Process</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="third_party.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Third party modules</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+        &copy; Copyright 2018, The Authors.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
