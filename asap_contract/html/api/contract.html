@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contract checking &#8212; Common</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="License" href="../license.html" />
+    <link rel="prev" title="API reference" href="../api.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Common</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../api.html">
+   API
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Contract checking API
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../license.html">
+   License
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../version.html">
+   Version
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Toggle navigation</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/api/contract.rst.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/abdes/asap"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/abdes/asap/issues/new?title=Issue%20on%20page%20%2Fapi/contract.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternative-libraries-and-references">
+   Alternative libraries and references
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contract-checking-macros">
+   Contract checking macros
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-mode-macros">
+     Default mode macros
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#audit-mode-macros">
+     Audit mode macros
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#violation-handler">
+   Violation Handler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unit-testing-contracts">
+   Unit testing contracts
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     Example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitations">
+     Limitations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Contract checking</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternative-libraries-and-references">
+   Alternative libraries and references
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contract-checking-macros">
+   Contract checking macros
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-mode-macros">
+     Default mode macros
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#audit-mode-macros">
+     Audit mode macros
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#violation-handler">
+   Violation Handler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unit-testing-contracts">
+   Unit testing contracts
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     Example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitations">
+     Limitations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p># with overline, for parts
+* with overline, for chapters
+= for sections
+- for subsections
+^ for sub-subsections
+” for paragraphs</p>
+<div class="section" id="contract-checking">
+<h1>Contract checking<a class="headerlink" href="#contract-checking" title="Permalink to this headline">¶</a></h1>
+<p>Contracts are usually expressed in the form of preconditions, post-conditions
+and assertions. Some programming languages have built-in support for contracts.
+So far, the closest in C++ is assertions. But assertions are not expressive and
+are not consistent. This simple API is intended at offering some rudimentary
+support of contract programming in the form of preconditions, post-conditions
+and assertions with three levels of contract enforcement at build time: <cite>off</cite>,
+<cite>default</cite> and <cite>audit</cite>, while waiting for it to become part of the C++ language
+in a near future.</p>
+<div class="section" id="alternative-libraries-and-references">
+<h2>Alternative libraries and references<a class="headerlink" href="#alternative-libraries-and-references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1332r0.txt">Contract Checking in C++: A (long-term) Road Map</a>.</p></li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/alexeiz/contract">libcontract</a> Library to support</dt><dd><p>contract programming in C++11.</p>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference external" href="https://www.boost.org/doc/libs/1_78_0/libs/contract/doc/html/index.html">Boost.Contract</a>
+implements contract programming (a.k.a., Design by Contract or DbC) [1] for
+the C++ programming language..</p></li>
+<li><p><a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3753.pdf">N3753</a>,
+“Centralized Defensive-Programming Support for Narrow Contracts” proposed for
+C++14 Standard.</p></li>
+<li><p><a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1962.html">N1962</a>,
+“Proposal to add Contract Programming to C++ (revision 4)” (not adopted for
+C++11 Standard).</p></li>
+</ul>
+</div>
+<div class="section" id="contract-checking-macros">
+<h2>Contract checking macros<a class="headerlink" href="#contract-checking-macros" title="Permalink to this headline">¶</a></h2>
+<p>There are three contract checking modes that can be set at build time by
+defining the appropriate symbol. Each mode has a specific behavior for the
+contract checking at runtime as described in the table below:</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 30%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Build mode</p></th>
+<th class="head"><p>Symbol to be defined</p></th>
+<th class="head"><p>Behavior</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OFF</p></td>
+<td><p>ASAP_CONTRACT_OFF</p></td>
+<td><p>None of the conditions are enforced.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DEFAULT</p></td>
+<td><p>ASAP_CONTRACT_DEFAULT</p></td>
+<td><p>Default mode conditions are enforced and execution will abort if the
+contract is not honored. Audit mode conditions are ignored.</p></td>
+</tr>
+<tr class="row-even"><td><p>AUDIT</p></td>
+<td><p>ASAP_CONTRACT_AUDIT</p></td>
+<td><p>All conditions are enforced and execution will abort if the contract is
+not honored.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="default-mode-macros">
+<h3>Default mode macros<a class="headerlink" href="#default-mode-macros" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_EXPECT">
+<span class="target" id="contract_8h_1ae112c82e7ddddeef5d123d120d7000df"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_EXPECT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">cond</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_EXPECT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines a precondition. </p>
+<p>A precondition describes the function’s expectation of its arguments and/or the state of other objects upon entry into the function and is usually placed at the start of a function body.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The prediction is ignored if the contract checking build mode is <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cond</strong> – an expression, that specifies the predicate of the contract. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_ENSURE">
+<span class="target" id="contract_8h_1a6e73921b5ccdc9d3bfa95fdf44b7cbac"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_ENSURE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">cond</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_ENSURE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines a postcondition.</p>
+<p>A postcondition is a condition that a function should ensure for the return value and/or the state of objects upon exit from the function and is usually placed immediately before returning control to the caller of the function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The postcondition is ignored if the contract checking build mode is <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cond</strong> – an expression, that specifies the predicate of the contract. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_ASSERT">
+<span class="target" id="contract_8h_1a7120f0a111a4bcb1589a61bb2646a682"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_ASSERT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">cond</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_ASSERT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines an assertion. </p>
+<p>An assertion is a condition that should be satisfied where it appears in a function body and can be placed anywhere within the body of a function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The assertion is ignored if the contract checking build mode is <code class="docutils literal notranslate"><span class="pre">OFF</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cond</strong> – an expression, that specifies the predicate of the contract. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="audit-mode-macros">
+<h3>Audit mode macros<a class="headerlink" href="#audit-mode-macros" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_EXPECT_AUDIT">
+<span class="target" id="contract_8h_1a84f975f88733c68b58942ac26364d870"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_EXPECT_AUDIT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">cond</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_EXPECT_AUDIT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines a precondition for the <code class="docutils literal notranslate"><span class="pre">AUDIT</span></code> contract checking mode. </p>
+<p>A precondition describes the function’s expectation of its arguments and/or the state of other objects upon entry into the function and is usually placed at the start of a function body.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The precondition is enforced only if the contract checking build mode is <code class="docutils literal notranslate"><span class="pre">AUDIT</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cond</strong> – an expression, that specifies the predicate of the contract. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_ENSURE_AUDIT">
+<span class="target" id="contract_8h_1a221a5df110b80d57888a4a7f331d76c1"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_ENSURE_AUDIT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">cond</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_ENSURE_AUDIT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines a postcondition for the <code class="docutils literal notranslate"><span class="pre">AUDIT</span></code> contract checking mode. </p>
+<p>A postcondition is a condition that a function should ensure for the return value and/or the state of objects upon exit from the function and is usually placed immediately before returning control to the caller of the function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The postcondition is enforced only if the contract checking build mode is <code class="docutils literal notranslate"><span class="pre">AUDIT</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cond</strong> – an expression, that specifies the predicate of the contract. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASAP_ASSERT_AUDIT">
+<span class="target" id="contract_8h_1a5e5a20cd3effc38a0d9411c8ab65391d"></span><span class="sig-name descname"><span class="n"><span class="pre">ASAP_ASSERT_AUDIT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">cond</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASAP_ASSERT_AUDIT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines an assertion for the <code class="docutils literal notranslate"><span class="pre">AUDIT</span></code> contract checking mode. </p>
+<p>An assertion is a condition that should be satisfied where it appears in a function body and can be placed anywhere within the body of a function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The assertion is enforced only if the contract checking build mode is <code class="docutils literal notranslate"><span class="pre">AUDIT</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cond</strong> – an expression, that specifies the predicate of the contract. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="violation-handler">
+<h2>Violation Handler<a class="headerlink" href="#violation-handler" title="Permalink to this headline">¶</a></h2>
+<p>There is a single violation handler in the system. Its implementation, however,
+can be switched at runtime to install a custom handler.</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract19GetViolationHandlerEv">
+<span id="_CPPv3N4asap8contract19GetViolationHandlerEv"></span><span id="_CPPv2N4asap8contract19GetViolationHandlerEv"></span><span id="asap::contract::GetViolationHandler"></span><span class="target" id="namespaceasap_1_1contract_1ad0a2e91248e8f1667d9e96c72f5778a2"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">contract</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">GetViolationHandler</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap8contract16ViolationHandlerE" title="asap::contract::ViolationHandler"><span class="n"><span class="pre">ViolationHandler</span></span></a><span class="p"><span class="pre">&amp;</span></span><a class="headerlink" href="#_CPPv4N4asap8contract19GetViolationHandlerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain the single instance of the violation handler. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is very lightweight and can be called as often as required. It is preferred to exclusively call it every time the violation handler is needed instead of storing the returned reference.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a reference to the violation handler. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract16ViolationHandlerE">
+<span id="_CPPv3N4asap8contract16ViolationHandlerE"></span><span id="_CPPv2N4asap8contract16ViolationHandlerE"></span><span id="asap::contract::ViolationHandler"></span><span class="target" id="classasap_1_1contract_1_1_violation_handler"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">asap</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">contract</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ViolationHandler</span></span></span><a class="headerlink" href="#_CPPv4N4asap8contract16ViolationHandlerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Interface for a violation handler which can switch its implementation at runtime. </p>
+<p>We expect to have a single violation handler instance in the system, although its implementation can be changed at runtime. Therefore, the interface clearly deletes the copy constructors and assignment operators.</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#namespaceasap_1_1contract_1ad0a2e91248e8f1667d9e96c72f5778a2"><span class="std std-ref">GetViolationHandler</span></a> </p>
+</div>
+</p>
+<p>Subclassed by asap::contract::ViolationHandler_impl</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract16ViolationHandler11WrapperTypeE">
+<span id="_CPPv3N4asap8contract16ViolationHandler11WrapperTypeE"></span><span id="_CPPv2N4asap8contract16ViolationHandler11WrapperTypeE"></span><span class="target" id="classasap_1_1contract_1_1_violation_handler_1ad0de3669bc5ac57485af40cde35c18d6"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WrapperType</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">Violation</span></span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N4asap8contract16ViolationHandler11WrapperTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A wrapper using std::function around violation handler implementation functions. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract16ViolationHandler16ViolationHandlerEv">
+<span id="_CPPv3N4asap8contract16ViolationHandler16ViolationHandlerEv"></span><span id="_CPPv2N4asap8contract16ViolationHandler16ViolationHandlerEv"></span><span id="asap::contract::ViolationHandler::ViolationHandler"></span><span class="target" id="classasap_1_1contract_1_1_violation_handler_1a8835761bde2c39d8ff3d86efe07d0dc3"></span><span class="sig-name descname"><span class="n"><span class="pre">ViolationHandler</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap8contract16ViolationHandler16ViolationHandlerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract16ViolationHandlerD0Ev">
+<span id="_CPPv3N4asap8contract16ViolationHandlerD0Ev"></span><span id="_CPPv2N4asap8contract16ViolationHandlerD0Ev"></span><span id="asap::contract::ViolationHandler::~ViolationHandler"></span><span class="target" id="classasap_1_1contract_1_1_violation_handler_1ad40577c3007264e9c1a1d9b3009db8ac"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ViolationHandler</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4asap8contract16ViolationHandlerD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract16ViolationHandler16ViolationHandlerERK16ViolationHandler">
+<span id="_CPPv3N4asap8contract16ViolationHandler16ViolationHandlerERK16ViolationHandler"></span><span id="_CPPv2N4asap8contract16ViolationHandler16ViolationHandlerERK16ViolationHandler"></span><span id="asap::contract::ViolationHandler::ViolationHandler__ViolationHandlerCR"></span><span class="target" id="classasap_1_1contract_1_1_violation_handler_1af7afd86a101143790fc82ff850611f22"></span><span class="sig-name descname"><span class="n"><span class="pre">ViolationHandler</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap8contract16ViolationHandler16ViolationHandlerERK16ViolationHandler" title="asap::contract::ViolationHandler::ViolationHandler"><span class="n"><span class="pre">ViolationHandler</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4asap8contract16ViolationHandler16ViolationHandlerERK16ViolationHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor (deleted). </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract16ViolationHandler16ViolationHandlerERR16ViolationHandler">
+<span id="_CPPv3N4asap8contract16ViolationHandler16ViolationHandlerERR16ViolationHandler"></span><span id="_CPPv2N4asap8contract16ViolationHandler16ViolationHandlerERR16ViolationHandler"></span><span id="asap::contract::ViolationHandler::ViolationHandler__ViolationHandlerRR"></span><span class="target" id="classasap_1_1contract_1_1_violation_handler_1ab715e9a3649a217d3def5d853eb2b90c"></span><span class="sig-name descname"><span class="n"><span class="pre">ViolationHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4asap8contract16ViolationHandler16ViolationHandlerERR16ViolationHandler" title="asap::contract::ViolationHandler::ViolationHandler"><span class="n"><span class="pre">ViolationHandler</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap8contract16ViolationHandler16ViolationHandlerERR16ViolationHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move constructor (default) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract16ViolationHandleraSERK16ViolationHandler">
+<span id="_CPPv3N4asap8contract16ViolationHandleraSERK16ViolationHandler"></span><span id="_CPPv2N4asap8contract16ViolationHandleraSERK16ViolationHandler"></span><span id="asap::contract::ViolationHandler::assign-operator__ViolationHandlerCR"></span><span class="target" id="classasap_1_1contract_1_1_violation_handler_1ad79d4f1bd8b7ed76030089b581623b9d"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap8contract16ViolationHandlerE" title="asap::contract::ViolationHandler"><span class="n"><span class="pre">ViolationHandler</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap8contract16ViolationHandlerE" title="asap::contract::ViolationHandler"><span class="n"><span class="pre">ViolationHandler</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">delete</span></span><a class="headerlink" href="#_CPPv4N4asap8contract16ViolationHandleraSERK16ViolationHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy assignment operator (deleted) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract16ViolationHandleraSERR16ViolationHandler">
+<span id="_CPPv3N4asap8contract16ViolationHandleraSERR16ViolationHandler"></span><span id="_CPPv2N4asap8contract16ViolationHandleraSERR16ViolationHandler"></span><span id="asap::contract::ViolationHandler::assign-operator__ViolationHandlerRR"></span><span class="target" id="classasap_1_1contract_1_1_violation_handler_1ab1b38e3d17331bf59ec42ff1cc9f58cc"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4asap8contract16ViolationHandlerE" title="asap::contract::ViolationHandler"><span class="n"><span class="pre">ViolationHandler</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4asap8contract16ViolationHandlerE" title="asap::contract::ViolationHandler"><span class="n"><span class="pre">ViolationHandler</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N4asap8contract16ViolationHandleraSERR16ViolationHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Move assignment operator (default) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract16ViolationHandler15HandleViolationEPK9Violation">
+<span id="_CPPv3N4asap8contract16ViolationHandler15HandleViolationEPK9Violation"></span><span id="_CPPv2N4asap8contract16ViolationHandler15HandleViolationEPK9Violation"></span><span id="asap::contract::ViolationHandler::HandleViolation__ViolationCP"></span><span class="target" id="classasap_1_1contract_1_1_violation_handler_1a20957316d5377caee65111c4e436802a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HandleViolation</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">Violation</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">violation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N4asap8contract16ViolationHandler15HandleViolationEPK9Violation" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Handle a contract violation. </p>
+<p>This method is called when a contract violation occurs. The information related to the violation is provided by the <code class="docutils literal notranslate"><span class="pre">violation</span></code> parameter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function <em>may</em> never return.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>violation</strong> – violation details. Will never be null and is allocated on the stack. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4asap8contract16ViolationHandler11SwapHandlerER11WrapperType">
+<span id="_CPPv3N4asap8contract16ViolationHandler11SwapHandlerER11WrapperType"></span><span id="_CPPv2N4asap8contract16ViolationHandler11SwapHandlerER11WrapperType"></span><span id="asap::contract::ViolationHandler::SwapHandler__WrapperTypeR"></span><span class="target" id="classasap_1_1contract_1_1_violation_handler_1a779ccb06a32fadfbe79930bb81c081d4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SwapHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4asap8contract16ViolationHandler11WrapperTypeE" title="asap::contract::ViolationHandler::WrapperType"><span class="n"><span class="pre">WrapperType</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other_handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N4asap8contract16ViolationHandler11SwapHandlerER11WrapperType" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Swap the existing violation handler implementation with the give one. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>other_handler</strong> – at the call time this holds the new violation handler implementation function. Upon return, it will hold the old violation handler function. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="unit-testing-contracts">
+<h2>Unit testing contracts<a class="headerlink" href="#unit-testing-contracts" title="Permalink to this headline">¶</a></h2>
+<p>Testing contracts is tricky as violations often result in the program execution
+being abruptly terminated rendering it quite difficult to test without death
+test support by the testing framework.</p>
+<p>To simplify this situation, you can use the <cite>contracts</cite> helper library
+which provides special macros for testing contracts without death tests.</p>
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.CHECK_VIOLATES_CONTRACT">
+<span class="target" id="gtest_8h_1a4b028ab80ac7ac3f355233bf57c2163c"></span><span class="sig-name descname"><span class="n"><span class="pre">CHECK_VIOLATES_CONTRACT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">call</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.CHECK_VIOLATES_CONTRACT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An alias for <a class="reference internal" href="#gtest_8h_1a0ea9e3c4ff7dbb2faf929eb825968ded"><span class="std std-ref">ASSERT_VIOLATES_CONTRACT()</span></a>, checks that the statement produces a contract violation and if not, the test is immediately terminated. </p>
+<p>If the statement does not produce a violation contract, execution is aborted.</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#gtest_8h_1a0ea9e3c4ff7dbb2faf929eb825968ded"><span class="std std-ref">ASSERT_VIOLATES_CONTRACT</span></a> </p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#gtest_8h_1a9eaacad31c8e47c7c77ad5996ed88ce6"><span class="std std-ref">EXPECT_VIOLATES_CONTRACT</span></a> </p>
+</div>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The implementation of this macro is not thread safe.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>call</strong> – the statement to test.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.EXPECT_VIOLATES_CONTRACT">
+<span class="target" id="gtest_8h_1a9eaacad31c8e47c7c77ad5996ed88ce6"></span><span class="sig-name descname"><span class="n"><span class="pre">EXPECT_VIOLATES_CONTRACT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">call</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.EXPECT_VIOLATES_CONTRACT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Expect the statement to produce a contract violation. If the statement does not produce a contract, execution still continues. </p>
+<p>Use EXPECT when the condition should hold, but in cases where it doesn’t we can still get value out of continuing the test. The test will still ultimately fail at the end, though.</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#gtest_8h_1a0ea9e3c4ff7dbb2faf929eb825968ded"><span class="std std-ref">ASSERT_VIOLATES_CONTRACT</span></a> </p>
+</div>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The implementation of this macro is not thread safe.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>call</strong> – the statement to test.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.ASSERT_VIOLATES_CONTRACT">
+<span class="target" id="gtest_8h_1a0ea9e3c4ff7dbb2faf929eb825968ded"></span><span class="sig-name descname"><span class="n"><span class="pre">ASSERT_VIOLATES_CONTRACT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">call</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.ASSERT_VIOLATES_CONTRACT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Assert that the statement produces a contract violation. If the statement does not produce a contract violation contract, the test is immediately terminated. </p>
+<p>Use ASSERT_VIOLATES_CONTRACT when the condition must hold - if it doesn’t the test stops right there. Use this when the remainder of the test doesn’t have semantic meaning without this condition holding.</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#gtest_8h_1a9eaacad31c8e47c7c77ad5996ed88ce6"><span class="std std-ref">EXPECT_VIOLATES_CONTRACT</span></a> </p>
+</div>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The implementation of this macro is not thread safe.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>call</strong> – the statement to test.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Some function to be tested in some .cpp file</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">TestExpectDefault</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">ASAP_EXPECT</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;contract/ut/framework.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;contract/ut/gtest.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">GoogleTestDeathMacros</span><span class="p">,</span><span class="w"> </span><span class="n">DefaultModeExpectDeath</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CHECK_VIOLATES_CONTRACT</span><span class="p">(</span><span class="n">testing</span><span class="o">::</span><span class="n">TestExpectDefault</span><span class="p">(</span><span class="k">nullptr</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">asap</span><span class="o">::</span><span class="n">contract</span><span class="o">::</span><span class="n">PrepareForTesting</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">InitGoogleTest</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">RUN_ALL_TESTS</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="limitations">
+<h3>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h3>
+<p>The mechanism that allows contract checks to be tested during unit tests is
+implemented with setjmp and longjmp. It uses global variables to save the stack
+environment during the setjmp/longjmp which is not thread safe.</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../api.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">API reference</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../license.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">License</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+        &copy; Copyright 2022, The Authors.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
