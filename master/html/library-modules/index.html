@@ -178,10 +178,27 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
    Library Modules
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://abdes.github.io/asap/asap_common/html/">
+     Module: common
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://abdes.github.io/asap/asap_contract/html/">
+     Module: contract
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../license.html">
@@ -288,6 +305,13 @@
    </span>
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contract">
+   <span class="xref std std-doc">
+    contract
+   </span>
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -315,6 +339,13 @@
    </span>
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contract">
+   <span class="xref std std-doc">
+    contract
+   </span>
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -326,8 +357,24 @@
                 
   <div class="section" id="library-modules">
 <h1>Library Modules<a class="headerlink" href="#library-modules" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>The <cite>asap</cite> projects comes with two built-in modules, offering some core basic
+functionality:</p>
 <div class="section" id="common">
-<h2><a class="reference external" href="/home/runner/work/asap/asap/build/sphinx/asap_common/html/api.html" title="(in asap/common v1.2.0)"><span class="xref std std-doc">common</span></a><a class="headerlink" href="#common" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference external" href="/home/runner/work/asap/asap/build/sphinx/asap_common/html/index.html" title="(in asap/common v1.2.0)"><span class="xref std std-doc">common</span></a><a class="headerlink" href="#common" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><em>offers some core and low level features such as platform/environment
+detection and C++ language features not consistently provided by all
+compilers on all platforms.</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="contract">
+<h2><a class="reference external" href="/home/runner/work/asap/asap/build/sphinx/asap_contract/html/index.html" title="(in asap/contract v1.0.0)"><span class="xref std std-doc">contract</span></a><a class="headerlink" href="#contract" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><em>a lightweight implementation of contract checking assertions, while
+waiting for it to potentially become a standard feature in C++-23 or later.</em></p>
+</div></blockquote>
 </div>
 </div>
 

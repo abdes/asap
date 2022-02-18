@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mixin support library &#8212; Common</title>
+    <title>Mixin support library &#8212; Module: common</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -38,7 +38,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="License" href="../license.html" />
+    <link rel="next" title="Masks/Flags manipulation helpers" href="flags.html" />
     <link rel="prev" title="The overload pattern" href="overload.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -73,7 +73,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Common</h1>
+      <h1 class="site-logo" id="site-title">Module: common</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -103,11 +103,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="flags.html">
-     Mask/Flags manipulation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="overload.html">
      Overload pattern
     </a>
@@ -115,6 +110,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Mixin library
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="flags.html">
+     Mask/Flags manipulation
     </a>
    </li>
   </ul>
@@ -287,7 +287,7 @@
                 
   <div class="section" id="mixin-support-library">
 <h1>Mixin support library<a class="headerlink" href="#mixin-support-library" title="Permalink to this headline">¶</a></h1>
-<p>The idea with mix-ins is to provide a bunch of primitive classes, where each of them models a basic orthogonal concept, and be able to stick them together to compose more complex classes with just the functionality you want &amp;#8212; sort of like Lego. The primitive classes themselves are meant to be used as building blocks. This is extensible since later on you can add other primitive classes to the collection without affecting the existing ones.</p>
+<p>The idea with mix-ins is to provide a bunch of primitive classes, where each of them models a basic orthogonal concept, and be able to stick them together to compose more complex classes with just the functionality you want. The primitive classes themselves are meant to be used as building blocks. This is extensible since later on you can add other primitive classes to the collection without affecting the existing ones.</p>
 <p>A technique for doing this in C++ is using templates and inheritance. The basic idea here is you connect these building blocks together by providing them via the template parameter. You then chain them together, eg. via typedef, to form a new type containing the functionality you want.</p>
 <p><strong>What’s a mixin</strong></p>
 <p>A mixin is a template struct/class that:<ul class="simple">
@@ -465,10 +465,10 @@ composite.</p>
             <p class="prev-next-title">The overload pattern</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../license.html" title="next page">
+    <a class='right-next' id="next-link" href="flags.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">License</p>
+        <p class="prev-next-title">Masks/Flags manipulation helpers</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -479,7 +479,7 @@ composite.</p>
     <footer class="footer">
   <p>
     
-        &copy; Copyright 2018, The Authors.<br/>
+        &copy; Copyright 2022, The Authors.<br/>
   </p>
 </footer>
 </main>

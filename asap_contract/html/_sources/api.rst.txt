@@ -14,4 +14,12 @@ API reference
    :maxdepth: 2
    :hidden:
 
-   Contract checking API <api/contract>
+   Contract checking <api/contract>
+
+This module offers the following APIs:
+
+:doc:`Contract checking <api/contract>`
+=======================================
+  *preconditions, post-conditions and assertions helper macros to implement
+  contract checking in C++ while waiting for it to become part of the nex C++
+  standard.*

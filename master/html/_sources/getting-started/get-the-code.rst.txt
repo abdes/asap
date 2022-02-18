@@ -60,40 +60,8 @@ of GitHub to fork the `asap` project.
   recommended to do it immediately after the fork.
 
   Follow the instructions described in `Renaming a repository
-  <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_ document
+  <https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository>`_ document
   from the GitHub documentation.
-
-Configuring a remote for the fork
----------------------------------
-
-You must configure a remote that points to the upstream `asap` repository in Git
-to sync changes made in the original repository with your fork. This also allows
-you to sync bug fixes and enhancements you make in your fork with the original
-`asap` repository in the form of submitted pull requests.
-
-#. List the current configured remote repository for your fork.
-
-   .. code-block:: bash
-
-     $ git remote -v
-     > origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-     > origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-
-2. Specify a new remote upstream repository that will be synced with the fork.
-
-   .. code-block:: bash
-
-     $ git remote add upstream https://github.com/abdes/asap.git
-
-3. Verify the new upstream repository you've specified for your fork.
-
-   .. code-block:: bash
-
-     $ git remote -v
-       > origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-       > origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-       > upstream  https://github.com/abdes/asap.git (fetch)
-       > upstream  https://github.com/abdes/asap.git (push)
 
 2. Clone your fork
 ==================
@@ -132,6 +100,9 @@ submodules, you can use the foolproof ```git submodule update --init
   the hooks and additional tools needed for commit message linting and automatic
   changelog generation.
 
+Husky, commitlint and standard-version
+--------------------------------------
+
 Only once, after the project is cloned, do the following:
 
 .. code-block:: bash
@@ -139,3 +110,35 @@ Only once, after the project is cloned, do the following:
   npx husky install
   npm install -g @commitlint/cli @commitlint/config-conventional
   npm install -g standard-version
+
+Configuring a remote for the fork
+---------------------------------
+
+You must configure a remote that points to the upstream `asap` repository in Git
+to sync changes made in the original repository with your fork. This also allows
+you to sync bug fixes and enhancements you make in your fork with the original
+`asap` repository in the form of submitted pull requests.
+
+#. List the current configured remote repository for your fork.
+
+   .. code-block:: bash
+
+     $ git remote -v
+     > origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+     > origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+
+2. Specify a new remote upstream repository that will be synced with the fork.
+
+   .. code-block:: bash
+
+     $ git remote add upstream https://github.com/abdes/asap.git
+
+3. Verify the new upstream repository you've specified for your fork.
+
+   .. code-block:: bash
+
+     $ git remote -v
+       > origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+       > origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+       > upstream  https://github.com/abdes/asap.git (fetch)
+       > upstream  https://github.com/abdes/asap.git (push)

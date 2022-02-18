@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ASAP common’s documentation &#8212; Common</title>
+    <title>ASAP contract’s documentation &#8212; Module: contract</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -72,7 +72,7 @@
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Common</h1>
+      <h1 class="site-logo" id="site-title">Module: contract</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -93,7 +93,7 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="api/contract.html">
-     Contract checking API
+     Contract checking
     </a>
    </li>
   </ul>
@@ -192,6 +192,11 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternative-libraries-and-references">
+   Alternative libraries and references
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#parts-of-the-documentation">
    Parts of the documentation
   </a>
@@ -215,7 +220,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>ASAP common’s documentation</h1>
+                <h1>ASAP contract’s documentation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -225,6 +230,11 @@
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternative-libraries-and-references">
+   Alternative libraries and references
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#parts-of-the-documentation">
    Parts of the documentation
@@ -248,15 +258,33 @@
             
               <div>
                 
-  <div class="section" id="asap-common-s-documentation">
-<h1>ASAP common’s documentation<a class="headerlink" href="#asap-common-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="asap-contract-s-documentation">
+<h1>ASAP contract’s documentation<a class="headerlink" href="#asap-contract-s-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>Welcome! This is the documentation for the <em>common</em> module, part of the <em>asap</em>
-project. This is a core module on which the other modules depend to get access
-to low level and frequently needed features such as platform/environment
-detection, assertions and C++ language features not consistently provided by
-all compilers on all platforms.</p>
+<p>Welcome! This is the documentation for the <em>contract</em> module, part of the <em>asap</em>
+project. This is an extra module, delivered separately from the <em>common</em>
+module to make its use optional. It provides a lightweight implementation of
+contract checking in C++ in the form of preconditions, post-conditions
+and assertions macros. Hopefully, in a near future, this would become a
+standard feature of C++.</p>
+<div class="section" id="alternative-libraries-and-references">
+<h2>Alternative libraries and references<a class="headerlink" href="#alternative-libraries-and-references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1332r0.txt">Contract Checking in C++: A (long-term) Road Map</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/alexeiz/contract">libcontract</a> library to support
+contract programming in C++11.</p></li>
+<li><p><a class="reference external" href="https://www.boost.org/doc/libs/1_78_0/libs/contract/doc/html/index.html">Boost.Contract</a>
+implements contract programming (a.k.a., Design by Contract or DbC) [1] for
+the C++ programming language..</p></li>
+<li><p><a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3753.pdf">N3753</a>,
+“Centralized Defensive-Programming Support for Narrow Contracts” proposed for
+C++14 Standard.</p></li>
+<li><p><a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1962.html">N1962</a>,
+“Proposal to add Contract Programming to C++ (revision 4)” (not adopted for
+C++11 Standard).</p></li>
+</ul>
+</div>
 <div class="section" id="parts-of-the-documentation">
 <h2>Parts of the documentation<a class="headerlink" href="#parts-of-the-documentation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="api-reference">

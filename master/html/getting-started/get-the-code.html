@@ -178,10 +178,27 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../library-modules/index.html">
    Library Modules
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://abdes.github.io/asap/asap_common/html/">
+     Module: common
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://abdes.github.io/asap/asap_contract/html/">
+     Module: contract
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../license.html">
@@ -289,13 +306,6 @@
    </cite>
    project
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configuring-a-remote-for-the-fork">
-     Configuring a remote for the fork
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clone-your-fork">
@@ -306,6 +316,18 @@
   <a class="reference internal nav-link" href="#post-clone-setup">
    3. Post-clone setup
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#husky-commitlint-and-standard-version">
+     Husky, commitlint and standard-version
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuring-a-remote-for-the-fork">
+     Configuring a remote for the fork
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -335,13 +357,6 @@
    </cite>
    project
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configuring-a-remote-for-the-fork">
-     Configuring a remote for the fork
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clone-your-fork">
@@ -352,6 +367,18 @@
   <a class="reference internal nav-link" href="#post-clone-setup">
    3. Post-clone setup
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#husky-commitlint-and-standard-version">
+     Husky, commitlint and standard-version
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configuring-a-remote-for-the-fork">
+     Configuring a remote for the fork
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -364,7 +391,7 @@
                 
   <div class="section" id="get-the-code">
 <span id="id1"></span><h1>Get the code<a class="headerlink" href="#get-the-code" title="Permalink to this headline">¶</a></h1>
-<p>Last Updated on 2022-02-17</p>
+<p>Last Updated on 2022-02-18</p>
 <p>The <cite>asap</cite> development model recommends the use of the <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models#fork-and-pull-model">Fork and pull model</a>
 of github projects.</p>
 <div class="margin admonition note">
@@ -397,40 +424,8 @@ of GitHub to fork the <cite>asap</cite> project.</p>
 <p>Rename your fork to match your project name as early as possible in the
 process. Although you can do this step at any time in the future, it is
 recommended to do it immediately after the fork.</p>
-<p>Follow the instructions described in <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">Renaming a repository</a> document
+<p>Follow the instructions described in <a class="reference external" href="https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository">Renaming a repository</a> document
 from the GitHub documentation.</p>
-</div>
-<div class="section" id="configuring-a-remote-for-the-fork">
-<h3>Configuring a remote for the fork<a class="headerlink" href="#configuring-a-remote-for-the-fork" title="Permalink to this headline">¶</a></h3>
-<p>You must configure a remote that points to the upstream <cite>asap</cite> repository in Git
-to sync changes made in the original repository with your fork. This also allows
-you to sync bug fixes and enhancements you make in your fork with the original
-<cite>asap</cite> repository in the form of submitted pull requests.</p>
-<ol class="arabic">
-<li><p>List the current configured remote repository for your fork.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote -v
-&gt; origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>fetch<span class="o">)</span>
-&gt; origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>push<span class="o">)</span>
-</pre></div>
-</div>
-</li>
-</ol>
-<ol class="arabic" start="2">
-<li><p>Specify a new remote upstream repository that will be synced with the fork.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote add upstream https://github.com/abdes/asap.git
-</pre></div>
-</div>
-</li>
-<li><p>Verify the new upstream repository you’ve specified for your fork.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote -v
-  &gt; origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>fetch<span class="o">)</span>
-  &gt; origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>push<span class="o">)</span>
-  &gt; upstream  https://github.com/abdes/asap.git <span class="o">(</span>fetch<span class="o">)</span>
-  &gt; upstream  https://github.com/abdes/asap.git <span class="o">(</span>push<span class="o">)</span>
-</pre></div>
-</div>
-</li>
-</ol>
 </div>
 </div>
 <div class="section" id="clone-your-fork">
@@ -464,11 +459,46 @@ submodules, you can use the foolproof <code class="docutils literal notranslate"
 the hooks and additional tools needed for commit message linting and automatic
 changelog generation.</p>
 </div>
+<div class="section" id="husky-commitlint-and-standard-version">
+<h3>Husky, commitlint and standard-version<a class="headerlink" href="#husky-commitlint-and-standard-version" title="Permalink to this headline">¶</a></h3>
 <p>Only once, after the project is cloned, do the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npx husky install
 npm install -g @commitlint/cli @commitlint/config-conventional
 npm install -g standard-version
 </pre></div>
+</div>
+</div>
+<div class="section" id="configuring-a-remote-for-the-fork">
+<h3>Configuring a remote for the fork<a class="headerlink" href="#configuring-a-remote-for-the-fork" title="Permalink to this headline">¶</a></h3>
+<p>You must configure a remote that points to the upstream <cite>asap</cite> repository in Git
+to sync changes made in the original repository with your fork. This also allows
+you to sync bug fixes and enhancements you make in your fork with the original
+<cite>asap</cite> repository in the form of submitted pull requests.</p>
+<ol class="arabic">
+<li><p>List the current configured remote repository for your fork.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+&gt; origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>fetch<span class="o">)</span>
+&gt; origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p>Specify a new remote upstream repository that will be synced with the fork.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote add upstream https://github.com/abdes/asap.git
+</pre></div>
+</div>
+</li>
+<li><p>Verify the new upstream repository you’ve specified for your fork.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+  &gt; origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>fetch<span class="o">)</span>
+  &gt; origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git <span class="o">(</span>push<span class="o">)</span>
+  &gt; upstream  https://github.com/abdes/asap.git <span class="o">(</span>fetch<span class="o">)</span>
+  &gt; upstream  https://github.com/abdes/asap.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>

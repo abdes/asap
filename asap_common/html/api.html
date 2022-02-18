@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API reference &#8212; Common</title>
+    <title>API reference &#8212; Module: common</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -73,7 +73,7 @@
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Common</h1>
+      <h1 class="site-logo" id="site-title">Module: common</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -103,11 +103,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="api/flags.html">
-     Mask/Flags manipulation
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="api/overload.html">
      Overload pattern
     </a>
@@ -115,6 +110,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="api/mixin.html">
      Mixin library
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="api/flags.html">
+     Mask/Flags manipulation
     </a>
    </li>
   </ul>
@@ -207,6 +207,49 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#platform-detection">
+   <span class="xref std std-doc">
+    Platform detection
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiler-detection">
+   <span class="xref std std-doc">
+    Compiler detection
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overload-pattern">
+   <span class="xref std std-doc">
+    Overload pattern
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mixin-library">
+   <span class="xref std std-doc">
+    Mixin library
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mask-flags-manipulation">
+   <span class="xref std std-doc">
+    Mask/Flags manipulation
+   </span>
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -219,6 +262,49 @@
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#platform-detection">
+   <span class="xref std std-doc">
+    Platform detection
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiler-detection">
+   <span class="xref std std-doc">
+    Compiler detection
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overload-pattern">
+   <span class="xref std std-doc">
+    Overload pattern
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mixin-library">
+   <span class="xref std std-doc">
+    Mixin library
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mask-flags-manipulation">
+   <span class="xref std std-doc">
+    Mask/Flags manipulation
+   </span>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -228,6 +314,40 @@
   <div class="section" id="api-reference">
 <h1>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+</div>
+<p>This module offers the following APIs:</p>
+<div class="section" id="platform-detection">
+<h2><a class="reference internal" href="api/platform.html"><span class="doc">Platform detection</span></a><a class="headerlink" href="#platform-detection" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><em>macros and compiler definitions to help identify the platform on which the
+code is being compiled.</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="compiler-detection">
+<h2><a class="reference internal" href="api/compilers.html"><span class="doc">Compiler detection</span></a><a class="headerlink" href="#compiler-detection" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><em>macros and compiler definitions to help identify and use the compiler being
+used to compile the code.</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="overload-pattern">
+<h2><a class="reference internal" href="api/overload.html"><span class="doc">Overload pattern</span></a><a class="headerlink" href="#overload-pattern" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><em>the famous overload pattern which allows to use separate lambdas
+“in=place” for visiting a variant.</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="mixin-library">
+<h2><a class="reference internal" href="api/mixin.html"><span class="doc">Mixin library</span></a><a class="headerlink" href="#mixin-library" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><em>a lightweight library to simplify the use of mixins in C++ classes.</em></p>
+</div></blockquote>
+</div>
+<div class="section" id="mask-flags-manipulation">
+<h2><a class="reference internal" href="api/flags.html"><span class="doc">Mask/Flags manipulation</span></a><a class="headerlink" href="#mask-flags-manipulation" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><em>utility functions to help in using and manipulating bit flags and masks.</em></p>
+</div></blockquote>
 </div>
 </div>
 
@@ -258,7 +378,7 @@
     <footer class="footer">
   <p>
     
-        &copy; Copyright 2018, The Authors.<br/>
+        &copy; Copyright 2022, The Authors.<br/>
   </p>
 </footer>
 </main>

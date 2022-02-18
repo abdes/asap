@@ -178,10 +178,27 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../library-modules/index.html">
    Library Modules
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://abdes.github.io/asap/asap_common/html/">
+     Module: common
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://abdes.github.io/asap/asap_contract/html/">
+     Module: contract
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../license.html">
@@ -538,7 +555,7 @@
                 
   <div class="section" id="development-environment">
 <h1>Development environment<a class="headerlink" href="#development-environment" title="Permalink to this headline">¶</a></h1>
-<p>Last Updated on 2022-02-17</p>
+<p>Last Updated on 2022-02-18</p>
 <p>In the past, software development comes with a lot of pain. It takes many steps
 beginning from Coding, Compiling, Testing, Debugging, Build, and Deployment. All
 these different phases would need many commands, scripts and different packages
@@ -954,14 +971,8 @@ Studio Community Install&lt;<a class="reference external" href="https://visualst
 guide.`</p>
 <p>Once installed, open your PowerShell <strong>PROFILE</strong> (<code class="docutils literal notranslate"><span class="pre">`notepad</span> <span class="pre">$PROFILE`</span></code>), add
 the following lines to it and save it.</p>
-<p>for Visual Studio 2019</p>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Import-Module</span> <span class="s2">&quot;&gt;&gt;replace-with-path-to-vstudio&lt;&lt;\Microsoft Visual Studio\2019\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll&quot;</span>
-<span class="nb">Enter-VsDevShell</span> <span class="n">284a69d6</span>
-</pre></div>
-</div>
-<p>or for Visual Studio 2022</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Import-Module</span> <span class="s2">&quot;E:\dev\Microsoft Visual Studio\2022\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll&quot;</span>
-<span class="nb">Enter-VsDevShell</span> <span class="n">205f0af7</span>
+<span class="nb">Enter-VsDevShell</span> <span class="n">205f0af7</span> <span class="n">-SkipAutomaticLocation</span> <span class="n">-DevCmdArguments</span> <span class="s2">&quot;-arch=x64 -host_arch=x64&quot;</span>
 </pre></div>
 </div>
 <p>Restart your terminal to activate the changes.</p>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contract checking &#8212; Common</title>
+    <title>Contract checking &#8212; Module: contract</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -73,7 +73,7 @@
       <img src="../_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Common</h1>
+      <h1 class="site-logo" id="site-title">Module: contract</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -94,7 +94,7 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Contract checking API
+     Contract checking
     </a>
    </li>
   </ul>
@@ -193,11 +193,6 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#alternative-libraries-and-references">
-   Alternative libraries and references
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#contract-checking-macros">
    Contract checking macros
   </a>
@@ -257,11 +252,6 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#alternative-libraries-and-references">
-   Alternative libraries and references
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#contract-checking-macros">
    Contract checking macros
   </a>
@@ -309,13 +299,7 @@
             
               <div>
                 
-  <p># with overline, for parts
-* with overline, for chapters
-= for sections
-- for subsections
-^ for sub-subsections
-” for paragraphs</p>
-<div class="section" id="contract-checking">
+  <div class="section" id="contract-checking">
 <h1>Contract checking<a class="headerlink" href="#contract-checking" title="Permalink to this headline">¶</a></h1>
 <p>Contracts are usually expressed in the form of preconditions, post-conditions
 and assertions. Some programming languages have built-in support for contracts.
@@ -325,26 +309,6 @@ support of contract programming in the form of preconditions, post-conditions
 and assertions with three levels of contract enforcement at build time: <cite>off</cite>,
 <cite>default</cite> and <cite>audit</cite>, while waiting for it to become part of the C++ language
 in a near future.</p>
-<div class="section" id="alternative-libraries-and-references">
-<h2>Alternative libraries and references<a class="headerlink" href="#alternative-libraries-and-references" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1332r0.txt">Contract Checking in C++: A (long-term) Road Map</a>.</p></li>
-<li><dl class="simple">
-<dt><a class="reference external" href="https://github.com/alexeiz/contract">libcontract</a> Library to support</dt><dd><p>contract programming in C++11.</p>
-</dd>
-</dl>
-</li>
-<li><p><a class="reference external" href="https://www.boost.org/doc/libs/1_78_0/libs/contract/doc/html/index.html">Boost.Contract</a>
-implements contract programming (a.k.a., Design by Contract or DbC) [1] for
-the C++ programming language..</p></li>
-<li><p><a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3753.pdf">N3753</a>,
-“Centralized Defensive-Programming Support for Narrow Contracts” proposed for
-C++14 Standard.</p></li>
-<li><p><a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1962.html">N1962</a>,
-“Proposal to add Contract Programming to C++ (revision 4)” (not adopted for
-C++11 Standard).</p></li>
-</ul>
-</div>
 <div class="section" id="contract-checking-macros">
 <h2>Contract checking macros<a class="headerlink" href="#contract-checking-macros" title="Permalink to this headline">¶</a></h2>
 <p>There are three contract checking modes that can be set at build time by

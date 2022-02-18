@@ -492,19 +492,10 @@ guide.`
 Once installed, open your PowerShell **PROFILE** (```notepad $PROFILE```), add
 the following lines to it and save it.
 
-for Visual Studio 2019
-
-.. code-block:: powershell
-
-  Import-Module ">>replace-with-path-to-vstudio<<\Microsoft Visual Studio\2019\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
-  Enter-VsDevShell 284a69d6
-
-or for Visual Studio 2022
-
 .. code-block:: powershell
 
   Import-Module "E:\dev\Microsoft Visual Studio\2022\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
-  Enter-VsDevShell 205f0af7
+  Enter-VsDevShell 205f0af7 -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64"
 
 Restart your terminal to activate the changes.
 
