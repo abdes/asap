@@ -744,14 +744,17 @@ checking will not have to depend on it.</p>
 <div class="section" id="breaking-changes">
 <h3>⚠ BREAKING CHANGES<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>The logging <code class="docutils literal notranslate"><span class="pre">Registry</span></code> is now implemented as a singleton class and therefore it needs to be
-accessed via its instance() method. All other methods in its interface are not static anymore.</p></li>
-<li><p>Prefix the build options with <code class="docutils literal notranslate"><span class="pre">ASAP_</span></code> to make them unique and avoid clashing with other projects
-that may use the generic <code class="docutils literal notranslate"><span class="pre">OPTION_xxx</span></code> names. Additionally, the build presets now always activate
-building of tests and examples except in release builds where examples are not built.</p></li>
-<li><p>The cmake option <code class="docutils literal notranslate"><span class="pre">OPTION_SELF_CONTAINED</span></code> is no longer relevant as we believe that 3rd party
-dependencies should be installed using their own projects. In the wrostcase scenario, they should
-be explicitly added as install instructions to the project in a visible and documented way.</p></li>
+<li><p>The logging <code class="docutils literal notranslate"><span class="pre">Registry</span></code> is now implemented as a singleton class and therefore
+it needs to be accessed via its instance() method. All other methods in its
+interface are not static anymore.</p></li>
+<li><p>Prefix the build options with <code class="docutils literal notranslate"><span class="pre">ASAP_</span></code> to make them unique and avoid clashing
+with other projects that may use the generic <code class="docutils literal notranslate"><span class="pre">OPTION_xxx</span></code> names. Additionally,
+the build presets now always activate building of tests and examples except in
+release builds where examples are not built.</p></li>
+<li><p>The cmake option <code class="docutils literal notranslate"><span class="pre">OPTION_SELF_CONTAINED</span></code> is no longer relevant as we believe
+that 3rd party dependencies should be installed using their own projects. In
+the worst case scenario, they should be explicitly added as install
+instructions to the project in a visible and documented way.</p></li>
 </ul>
 </div>
 <div class="section" id="id12">
@@ -775,19 +778,21 @@ be explicitly added as install instructions to the project in a visible and docu
 <div class="section" id="id15">
 <h3>⚠ BREAKING CHANGES<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>The project requires C++17 as it is widely available in compilers now. Logical traits such as
-conjunction, disjunction and negation are available from the &lt;type_traits&gt; standard include.</p></li>
-<li><p>major redesign of the cmake build system, many macros and functions have been changed and the
-build system overall has been simplified.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">catch2</span></code> has been replaced by Google Test/Mock, which provides more features, less compiler
-warnings and is more popular. Catch2 or any other framework can still be easily added to an <code class="docutils literal notranslate"><span class="pre">asap</span></code>
-based project.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hedely</span></code> was removed from <code class="docutils literal notranslate"><span class="pre">common</span></code> and was replaced by a much lighter new file <code class="docutils literal notranslate"><span class="pre">compilers.h</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nowide</span></code> was removed from <code class="docutils literal notranslate"><span class="pre">common</span></code> and will be replaced by the standalone boost nowide library
-when needed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">filesystem</span></code> footprint is too large to be included by default in <code class="docutils literal notranslate"><span class="pre">asap</span></code> starter project. It will
-be provided separately and a mechanism to easily add it into an <code class="docutils literal notranslate"><span class="pre">asap</span></code> based project will be
-implemented in a future update.</p></li>
+<li><p>The project requires C++17 as it is widely available in compilers now. Logical
+traits such as conjunction, disjunction and negation are available from the
+&lt;type_traits&gt; standard include.</p></li>
+<li><p>major redesign of the cmake build system, many macros and functions have been
+changed and the build system overall has been simplified.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">catch2</span></code> has been replaced by Google Test/Mock, which provides more features,
+less compiler warnings and is more popular. Catch2 or any other framework can
+still be easily added to an <code class="docutils literal notranslate"><span class="pre">asap</span></code> based project.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hedely</span></code> was removed from <code class="docutils literal notranslate"><span class="pre">common</span></code> and was replaced by a much lighter new file
+<code class="docutils literal notranslate"><span class="pre">compilers.h</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nowide</span></code> was removed from <code class="docutils literal notranslate"><span class="pre">common</span></code> and will be replaced by the standalone
+boost nowide library when needed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filesystem</span></code> footprint is too large to be included by default in <code class="docutils literal notranslate"><span class="pre">asap</span></code>
+starter project. It will be provided separately and a mechanism to easily add
+it into an <code class="docutils literal notranslate"><span class="pre">asap</span></code> based project will be implemented in a future update.</p></li>
 </ul>
 </div>
 <div class="section" id="id16">
@@ -807,8 +812,8 @@ implemented in a future update.</p></li>
 (<a class="reference external" href="http://github.com/abdes/asap/commit/e2089ae7707c1448c78db23db2f53cbfab461599">e2089ae</a>)</p></li>
 <li><p>remove logical traits backport
 (<a class="reference external" href="http://github.com/abdes/asap/commit/5ed0fe6e9e03399e640221a285f87a1a8a015cd1">5ed0fe6</a>)</p></li>
-<li><p>significantly enhance the documentation, both doxygen based for APIs and sphinx based for the
-project docs</p></li>
+<li><p>significantly enhance the documentation, both doxygen based for APIs and
+sphinx based for the project docs</p></li>
 </ul>
 </div>
 <div class="section" id="id17">
@@ -853,7 +858,7 @@ conflict with application decisions.</p></li>
 <ul class="simple">
 <li><p>Refactoring of cmake build files.</p></li>
 <li><p>Remove additional warnings from code.</p></li>
-<li><p>Documenattion.</p></li>
+<li><p>Documentation.</p></li>
 </ul>
 </div>
 <div class="section" id="id22">

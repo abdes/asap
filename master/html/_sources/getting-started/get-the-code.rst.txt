@@ -142,3 +142,15 @@ you to sync bug fixes and enhancements you make in your fork with the original
        > origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
        > upstream  https://github.com/abdes/asap.git (fetch)
        > upstream  https://github.com/abdes/asap.git (push)
+
+.. note::
+
+  If your repo is not a fork (i.e. a copy of the original asap repo), you may
+  want, in additional to the above steps, to exclude pulling/merging tags from
+  the upstream every time you merge changes from it.
+
+  To achieve that, configure the upstream as following:
+
+  .. code-block:: bash
+
+    $ git config remote.upstream.tagopt --no-tags
