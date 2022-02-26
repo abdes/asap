@@ -15,19 +15,17 @@ Library Modules
    :titlesonly:
    :hidden:
 
-   Module: common <https://abdes.github.io/asap/asap_common/html/>
-   Module: contract <https://abdes.github.io/asap/asap_contract/html/>
+..
+  Add modules below, for example:
 
-The `asap` projects comes with two built-in modules, offering some core basic
-functionality:
+  Module: common <https://abdes.github.io/asap/asap_common/html/>
+  Module: contract <https://abdes.github.io/asap/asap_contract/html/>
 
-:doc:`common <common:index>`
-============================
-  *offers some core and low level features such as platform/environment
-  detection and C++ language features not consistently provided by all
-  compilers on all platforms.*
+  The `asap` projects comes with two built-in modules, offering some core basic
+  functionality:
 
-:doc:`contract <contract:index>`
-================================
-  *a lightweight implementation of contract checking assertions, while
-  waiting for it to potentially become a standard feature in C++-23 or later.*
+    :doc:`common <common:index>`
+    ============================
+      *offers some core and low level features such as platform/environment
+      detection and C++ language features not consistently provided by all
+      compilers on all platforms.*
