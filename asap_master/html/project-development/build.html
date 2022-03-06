@@ -835,184 +835,144 @@ understand the logic and the reasoning behind how <cite>asap</cite> presets are 
 <span class="linenos">293</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-base&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="linenos">294</span><span class="w">      </span><span class="nt">&quot;hidden&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 <span class="linenos">295</span><span class="w">      </span><span class="nt">&quot;jobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">296</span><span class="w">      </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">297</span><span class="w">        </span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">298</span><span class="w">        </span><span class="s2">&quot;ccov-all&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">299</span><span class="w">        </span><span class="s2">&quot;ccov-clean&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">300</span><span class="w">        </span><span class="s2">&quot;build-all-tests&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">301</span><span class="w">        </span><span class="s2">&quot;dox&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">302</span><span class="w">        </span><span class="s2">&quot;sphinx&quot;</span><span class="w"></span>
-<span class="linenos">303</span><span class="w">      </span><span class="p">],</span><span class="w"></span>
-<span class="linenos">304</span><span class="w">      </span><span class="nt">&quot;verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="linenos">305</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">306</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">307</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-windows&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">308</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-windows&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">309</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">310</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
-<span class="linenos">311</span><span class="w">      </span><span class="p">],</span><span class="w"></span>
-<span class="linenos">312</span><span class="w">      </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">313</span><span class="w">        </span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">314</span><span class="w">        </span><span class="s2">&quot;build-all-tests&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">315</span><span class="w">        </span><span class="s2">&quot;dox&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">316</span><span class="w">        </span><span class="s2">&quot;sphinx&quot;</span><span class="w"></span>
+<span class="linenos">296</span><span class="w">      </span><span class="nt">&quot;verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="linenos">297</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">298</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">299</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-windows&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">300</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-windows&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">301</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">302</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
+<span class="linenos">303</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">304</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">305</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">306</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-clang&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">307</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-clang&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">308</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">309</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
+<span class="linenos">310</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">311</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">312</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">313</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-linux&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">314</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-linux&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">315</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">316</span><span class="w">        </span><span class="s2">&quot;dev-clang&quot;</span><span class="w"></span>
 <span class="linenos">317</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
 <span class="linenos">318</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
 <span class="linenos">319</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">320</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-clang&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">321</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-clang&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">320</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-mac&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">321</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-mac&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="linenos">322</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">323</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
-<span class="linenos">324</span><span class="w">      </span><span class="p">],</span><span class="w"></span>
-<span class="linenos">325</span><span class="w">      </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">326</span><span class="w">        </span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">327</span><span class="w">        </span><span class="s2">&quot;ccov-all&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">328</span><span class="w">        </span><span class="s2">&quot;ccov-clean&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">329</span><span class="w">        </span><span class="s2">&quot;build-all-tests&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">330</span><span class="w">        </span><span class="s2">&quot;dox&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">331</span><span class="w">        </span><span class="s2">&quot;sphinx&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">332</span><span class="w">        </span><span class="s2">&quot;clang-tidy-all&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">333</span><span class="w">        </span><span class="s2">&quot;clang-tidy-diff&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">334</span><span class="w">        </span><span class="s2">&quot;clang-format-all&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">335</span><span class="w">        </span><span class="s2">&quot;clang-format-diff&quot;</span><span class="w"></span>
-<span class="linenos">336</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
-<span class="linenos">337</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">338</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">339</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-linux&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">340</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-linux&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">341</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">342</span><span class="w">        </span><span class="s2">&quot;dev-clang&quot;</span><span class="w"></span>
-<span class="linenos">343</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
-<span class="linenos">344</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">345</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">346</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-mac&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">347</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-mac&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">348</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">349</span><span class="w">        </span><span class="s2">&quot;dev-clang&quot;</span><span class="w"></span>
-<span class="linenos">350</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
-<span class="linenos">351</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">352</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">353</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-gcc&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">354</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-gcc&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">355</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">356</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
-<span class="linenos">357</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
-<span class="linenos">358</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">359</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">360</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-valgrind&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">361</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-valgrind&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">362</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">363</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
-<span class="linenos">364</span><span class="w">      </span><span class="p">],</span><span class="w"></span>
-<span class="linenos">365</span><span class="w">      </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">366</span><span class="w">        </span><span class="s2">&quot;do-all-valgrind&quot;</span><span class="w"></span>
-<span class="linenos">367</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
-<span class="linenos">368</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">369</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">370</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-sanitizers&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">371</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-sanitizers&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">372</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">373</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
-<span class="linenos">374</span><span class="w">      </span><span class="p">],</span><span class="w"></span>
-<span class="linenos">375</span><span class="w">      </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">376</span><span class="w">        </span><span class="s2">&quot;do-all-tests&quot;</span><span class="w"></span>
-<span class="linenos">377</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
-<span class="linenos">378</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">379</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">380</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-sanitizers-thread&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">381</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-sanitizers-thread&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">382</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">383</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
-<span class="linenos">384</span><span class="w">      </span><span class="p">],</span><span class="w"></span>
-<span class="linenos">385</span><span class="w">      </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">386</span><span class="w">        </span><span class="s2">&quot;do-all-tests&quot;</span><span class="w"></span>
-<span class="hll"><span class="linenos">387</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
-</span><span class="linenos">388</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">389</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">390</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-base&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">391</span><span class="w">      </span><span class="nt">&quot;hidden&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">392</span><span class="w">      </span><span class="nt">&quot;jobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">393</span><span class="w">      </span><span class="nt">&quot;targets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">394</span><span class="w">        </span><span class="s2">&quot;build-all-tests&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">395</span><span class="w">        </span><span class="s2">&quot;dox&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">396</span><span class="w">        </span><span class="s2">&quot;sphinx&quot;</span><span class="w"></span>
-<span class="linenos">397</span><span class="w">      </span><span class="p">],</span><span class="w"></span>
-<span class="linenos">398</span><span class="w">      </span><span class="nt">&quot;cleanFirst&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">399</span><span class="w">      </span><span class="nt">&quot;verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="linenos">400</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">401</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">402</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-windows&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">403</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-windows&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">404</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">405</span><span class="w">        </span><span class="s2">&quot;rel-base&quot;</span><span class="w"></span>
-<span class="linenos">406</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
-<span class="linenos">407</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">408</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">409</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-linux&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">410</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-linux&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">411</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">412</span><span class="w">        </span><span class="s2">&quot;rel-base&quot;</span><span class="w"></span>
-<span class="linenos">413</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
-<span class="linenos">414</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">415</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">416</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-mac&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">417</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-mac&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">418</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">419</span><span class="w">        </span><span class="s2">&quot;rel-base&quot;</span><span class="w"></span>
-<span class="linenos">420</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
-<span class="linenos">421</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="linenos">422</span><span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="linenos">423</span><span class="w">  </span><span class="nt">&quot;testPresets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="linenos">424</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">425</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">426</span><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable output on failure&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">427</span><span class="w">      </span><span class="nt">&quot;hidden&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">428</span><span class="w">      </span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">429</span><span class="w">        </span><span class="nt">&quot;outputOnFailure&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="linenos">430</span><span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="linenos">431</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">432</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">433</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-test-windows&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">434</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">435</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-windows&quot;</span><span class="w"></span>
-<span class="linenos">436</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">437</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">438</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-test-windows&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">439</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">440</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-windows&quot;</span><span class="w"></span>
-<span class="linenos">441</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">442</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">443</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-test-linux&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">444</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">445</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-linux&quot;</span><span class="w"></span>
-<span class="linenos">446</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">447</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">448</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-test-linux&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">449</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">450</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-linux&quot;</span><span class="w"></span>
-<span class="linenos">451</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">452</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">453</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-test-mac&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">454</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">455</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-mac&quot;</span><span class="w"></span>
-<span class="linenos">456</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">457</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">458</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-test-mac&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">459</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">460</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-mac&quot;</span><span class="w"></span>
-<span class="linenos">461</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">462</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">463</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-test-clang&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">464</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">465</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-clang&quot;</span><span class="w"></span>
-<span class="linenos">466</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="linenos">467</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">468</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-test-gcc&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">469</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">470</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-gcc&quot;</span><span class="w"></span>
-<span class="linenos">471</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="linenos">472</span><span class="w">  </span><span class="p">]</span><span class="w"></span>
-<span class="linenos">473</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">323</span><span class="w">        </span><span class="s2">&quot;dev-clang&quot;</span><span class="w"></span>
+<span class="linenos">324</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">325</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">326</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">327</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-gcc&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">328</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-gcc&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">329</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">330</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
+<span class="linenos">331</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">332</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">333</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">334</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-valgrind&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">335</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-valgrind&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">336</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">337</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
+<span class="linenos">338</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">339</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">340</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">341</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-sanitizers&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">342</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-sanitizers&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">343</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">344</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
+<span class="linenos">345</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">346</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">347</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">348</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-sanitizers-thread&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">349</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-sanitizers-thread&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">350</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">351</span><span class="w">        </span><span class="s2">&quot;dev-base&quot;</span><span class="w"></span>
+<span class="linenos">352</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">353</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">354</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">355</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-base&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">356</span><span class="w">      </span><span class="nt">&quot;hidden&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">357</span><span class="w">      </span><span class="nt">&quot;jobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">358</span><span class="w">      </span><span class="nt">&quot;cleanFirst&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">359</span><span class="w">      </span><span class="nt">&quot;verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="linenos">360</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">361</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">362</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-windows&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">363</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-windows&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">364</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">365</span><span class="w">        </span><span class="s2">&quot;rel-base&quot;</span><span class="w"></span>
+<span class="linenos">366</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">367</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">368</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">369</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-linux&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">370</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-linux&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">371</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">372</span><span class="w">        </span><span class="s2">&quot;rel-base&quot;</span><span class="w"></span>
+<span class="linenos">373</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">374</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">375</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">376</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-mac&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">377</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-mac&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">378</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">379</span><span class="w">        </span><span class="s2">&quot;rel-base&quot;</span><span class="w"></span>
+<span class="linenos">380</span><span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">381</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">382</span><span class="w">  </span><span class="p">],</span><span class="w"></span>
+<span class="linenos">383</span><span class="w">  </span><span class="nt">&quot;testPresets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="linenos">384</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">385</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">386</span><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable output on failure&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="hll"><span class="linenos">387</span><span class="w">      </span><span class="nt">&quot;hidden&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+</span><span class="linenos">388</span><span class="w">      </span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">389</span><span class="w">        </span><span class="nt">&quot;outputOnFailure&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="linenos">390</span><span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">391</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">392</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">393</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-test-windows&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">394</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">395</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-windows&quot;</span><span class="w"></span>
+<span class="linenos">396</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">397</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">398</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-test-windows&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">399</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">400</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-windows&quot;</span><span class="w"></span>
+<span class="linenos">401</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">402</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">403</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-test-linux&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">404</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">405</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-linux&quot;</span><span class="w"></span>
+<span class="linenos">406</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">407</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">408</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-test-linux&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">409</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">410</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-linux&quot;</span><span class="w"></span>
+<span class="linenos">411</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">412</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">413</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-test-mac&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">414</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">415</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-mac&quot;</span><span class="w"></span>
+<span class="linenos">416</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">417</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">418</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-test-mac&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">419</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">420</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rel-mac&quot;</span><span class="w"></span>
+<span class="linenos">421</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">422</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">423</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-test-clang&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">424</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">425</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-clang&quot;</span><span class="w"></span>
+<span class="linenos">426</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">427</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">428</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-test-gcc&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">429</span><span class="w">      </span><span class="nt">&quot;inherits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-base&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">430</span><span class="w">      </span><span class="nt">&quot;configurePreset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-gcc&quot;</span><span class="w"></span>
+<span class="linenos">431</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">432</span><span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="linenos">433</span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
