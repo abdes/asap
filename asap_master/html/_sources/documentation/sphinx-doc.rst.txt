@@ -10,6 +10,10 @@
 Sphinx and restructured text
 ****************************
 
+.. |date| date::
+
+Last Updated on |date|
+
 Setting up the environment
 ==========================
 

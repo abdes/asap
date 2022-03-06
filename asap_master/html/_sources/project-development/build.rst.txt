@@ -10,9 +10,13 @@
 Build instructions
 ******************
 
+.. |date| date::
+
+Last Updated on |date|
+
 The project uses `CMake` as a build system and defines `presets` in the
 `CmakePrests.json` file that describe the most commonly used configuration,
-build and test settings. While you can still use the traditional way of incoking
+build and test settings. While you can still use the traditional way of invoking
 `cmake` commands in a build directory, we recommend that you understand and
 embrace the cmake presets way, which simplifies the command lines required to
 invoke `cmake` and integrates nicely with the most commonly used IDEs.

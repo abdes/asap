@@ -10,6 +10,10 @@
 Development Process
 *******************
 
+.. |date| date::
+
+Last Updated on |date|
+
 Version control
 ===============
 

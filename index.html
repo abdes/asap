@@ -1,42 +1,47 @@
 <html>
-
-<head>
-  <style>
-    p {
-      text-align: center;
-    }
-  </style>
-  <script>
-    // Countdown timer for redirecting to another URL after several seconds
-    var seconds = 5; // seconds for HTML
-    var foo; // variable for clearInterval() function
-
-    function updateSecs() {
-      document.getElementById("seconds").innerHTML = seconds;
-      seconds--;
-      if (seconds == -1) {
-        clearInterval(foo);
+  <head>
+    <style>
+      p {
+        text-align: center;
       }
-    }
+    </style>
+    <script>
+      // Countdown timer for redirecting to another URL after several seconds
+      var seconds = 5; // seconds for HTML
+      var foo; // variable for clearInterval() function
 
-    function countdownTimer() {
-      foo = setInterval(function () {
-        updateSecs()
-      }, 1000);
-    }
+      function updateSecs() {
+        document.getElementById("seconds").innerHTML = seconds;
+        seconds--;
+        if (seconds == -1) {
+          clearInterval(foo);
+        }
+      }
 
-    countdownTimer();
-  </script>
-  <meta http-equiv="refresh" content="5; URL=asap_master/html/index.html" />
-</head>
+      function countdownTimer() {
+        foo = setInterval(function () {
+          updateSecs();
+        }, 1000);
+      }
 
-<body>
-  <p><img style="display: block; margin-left: auto; margin-right: auto;" src="asap_master/html/_static/logo.png"
-      alt="Logo" width="428" height="427" />Redirecting you automatically in <span id="seconds"></span> to the master
-    documentation starting page...</p>
-  <p>Or you can instead go one of the modules documentation:</p>
-  <!-- Add submodules here, see example below -->
-  <!-- <p><a href="asap_common/html/index.html">common</a></p> -->
-</body>
+      countdownTimer();
+    </script>
+    <meta http-equiv="refresh" content="5; URL=asap_master/html/index.html" />
+  </head>
 
+  <body>
+    <p>
+      <img
+        style="display: block; margin-left: auto; margin-right: auto"
+        src="asap_master/html/_static/logo.png"
+        alt="Logo"
+        width="428"
+        height="427"
+      />Redirecting you automatically in <span id="seconds"></span> to the
+      master documentation starting page...
+    </p>
+    <p>Or you can instead go one of the modules documentation:</p>
+    <!-- Add submodules here, see example below -->
+    <!-- <p><a href="asap_common/html/index.html">common</a></p> -->
+  </body>
 </html>

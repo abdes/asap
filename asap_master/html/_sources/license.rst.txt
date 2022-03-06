@@ -10,5 +10,9 @@
 License
 *******
 
+.. |date| date::
+
+Last Updated on |date|
+
 .. include:: ../LICENSE
 

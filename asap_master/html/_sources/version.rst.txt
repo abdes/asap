@@ -10,4 +10,8 @@
 Version
 *******
 
+.. |date| date::
+
+Last Updated on |date|
+
 |release|

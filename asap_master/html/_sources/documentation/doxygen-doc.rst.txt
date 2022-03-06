@@ -10,6 +10,10 @@
 Documenting code
 ****************
 
+.. |date| date::
+
+Last Updated on |date|
+
 Writing documentation
 =====================
 
