@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Development environment &#8212; Start Now!</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,15 +20,12 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -34,7 +33,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -47,7 +46,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -56,14 +69,10 @@
     <div class="container-xl">
       <div class="row">
           
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -208,86 +217,176 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
-<div class="sbt-scroll-pixel-helper"></div>
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            <div class="topbar-left">
-                
-                <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">Toggle navigation</div>
-                    <i class="fas fa-bars"></i>
-                </label>
-                
-            </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/getting-started/devenv.rst.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.rst</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/abdes/asap"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/abdes/asap/issues/new?title=Issue%20on%20page%20%2Fgetting-started/devenv.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/abdes/asap"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/abdes/asap/issues/new?title=Issue%20on%20page%20%2Fgetting-started/devenv.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/getting-started/devenv.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#requirements-overview">
    Requirements overview
@@ -403,12 +502,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Development environment</h1>
@@ -540,12 +638,13 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="development-environment">
-<h1>Development environment<a class="headerlink" href="#development-environment" title="Permalink to this headline">¶</a></h1>
-<p>Last Updated on 2022-03-15</p>
+  <section id="development-environment">
+<h1>Development environment<a class="headerlink" href="#development-environment" title="Permalink to this headline">#</a></h1>
+<p>Last Updated on 2022-04-03</p>
 <p>In the past, software development comes with a lot of pain. It takes many steps
 beginning from Coding, Compiling, Testing, Debugging, Build, and Deployment. All
 these different phases would need many commands, scripts and different packages
@@ -565,8 +664,8 @@ recommendations provided here will get you started faster. If you are an
 experienced developer, it is always important to understand the rationale behind
 some of the choices made in the <cite>asap</cite> project so that you can own the design
 and adapt it to your specific needs.</p>
-<div class="section" id="requirements-overview">
-<h2>Requirements overview<a class="headerlink" href="#requirements-overview" title="Permalink to this headline">¶</a></h2>
+<section id="requirements-overview">
+<h2>Requirements overview<a class="headerlink" href="#requirements-overview" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>This is a starter project</strong> and as such, starting a new project based on <cite>asap</cite> should be a
 straightforward and simple task. The process should be automated when
@@ -589,9 +688,9 @@ documentation generation, deployment package creation, software quality checks
 terminal</strong> session or in a completely hands-free CI (<strong>Continuous
 Integration</strong>) environment.</p></li>
 </ul>
-</div>
-<div class="section" id="choices-made-and-rationale">
-<h2>Choices made and rationale<a class="headerlink" href="#choices-made-and-rationale" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="choices-made-and-rationale">
+<h2>Choices made and rationale<a class="headerlink" href="#choices-made-and-rationale" title="Permalink to this headline">#</a></h2>
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
 <p>These are the fundamental choices made in ` asap` that significantly influence
@@ -696,9 +795,9 @@ in the IDE can also be done via command line.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="recommended-environment">
-<h2>Recommended Environment<a class="headerlink" href="#recommended-environment" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="recommended-environment">
+<h2>Recommended Environment<a class="headerlink" href="#recommended-environment" title="Permalink to this headline">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is a setup that takes 100% out of <cite>asap</cite> and will work with most
@@ -732,10 +831,10 @@ and much faster to setup.</p>
 <li><p>Additional tools for local development</p></li>
 <li><p>Additional tools for development containers</p></li>
 </ol>
-<div class="section" id="foundation-tools">
-<h3>Foundation Tools<a class="headerlink" href="#foundation-tools" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="operating-system">
-<h4>Operating System<a class="headerlink" href="#operating-system" title="Permalink to this headline">¶</a></h4>
+<section id="foundation-tools">
+<h3>Foundation Tools<a class="headerlink" href="#foundation-tools" title="Permalink to this headline">#</a></h3>
+<section id="operating-system">
+<h4>Operating System<a class="headerlink" href="#operating-system" title="Permalink to this headline">#</a></h4>
 <table class="colwidths-given table">
 <colgroup>
 <col style="width: 20%" />
@@ -754,9 +853,9 @@ targeting the other platforms via <a class="reference external" href="https://co
 <p>All instructions in the remainder of this guide are assuming a Windows 10/11
 desktop.</p>
 </div>
-</div>
-<div class="section" id="powershell-opensource">
-<h4>PowerShell (OpenSource)<a class="headerlink" href="#powershell-opensource" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="powershell-opensource">
+<h4>PowerShell (OpenSource)<a class="headerlink" href="#powershell-opensource" title="Permalink to this headline">#</a></h4>
 <p><a class="reference external" href="https://github.com/PowerShell/PowerShell">PowerShell</a> Core is a
 cross-platform (Windows, Linux, and macOS) automation and configuration
 tool/framework that works well with your existing tools and is optimized for
@@ -771,9 +870,9 @@ guide.</p>
 <p>As an alternative, you can use <cite>winget</cite> to install the PowerShell package by
 executing the following command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">PowerShell`</span></code>.</p>
 </div>
-</div>
-<div class="section" id="windows-terminal">
-<h4>Windows Terminal<a class="headerlink" href="#windows-terminal" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="windows-terminal">
+<h4>Windows Terminal<a class="headerlink" href="#windows-terminal" title="Permalink to this headline">#</a></h4>
 <p>Windows Terminal is a modern terminal application for users of command-line
 tools and shells like Command Prompt, PowerShell, and Windows Subsystem for
 Linux (WSL). Its main features include multiple tabs, panes, Unicode and UTF-8
@@ -795,9 +894,9 @@ face) to one of the <a class="reference external" href="https://www.nerdfonts.co
 Nerd Font Mono</strong>. This is required for a great user experience with <cite>Oh My
 Posh</cite>.</p>
 </div>
-</div>
-<div class="section" id="git">
-<h4>Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="git">
+<h4>Git<a class="headerlink" href="#git" title="Permalink to this headline">#</a></h4>
 <p>Git is a free and open source distributed version control system designed to
 handle everything from small to very large projects with speed and efficiency.</p>
 <p>Git is easy to learn and has a tiny footprint with lightning fast performance.
@@ -810,9 +909,9 @@ workflows.</p>
 <p>As an alternative, you can use <cite>winget</cite> to install the git package by
 executing the following command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">Git.Git`</span></code>.</p>
 </div>
-</div>
-<div class="section" id="oh-my-posh">
-<h4>Oh My Posh<a class="headerlink" href="#oh-my-posh" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="oh-my-posh">
+<h4>Oh My Posh<a class="headerlink" href="#oh-my-posh" title="Permalink to this headline">#</a></h4>
 <p><a class="reference external" href="https://ohmyposh.dev/">Oh My Posh</a> is a custom prompt engine for any shell
 that has the ability to adjust the prompt string with a function or variable. It
 is customizable and offers many components in the prompt that can be useful
@@ -843,9 +942,9 @@ session, you should see something similar to the picture below:</p>
 <p>Feel free to customize <cite>Oh My Posh</cite> and change the theme to your liking. All
 the documentation to do that is located at <a class="reference external" href="https://ohmyposh.dev/docs/">Oh My Posh documentation</a>.</p>
 </div>
-</div>
-<div class="section" id="id2">
-<h4>Visual Studio Code<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id2">
+<h4>Visual Studio Code<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
 <p>Visual Studio Code is a lightweight but powerful source code editor which runs
 on your desktop and is available for Windows, macOS and Linux. It comes with
 built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem
@@ -859,12 +958,12 @@ runtimes (such as .NET and Unity). It is the recommended IDE for <cite>asap</cit
 executing the following command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span>
 <span class="pre">Microsoft.VisualStudioCode`</span></code>.</p>
 </div>
-</div>
-</div>
-<div class="section" id="local-development">
-<h3>Local Development<a class="headerlink" href="#local-development" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="cmake">
-<h4>CMake<a class="headerlink" href="#cmake" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="local-development">
+<h3>Local Development<a class="headerlink" href="#local-development" title="Permalink to this headline">#</a></h3>
+<section id="cmake">
+<h4>CMake<a class="headerlink" href="#cmake" title="Permalink to this headline">#</a></h4>
 <p><a class="reference external" href="https://cmake.org/">CMake</a> is an open-source, cross-platform family of tools
 designed to build, test and package software. CMake is used to control the
 software compilation process using simple platform and compiler independent
@@ -877,9 +976,9 @@ used in the compiler environment of your choice. It is the build system used in
 <p>As an alternative, you can use <cite>winget</cite> to install the CMake package by
 executing the following command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">Kitware.CMake`</span></code>.</p>
 </div>
-</div>
-<div class="section" id="ninja-build">
-<h4>Ninja Build<a class="headerlink" href="#ninja-build" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="ninja-build">
+<h4>Ninja Build<a class="headerlink" href="#ninja-build" title="Permalink to this headline">#</a></h4>
 <p><a class="reference external" href="https://ninja-build.org/">Ninja</a> is a small build system with a focus on
 speed. It differs from other build systems in two major respects: it is designed
 to have its input files generated by a higher-level build system, and it is
@@ -887,9 +986,9 @@ designed to run builds as fast as possible. Ninja is the preferred generator for
 CMake in ` asap`.</p>
 <p>Install it by following the instructions described in <a class="reference external" href="https://ninja-build.org/">Getting Ninja</a>. Add the ninja executable to the <strong>PATH</strong>
 environment variable and restart your terminal.</p>
-</div>
-<div class="section" id="python-3-via-miniconda">
-<h4>Python 3 via Miniconda<a class="headerlink" href="#python-3-via-miniconda" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="python-3-via-miniconda">
+<h4>Python 3 via Miniconda<a class="headerlink" href="#python-3-via-miniconda" title="Permalink to this headline">#</a></h4>
 <p>Miniconda is a free minimal installer for conda. It is a small, bootstrap
 version of Anaconda that includes only conda, Python, the packages they depend
 on, and a small number of other useful packages, including pip, zlib and a few
@@ -910,9 +1009,9 @@ profile (<cite>notepad $PROFILE</cite>):</p>
 <span class="n">conda</span> <span class="n">activate</span> <span class="s1">&#39;&gt;&gt;replace-with-path-to-miniconda-install-dir&lt;&lt;&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h4>Doxygen<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="id4">
+<h4>Doxygen<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
 <p>Doxygen is the de facto standard tool for generating documentation from
 annotated C++ sources. It is the selected tool for generating API documentation
 in <cite>asap</cite>.</p>
@@ -924,9 +1023,9 @@ variable.</p>
 executing the following command <cite>winget install –id
 DimitriVanHeesch.Doxygen</cite>.</p>
 </div>
-</div>
-<div class="section" id="graphviz">
-<h4>Graphviz<a class="headerlink" href="#graphviz" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="graphviz">
+<h4>Graphviz<a class="headerlink" href="#graphviz" title="Permalink to this headline">#</a></h4>
 <p><a class="reference external" href="https://graphviz.org/">Graphviz</a> is open source graph visualization software.
 Graph visualization is a way of representing structural information as diagrams
 of abstract graphs and networks. It is an optional tool used by doxygen to
@@ -939,9 +1038,9 @@ variable.</p>
 <p>As an alternative, you can use <cite>winget</cite> to install the Doxygen package by
 executing the following command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">Graphviz.Graphviz`</span></code>.</p>
 </div>
-</div>
-<div class="section" id="nodejs">
-<h4>NodeJS<a class="headerlink" href="#nodejs" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="nodejs">
+<h4>NodeJS<a class="headerlink" href="#nodejs" title="Permalink to this headline">#</a></h4>
 <p><a class="reference external" href="https://nodejs.org/en/">NodeJS</a> is a JavaScript runtime built on Chrome’s V8
 JavaScript engine. It’s used in <cite>asap</cite> to take advantage of some of the many
 tools written for the JavaScript ecosystem.</p>
@@ -952,9 +1051,9 @@ variable.</p>
 <p>As an alternative, you can use <cite>winget</cite> to install the Doxygen package by
 executing the following command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span> <span class="pre">OpenJS.NodeJS`</span></code>.</p>
 </div>
-</div>
-<div class="section" id="visual-studio">
-<h4>Visual Studio<a class="headerlink" href="#visual-studio" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="visual-studio">
+<h4>Visual Studio<a class="headerlink" href="#visual-studio" title="Permalink to this headline">#</a></h4>
 <p>For the Windows Platform target you will need Visual Studio MSVC. You can
 install the community edition by following the instructions described in ‘Visual
 Studio Community Install&lt;<a class="reference external" href="https://visualstudio.microsoft.com/vs/community/">https://visualstudio.microsoft.com/vs/community/</a>&gt;`_
@@ -966,12 +1065,12 @@ the following lines to it and save it.</p>
 </pre></div>
 </div>
 <p>Restart your terminal to activate the changes.</p>
-</div>
-</div>
-<div class="section" id="dev-containers">
-<h3>Dev Containers<a class="headerlink" href="#dev-containers" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="windows-wsl2">
-<h4>Windows WSL2<a class="headerlink" href="#windows-wsl2" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="dev-containers">
+<h3>Dev Containers<a class="headerlink" href="#dev-containers" title="Permalink to this headline">#</a></h3>
+<section id="windows-wsl2">
+<h4>Windows WSL2<a class="headerlink" href="#windows-wsl2" title="Permalink to this headline">#</a></h4>
 <p>The Windows Subsystem for Linux lets developers run a GNU/Linux environment –
 including most command-line tools, utilities, and applications – directly on
 Windows, unmodified, without the overhead of a traditional virtual machine or
@@ -981,9 +1080,9 @@ dual-boot setup.</p>
 <p class="admonition-title">Important</p>
 <p>Make sure virtualization is enabled at the BIOS and in Windows features.</p>
 </div>
-</div>
-<div class="section" id="docker-desktop">
-<h4>Docker Desktop<a class="headerlink" href="#docker-desktop" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="docker-desktop">
+<h4>Docker Desktop<a class="headerlink" href="#docker-desktop" title="Permalink to this headline">#</a></h4>
 <p>Docker is an open platform for developing, shipping, and running applications.
 Docker enables you to separate your applications from your infrastructure so you
 can deliver software quickly. With Docker, you can manage your infrastructure in
@@ -1005,17 +1104,19 @@ properly configured.</p>
 executing the following command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span>
 <span class="pre">Docker.DockerDesktop`</span></code>.</p>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="index.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1031,22 +1132,26 @@ executing the following command <code class="docutils literal notranslate"><span
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+      &copy; Copyright 2022, The Authors.<br/>
+</p>
+        </footer>
+    </div>
     
-        &copy; Copyright 2022, The Authors.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
