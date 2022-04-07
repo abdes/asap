@@ -398,6 +398,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   CPM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#git-submodules">
    Git submodules
   </a>
@@ -454,6 +459,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   CPM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#git-submodules">
    Git submodules
   </a>
@@ -492,7 +502,7 @@ title="Print to PDF"
                 
   <section id="third-party-modules">
 <h1>Third party modules<a class="headerlink" href="#third-party-modules" title="Permalink to this headline">#</a></h1>
-<p>Last Updated on 2022-04-03</p>
+<p>Last Updated on 2022-04-07</p>
 <p>The <cite>asap</cite> project fully leverage the open source development model by allowing
 to easily add third party libraries. We want to increase reuse of existing
 software but not at the cost of adding unnecessary complexity to the build
@@ -593,6 +603,17 @@ how to copy the built code into the install folder and will fail.</p></li>
 <p>FetchContent works best with CMake based dependencies. I haven’t had a chance to
 test it with libraries that are not built with CMake. But I would expect that
 some extra configuration is necessary to make it work.</p>
+</section>
+<section id="id1">
+<h2><a class="reference external" href="https://github.com/TheLartians/CPM.cmake">CPM</a><a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>CPM.cmake is a cross-platform CMake script that adds dependency management
+capabilities to CMake. It’s built as a thin wrapper around CMake’s FetchContent
+module that adds version control, caching, a simple API and more.</p>
+<div class="margin admonition hint">
+<p class="admonition-title">Hint</p>
+<p>CPM is the preferred way of managing third party dependencies in asap, and is
+already integrated in the project.</p>
+</div>
 </section>
 <section id="git-submodules">
 <h2>Git submodules<a class="headerlink" href="#git-submodules" title="Permalink to this headline">#</a></h2>

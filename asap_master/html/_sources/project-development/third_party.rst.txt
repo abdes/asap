@@ -122,6 +122,19 @@ FetchContent works best with CMake based dependencies. I haven’t had a chance 
 test it with libraries that are not built with CMake. But I would expect that
 some extra configuration is necessary to make it work.
 
+`CPM <https://github.com/TheLartians/CPM.cmake>`_
+=================================================
+
+CPM.cmake is a cross-platform CMake script that adds dependency management
+capabilities to CMake. It's built as a thin wrapper around CMake's FetchContent
+module that adds version control, caching, a simple API and more.
+
+.. hint::
+  :class: margin
+
+  CPM is the preferred way of managing third party dependencies in asap, and is
+  already integrated in the project.
+
 Git submodules
 ==============
 

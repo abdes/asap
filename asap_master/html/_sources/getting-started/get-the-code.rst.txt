@@ -16,20 +16,10 @@ Get the code
 
 Last Updated on |date|
 
-The `asap` development model recommends the use of the `Fork and pull model
+The `asap` development model supports the `Fork and pull model
 <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models#fork-and-pull-model>`_
-of github projects.
-
-.. note::
-  :class: margin
-
-  If you want to create a new repository from the contents of an existing
-  repository but don't want to merge your changes to the upstream in the future,
-  you can duplicate the repository or, if the repository is a template, you can
-  use the repository as a template. For more information, see "`Duplicating a
-  repository <https://docs.github.com/en/articles/duplicating-a-repository>`_"
-  and "`Creating a repository from a template
-  <https://docs.github.com/en/articles/creating-a-repository-from-a-template>`_".
+of github projects as well as the creation of repositories from `asap` as a
+template.
 
 A fork is a copy of a repository that you manage. Forks let you make changes to
 a project without affecting the original repository. You can fetch updates from
@@ -39,15 +29,24 @@ the option to pull updates from the original `asap` project or to contribute
 useful changes or bug fixes in the form of pull requests to the original `asap`
 project.
 
-In the remainder of this guide, we will follow the `Fork and pull model`.
+If you want to create a new repository from the contents of an existing
+repository but don't want to merge your changes to the upstream in the future,
+you can duplicate the repository or, if the repository is a template, you can
+use the repository as a template. For more information, see "`Duplicating a
+repository <https://docs.github.com/en/articles/duplicating-a-repository>`_" and
+"`Creating a repository from a template
+<https://docs.github.com/en/articles/creating-a-repository-from-a-template>`_".
 
-1. Fork the `asap` project
-==========================
+1. Creating your project's repository
+=====================================
 
 .. hint::
   :class: margin
 
   The `asap` project is located at `https://github.com/abdes/asap`.
+
+Option 1: Fork the `asap` project
+---------------------------------
 
 Follow the instructions described in the `Fork a repo
 <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_ documentation
@@ -60,10 +59,16 @@ of GitHub to fork the `asap` project.
   recommended to do it immediately after the fork.
 
   Follow the instructions described in `Renaming a repository
-  <https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository>`_ document
-  from the GitHub documentation.
+  <https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository>`_
+  document from the GitHub documentation.
 
-2. Clone your fork
+Option 2: Use `asap` as a template
+==================================
+Follow the instructions described in the `Creating a repository from a template
+<https://docs.github.com/en/articles/creating-a-repository-from-a-template>`_
+documentation of GitHub to create a new repository from the `asap` template.
+
+2. Clone your repo
 ==================
 
 .. tip::
@@ -108,8 +113,12 @@ Only once, after the project is cloned, do the following:
 .. code-block:: bash
 
   npx husky install
-  npm install -g @commitlint/cli @commitlint/config-conventional
-  npm install -g standard-version
+  npm install -g @commitlint/cli @commitlint/config-conventional standard-version
+
+.. hint::
+
+  You may want to consider installing npm global packages in the user's home
+  directory to avoid permission issues. Google search how to do that :-)
 
 Configuring a remote for the fork
 ---------------------------------
@@ -154,3 +163,30 @@ you to sync bug fixes and enhancements you make in your fork with the original
   .. code-block:: bash
 
     $ git config remote.upstream.tagopt --no-tags
+
+Initial upstream merge (Option 2 only)
+--------------------------------------
+
+If you created your repo from the template rather than through a fork, we will
+need to manually sync it with the upstream so that later on we can pull updates
+when they are made to the upstream.
+
+We'll clear the changelog, then do a first merge, even though the histories are
+unrelated.
+
+.. prompt:: bash $
+
+  echo -n > CHANGELOG.md
+  standard-version --release-as 0.1.0 --skip.commit --skip.tag
+  # Only keep the first 6 lines from the CHANGELOG, the rest
+  # is history from the upstream that we don't want in our own
+  # log. You can do this manually or using sed.
+  sed -i '7,$ d' CHANGELOG.md
+  echo "Initial version created from the upstream [asap](https://github.com/abdes/asap) project." >> CHANGELOG.md
+  echo "No customizations done yet." >> CHANGELOG.md
+  git add .
+  git commit -m"chore: prepare for initial version 0.1.0"
+  git tag -a v0.1.0 -m "Initial release 0.1.0"
+
+From now on, you can easily pull changes from the upstream project as documented
+in the :doc:`Get updates <get-updates>` chapter of this book.

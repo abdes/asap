@@ -388,17 +388,33 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fork-the-asap-project">
-   1. Fork the
+  <a class="reference internal nav-link" href="#creating-your-project-s-repository">
+   1. Creating your project’s repository
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-1-fork-the-asap-project">
+     Option 1: Fork the
+     <cite>
+      asap
+     </cite>
+     project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-2-use-asap-as-a-template">
+   Option 2: Use
    <cite>
     asap
    </cite>
-   project
+   as a template
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clone-your-fork">
-   2. Clone your fork
+  <a class="reference internal nav-link" href="#clone-your-repo">
+   2. Clone your repo
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -414,6 +430,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#configuring-a-remote-for-the-fork">
      Configuring a remote for the fork
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initial-upstream-merge-option-2-only">
+     Initial upstream merge (Option 2 only)
     </a>
    </li>
   </ul>
@@ -438,17 +459,33 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fork-the-asap-project">
-   1. Fork the
+  <a class="reference internal nav-link" href="#creating-your-project-s-repository">
+   1. Creating your project’s repository
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-1-fork-the-asap-project">
+     Option 1: Fork the
+     <cite>
+      asap
+     </cite>
+     project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-2-use-asap-as-a-template">
+   Option 2: Use
    <cite>
     asap
    </cite>
-   project
+   as a template
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clone-your-fork">
-   2. Clone your fork
+  <a class="reference internal nav-link" href="#clone-your-repo">
+   2. Clone your repo
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -466,6 +503,11 @@ title="Print to PDF"
      Configuring a remote for the fork
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initial-upstream-merge-option-2-only">
+     Initial upstream merge (Option 2 only)
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -480,18 +522,10 @@ title="Print to PDF"
                 
   <section id="get-the-code">
 <span id="id1"></span><h1>Get the code<a class="headerlink" href="#get-the-code" title="Permalink to this headline">#</a></h1>
-<p>Last Updated on 2022-04-03</p>
-<p>The <cite>asap</cite> development model recommends the use of the <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models#fork-and-pull-model">Fork and pull model</a>
-of github projects.</p>
-<div class="margin admonition note">
-<p class="admonition-title">Note</p>
-<p>If you want to create a new repository from the contents of an existing
-repository but don’t want to merge your changes to the upstream in the future,
-you can duplicate the repository or, if the repository is a template, you can
-use the repository as a template. For more information, see “<a class="reference external" href="https://docs.github.com/en/articles/duplicating-a-repository">Duplicating a
-repository</a>”
-and “<a class="reference external" href="https://docs.github.com/en/articles/creating-a-repository-from-a-template">Creating a repository from a template</a>”.</p>
-</div>
+<p>Last Updated on 2022-04-07</p>
+<p>The <cite>asap</cite> development model supports the <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models#fork-and-pull-model">Fork and pull model</a>
+of github projects as well as the creation of repositories from <cite>asap</cite> as a
+template.</p>
 <p>A fork is a copy of a repository that you manage. Forks let you make changes to
 a project without affecting the original repository. You can fetch updates from
 or submit changes to the original repository with pull requests. This will give
@@ -499,13 +533,20 @@ you total freedom to change the code after the way you want, while still keeping
 the option to pull updates from the original <cite>asap</cite> project or to contribute
 useful changes or bug fixes in the form of pull requests to the original <cite>asap</cite>
 project.</p>
-<p>In the remainder of this guide, we will follow the <cite>Fork and pull model</cite>.</p>
-<section id="fork-the-asap-project">
-<h2>1. Fork the <cite>asap</cite> project<a class="headerlink" href="#fork-the-asap-project" title="Permalink to this headline">#</a></h2>
+<p>If you want to create a new repository from the contents of an existing
+repository but don’t want to merge your changes to the upstream in the future,
+you can duplicate the repository or, if the repository is a template, you can
+use the repository as a template. For more information, see “<a class="reference external" href="https://docs.github.com/en/articles/duplicating-a-repository">Duplicating a
+repository</a>” and
+“<a class="reference external" href="https://docs.github.com/en/articles/creating-a-repository-from-a-template">Creating a repository from a template</a>”.</p>
+<section id="creating-your-project-s-repository">
+<h2>1. Creating your project’s repository<a class="headerlink" href="#creating-your-project-s-repository" title="Permalink to this headline">#</a></h2>
 <div class="margin admonition hint">
 <p class="admonition-title">Hint</p>
 <p>The <cite>asap</cite> project is located at <cite>https://github.com/abdes/asap</cite>.</p>
 </div>
+<section id="option-1-fork-the-asap-project">
+<h3>Option 1: Fork the <cite>asap</cite> project<a class="headerlink" href="#option-1-fork-the-asap-project" title="Permalink to this headline">#</a></h3>
 <p>Follow the instructions described in the <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">Fork a repo</a> documentation
 of GitHub to fork the <cite>asap</cite> project.</p>
 <div class="admonition important">
@@ -513,12 +554,18 @@ of GitHub to fork the <cite>asap</cite> project.</p>
 <p>Rename your fork to match your project name as early as possible in the
 process. Although you can do this step at any time in the future, it is
 recommended to do it immediately after the fork.</p>
-<p>Follow the instructions described in <a class="reference external" href="https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository">Renaming a repository</a> document
-from the GitHub documentation.</p>
+<p>Follow the instructions described in <a class="reference external" href="https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository">Renaming a repository</a>
+document from the GitHub documentation.</p>
 </div>
 </section>
-<section id="clone-your-fork">
-<h2>2. Clone your fork<a class="headerlink" href="#clone-your-fork" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="option-2-use-asap-as-a-template">
+<h2>Option 2: Use <cite>asap</cite> as a template<a class="headerlink" href="#option-2-use-asap-as-a-template" title="Permalink to this headline">#</a></h2>
+<p>Follow the instructions described in the <a class="reference external" href="https://docs.github.com/en/articles/creating-a-repository-from-a-template">Creating a repository from a template</a>
+documentation of GitHub to create a new repository from the <cite>asap</cite> template.</p>
+</section>
+<section id="clone-your-repo">
+<h2>2. Clone your repo<a class="headerlink" href="#clone-your-repo" title="Permalink to this headline">#</a></h2>
 <div class="margin admonition tip">
 <p class="admonition-title">Tip</p>
 <p>-j4 requests git to parallelize cloning of repos. Needs a relatively recent
@@ -552,9 +599,13 @@ changelog generation.</p>
 <h3>Husky, commitlint and standard-version<a class="headerlink" href="#husky-commitlint-and-standard-version" title="Permalink to this headline">#</a></h3>
 <p>Only once, after the project is cloned, do the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npx husky install
-npm install -g @commitlint/cli @commitlint/config-conventional
-npm install -g standard-version
+npm install -g @commitlint/cli @commitlint/config-conventional standard-version
 </pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You may want to consider installing npm global packages in the user’s home
+directory to avoid permission issues. Google search how to do that :-)</p>
 </div>
 </section>
 <section id="configuring-a-remote-for-the-fork">
@@ -598,6 +649,31 @@ the upstream every time you merge changes from it.</p>
 </pre></div>
 </div>
 </div>
+</section>
+<section id="initial-upstream-merge-option-2-only">
+<h3>Initial upstream merge (Option 2 only)<a class="headerlink" href="#initial-upstream-merge-option-2-only" title="Permalink to this headline">#</a></h3>
+<p>If you created your repo from the template rather than through a fork, we will
+need to manually sync it with the upstream so that later on we can pull updates
+when they are made to the upstream.</p>
+<p>We’ll clear the changelog, then do a first merge, even though the histories are
+unrelated.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "$ ";
+}
+</style><span class="prompt1"><span class="nb">echo</span> -n &gt; CHANGELOG.md</span>
+<span class="prompt1">standard-version --release-as <span class="m">0</span>.1.0 --skip.commit --skip.tag</span>
+<span class="prompt1"><span class="c1"># Only keep the first 6 lines from the CHANGELOG, the rest</span></span>
+<span class="prompt1"><span class="c1"># is history from the upstream that we don&#39;t want in our own</span></span>
+<span class="prompt1"><span class="c1"># log. You can do this manually or using sed.</span></span>
+<span class="prompt1">sed -i <span class="s1">&#39;7,$ d&#39;</span> CHANGELOG.md</span>
+<span class="prompt1"><span class="nb">echo</span> <span class="s2">&quot;Initial version created from the upstream [asap](https://github.com/abdes/asap) project.&quot;</span> &gt;&gt; CHANGELOG.md</span>
+<span class="prompt1"><span class="nb">echo</span> <span class="s2">&quot;No customizations done yet.&quot;</span> &gt;&gt; CHANGELOG.md</span>
+<span class="prompt1">git add .</span>
+<span class="prompt1">git commit -m<span class="s2">&quot;chore: prepare for initial version 0.1.0&quot;</span></span>
+<span class="prompt1">git tag -a v0.1.0 -m <span class="s2">&quot;Initial release 0.1.0&quot;</span></span>
+</pre></div></div><p>From now on, you can easily pull changes from the upstream project as documented
+in the <a class="reference internal" href="get-updates.html"><span class="doc">Get updates</span></a> chapter of this book.</p>
 </section>
 </section>
 </section>
