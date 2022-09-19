@@ -199,6 +199,18 @@
   <ul class="simple">
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tools/index.html">
+   Project Tools
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../license.html">
    License
@@ -498,7 +510,7 @@ title="Print to PDF"
                 
   <section id="build-instructions">
 <h1>Build instructions<a class="headerlink" href="#build-instructions" title="Permalink to this headline">#</a></h1>
-<p>Last Updated on 2022-09-18</p>
+<p>Last Updated on 2022-09-19</p>
 <p>The project uses <cite>CMake</cite> as a build system and defines <cite>presets</cite> in the
 <cite>CmakePrests.json</cite> file that describe the most commonly used configuration,
 build and test settings. While you can still use the traditional way of invoking
@@ -572,31 +584,49 @@ coverage analysis just for a specific test.</p>
 <dd class="field-odd"><p>clean intermediary files generated for code coverage analysis.</p>
 </dd>
 </dl>
-<p>The following target are only defined if the compiler is <cite>clang</cite>, the
-<cite>clang-format`tool has been properly detected and found on the system and the
-option `ASAP_ENABLE_CLANG_FORMAT</cite> is not set to <cite>OFF</cite>.</p>
+<p>The following targets are only defined if the <cite>clang-format</cite> tool has been
+properly detected and found on the system.</p>
 <dl class="field-list simple">
-<dt class="field-odd">clang-format-all</dt>
-<dd class="field-odd"><p>formats all C++ source code files in the project using
-<cite>clang-format</cite>.</p>
+<dt class="field-odd">clang-format</dt>
+<dd class="field-odd"><p>Shows which files are affected by <cite>clang-format</cite>.</p>
 </dd>
-<dt class="field-even">clang-format-all-check</dt>
-<dd class="field-even"><p>formats all C++ source code files in the project using
-<cite>clang-format</cite> and exits with a non-zero exit-code if changes were made.</p>
+<dt class="field-even">check-clang-format</dt>
+<dd class="field-even"><p>Errors if files are affected by <cite>clang-format</cite> (for CI
+integration).</p>
 </dd>
-<dt class="field-odd">clang-format-diff</dt>
-<dd class="field-odd"><p>formats only changed C++ source code files in the project
-using <cite>clang-format</cite>.</p>
+<dt class="field-odd">fix-clang-format</dt>
+<dd class="field-odd"><p>Applies <cite>clang-format</cite> to all affected files.</p>
 </dd>
-<dt class="field-even">clang-format-diff-check</dt>
-<dd class="field-even"><p>formats only changed C++ source code files in the
-project using <cite>clang-format</cite> and exits with a non-zero exit-code if changes
-were made.</p>
+</dl>
+<p>The following targets are only defined if the <cite>cmake-format</cite> tool has been
+properly detected and found on the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">cmake-format</dt>
+<dd class="field-odd"><p>Shows which files are affected by <cite>cmake-format</cite>.</p>
+</dd>
+<dt class="field-even">check-cmake-format</dt>
+<dd class="field-even"><p>Errors if files are affected by <cite>cmake-format</cite> (for CI
+integration).</p>
+</dd>
+<dt class="field-odd">fix-cmake-format</dt>
+<dd class="field-odd"><p>Applies <cite>cmake-format</cite> to all affected files.</p>
+</dd>
+</dl>
+<p>The following targets combine the above two categories of targets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">format</dt>
+<dd class="field-odd"><p>Shows which files are affected by <cite>cmake-format</cite> or <cite>clang-format</cite>.</p>
+</dd>
+<dt class="field-even">check-format</dt>
+<dd class="field-even"><p>Errors if files are affected by <cite>cmake-format</cite> or <cite>clang-format</cite>
+(for CI integration).</p>
+</dd>
+<dt class="field-odd">fix-format</dt>
+<dd class="field-odd"><p>Applies <cite>cmake-format</cite> or <cite>clang-format</cite> to all affected files.</p>
 </dd>
 </dl>
 <p>The following target are only defined if the compiler is <cite>clang</cite>, the
-<cite>clang-tidy`tool has been properly detected and found on the system and the
-option `ASAP_ENABLE_CLANG_TIDY</cite> is not set to <cite>OFF</cite>.</p>
+<cite>clang-tidy</cite> tool has been properly detected and found on the system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">clang-tidy-all</dt>
 <dd class="field-odd"><p>lints all C++ source code files in the project using

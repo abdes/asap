@@ -76,26 +76,37 @@ gcc, MSVC is not supported).
 
 :ccov-clean: clean intermediary files generated for code coverage analysis.
 
+The following targets are only defined if the `clang-format` tool has been
+properly detected and found on the system.
+
+:clang-format: Shows which files are affected by `clang-format`.
+
+:check-clang-format: Errors if files are affected by `clang-format` (for CI
+  integration).
+
+:fix-clang-format: Applies `clang-format` to all affected files.
+
+The following targets are only defined if the `cmake-format` tool has been
+properly detected and found on the system.
+
+:cmake-format: Shows which files are affected by `cmake-format`.
+
+:check-cmake-format: Errors if files are affected by `cmake-format` (for CI
+  integration).
+
+:fix-cmake-format: Applies `cmake-format` to all affected files.
+
+The following targets combine the above two categories of targets.
+
+:format: Shows which files are affected by `cmake-format` or `clang-format`.
+
+:check-format: Errors if files are affected by `cmake-format` or `clang-format`
+  (for CI integration).
+
+:fix-format: Applies `cmake-format` or `clang-format` to all affected files.
+
 The following target are only defined if the compiler is `clang`, the
-`clang-format`tool has been properly detected and found on the system and the
-option `ASAP_ENABLE_CLANG_FORMAT` is not set to `OFF`.
-
-:clang-format-all: formats all C++ source code files in the project using
-  `clang-format`.
-
-:clang-format-all-check: formats all C++ source code files in the project using
-  `clang-format` and exits with a non-zero exit-code if changes were made.
-
-:clang-format-diff: formats only changed C++ source code files in the project
-  using `clang-format`.
-
-:clang-format-diff-check: formats only changed C++ source code files in the
-  project using `clang-format` and exits with a non-zero exit-code if changes
-  were made.
-
-The following target are only defined if the compiler is `clang`, the
-`clang-tidy`tool has been properly detected and found on the system and the
-option `ASAP_ENABLE_CLANG_TIDY` is not set to `OFF`.
+`clang-tidy` tool has been properly detected and found on the system.
 
 :clang-tidy-all: lints all C++ source code files in the project using
   `clang-tidy`.

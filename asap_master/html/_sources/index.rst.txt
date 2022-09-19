@@ -23,6 +23,7 @@ Last Updated on |date|
    project-development/index
    documentation/index
    library-modules/index
+   tools/index
    license
    changelog.md
    version
@@ -62,6 +63,13 @@ is structured and built from source using `doxygen` and `sphinx`.*
 *check this out to explore the different modules part of this project. From
 there, you can also jump to the detailed API documentation of each of those
 modules.*
+
+:doc:`Project Tools <tools/index>`
+----------------------------------
+*get an introduction to the programs and scripts under the `tools` folder,
+specifically made for the `asap` project. These can simplify recurring tasks and
+provide additional insights into the project, and sometimes examples of how to
+use the project artifacts.*
 
 Acknowledgements
 ================
