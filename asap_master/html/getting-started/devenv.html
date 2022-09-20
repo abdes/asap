@@ -508,6 +508,11 @@ title="Print to PDF"
        Docker Desktop
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compiler-cache">
+       Compiler Cache
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -638,6 +643,11 @@ title="Print to PDF"
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#docker-desktop">
        Docker Desktop
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compiler-cache">
+       Compiler Cache
       </a>
      </li>
     </ul>
@@ -1116,6 +1126,28 @@ properly configured.</p>
 executing the following command <code class="docutils literal notranslate"><span class="pre">`winget</span> <span class="pre">install</span> <span class="pre">--id</span>
 <span class="pre">Docker.DockerDesktop`</span></code>.</p>
 </div>
+</section>
+<section id="compiler-cache">
+<h4>Compiler Cache<a class="headerlink" href="#compiler-cache" title="Permalink to this headline">#</a></h4>
+<p>In <cite>asap</cite>, compiler cache is implemented through the use of
+[<cite>ccache</cite>](<a class="reference external" href="https://ccache.dev">https://ccache.dev</a>). While this is completely taken care of in CI
+build on GitHub workflows, it needs some attention in development environments.</p>
+<p>First you need to have <cite>ccache</cite> on your development environment. For that, we
+recommend the following:</p>
+<ul class="simple">
+<li><p>On Mac OS, use [<cite>brew</cite>](<a class="reference external" href="https://brew.sh">https://brew.sh</a>), which should always provide a pretty
+recent if not the latest version of ccache, pre-built for Mac OS.</p></li>
+<li><p>On Windows, use [<cite>choco</cite>](<a class="reference external" href="https://chocolatey.org">https://chocolatey.org</a>),
+[<cite>winget</cite>](<a class="reference external" href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">https://learn.microsoft.com/en-us/windows/package-manager/winget/</a>)
+or any other suitable means to get a pre-built binary for ccache.</p></li>
+<li><p>On Linux, you can of course use the distribution package manager to get a
+pre-built package, but they are in general quite old.</p></li>
+</ul>
+<p>The better alternative is to download and manually install the [latest pre-built
+binaries](<a class="reference external" href="https://ccache.dev/download.html">https://ccache.dev/download.html</a>) from the <cite>ccache</cite> GitHub page.</p>
+<p>Second, you need to enable caching in your builds by setting the CMake project
+option <cite>USE_CCACHE</cite> to ‘ON’, ‘TRUE’ or equivalent. If you use the CMake presets,
+they automatically do that for you.</p>
 </section>
 </section>
 </section>

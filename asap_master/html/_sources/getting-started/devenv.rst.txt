@@ -543,3 +543,30 @@ properly configured.
   As an alternative, you can use `winget` to install the Doxygen package by
   executing the following command ```winget install --id
   Docker.DockerDesktop```.
+
+Compiler Cache
+^^^^^^^^^^^^^^
+
+In `asap`, compiler cache is implemented through the use of
+[`ccache`](https://ccache.dev). While this is completely taken care of in CI
+build on GitHub workflows, it needs some attention in development environments.
+
+First you need to have `ccache` on your development environment. For that, we
+recommend the following:
+
+* On Mac OS, use [`brew`](https://brew.sh), which should always provide a pretty
+  recent if not the latest version of ccache, pre-built for Mac OS.
+
+* On Windows, use [`choco`](https://chocolatey.org),
+  [`winget`](https://learn.microsoft.com/en-us/windows/package-manager/winget/)
+  or any other suitable means to get a pre-built binary for ccache.
+
+* On Linux, you can of course use the distribution package manager to get a
+  pre-built package, but they are in general quite old.
+  
+The better alternative is to download and manually install the [latest pre-built
+binaries](https://ccache.dev/download.html) from the `ccache` GitHub page.
+
+Second, you need to enable caching in your builds by setting the CMake project
+option `USE_CCACHE` to 'ON', 'TRUE' or equivalent. If you use the CMake presets,
+they automatically do that for you.
