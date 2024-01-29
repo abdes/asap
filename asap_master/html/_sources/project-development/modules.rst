@@ -206,48 +206,40 @@ Adding documentation to a module
 Documentation comes in two forms: `doxygen` API documentation and `sphinx`
 documentation. The former is embedded in the source code files, while the latter
 is written in its own separate files placed in a ```doc``` subdirectory under
-the module root.
+the module root or in a sub-directory under the root ```doc``` directory.
 
-1. The contents of the `doc` directory can be started by copying some of the
-   files from another existing module. In particular, the ```conf.py.in``` file,
-   can be copied from an existing module and used without modification.
+The module's `CMakeLists.txt` should be modified to add the targets for
+`doxygen` as appropriate. .. code-block:: CMake
 
-   The module's `CMakeLists.txt` should then be modified to add the targets for
-   `doxygen` and `sphinx` documentation build as appropriate.
+.. code-block:: CMake
 
-   .. code-block:: CMake
+  asap_with_doxygen(
+    MODULE_NAME
+    ${MODULE_TARGET_NAME}
+    VERSION
+    ${META_MODULE_VERSION}
+    TITLE
+    "\"MyApp Module\""
+    BRIEF
+    "\"Provides some stuff for MyApp.\""
+    INPUT_PATH
+    "${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/include")
 
-    # --------------------------------------------
-    # API Documentation
-    # --------------------------------------------
+For sphinx documentation, the recommended approach is to have all documentation
+reside within the root ```doc``` directory in order to be able to have one
+single configuration file and most importantly in order to make most IDEs happy
+and generate previews.
 
-    asap_with_doxygen(
-      MODULE_NAME
-      ${MODULE_TARGET_NAME}
-      VERSION
-      ${META_MODULE_VERSION}
-      TITLE
-      "\"MyApp Module\""
-      BRIEF
-      "\"Provides some stuff for MyApp.\""
-      INPUT_PATH
-      "${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/include")
+The contents of the `doc` directory can be started by copying some of the files
+from another existing module. In particular, the ```conf.py.in``` file, can be
+copied from an existing module and used without modification.
 
-    asap_with_sphinx(${MODULE_TARGET_NAME})
+If the module documentation is preferred to be inside the module itself, then a
+separate sphinx project is required. The module's `CMakeLists.txt` should then
+be modified to add the targets for `doxygen` and `sphinx` documentation build as
+appropriate. The module's `CMakeLists.txt` should then be modified to add the targets for
+`sphinx` as appropriate.
 
-2. Add target dependencies from the master sphinx documentation target to the
-   module's sphinx documentation target. This step is only required if you have
-   added a module sphinx documentation target.
+.. code-block:: CMake
 
-   .. code-block:: CMake
-
-    add_dependencies(master_sphinx
-      copy_doc_index
-      # Hardcode `asap` in the module name as we do not want this prefix to
-      # change with the forked project name.
-      asap_common_sphinx
-      asap_logging_sphinx
-      # Add more submodule documentation targets after this, using variables
-      # in the target names consistently with the module's CMakeLists.txt.
-      myapp
-      )
+  asap_with_sphinx(${MODULE_TARGET_NAME})

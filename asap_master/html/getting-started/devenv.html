@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Development environment &#8212; Start Now!</title>
   
@@ -19,30 +18,31 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=d7d8fdfe"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'getting-started/devenv';</script>
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -58,7 +58,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -93,11 +101,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -112,9 +123,11 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -124,12 +137,23 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Start Now! - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Start Now! - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Get Started</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -153,10 +177,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../documentation/sphinx-doc.html">Sphinx and restructured text</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../library-modules/index.html">Library Modules</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tools/index.html">Project Tools</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tools/index.html">Project Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
@@ -315,20 +336,22 @@
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -394,11 +417,11 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="development-environment">
-<h1>Development environment<a class="headerlink" href="#development-environment" title="Permalink to this heading">#</a></h1>
-<p>Last Updated on 2023-03-25</p>
+<h1>Development environment<a class="headerlink" href="#development-environment" title="Link to this heading">#</a></h1>
+<p>Last Updated on 2024-01-29</p>
 <p>In the past, software development comes with a lot of pain. It takes many steps
 beginning from Coding, Compiling, Testing, Debugging, Build, and Deployment. All
 these different phases would need many commands, scripts and different packages
@@ -419,7 +442,7 @@ experienced developer, it is always important to understand the rationale behind
 some of the choices made in the <cite>asap</cite> project so that you can own the design
 and adapt it to your specific needs.</p>
 <section id="requirements-overview">
-<h2>Requirements overview<a class="headerlink" href="#requirements-overview" title="Permalink to this heading">#</a></h2>
+<h2>Requirements overview<a class="headerlink" href="#requirements-overview" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>This is a starter project</strong> and as such, starting a new project based on <cite>asap</cite> should be a
 straightforward and simple task. The process should be automated when
@@ -444,7 +467,7 @@ Integration</strong>) environment.</p></li>
 </ul>
 </section>
 <section id="choices-made-and-rationale">
-<h2>Choices made and rationale<a class="headerlink" href="#choices-made-and-rationale" title="Permalink to this heading">#</a></h2>
+<h2>Choices made and rationale<a class="headerlink" href="#choices-made-and-rationale" title="Link to this heading">#</a></h2>
 <div class="margin admonition note">
 <p class="admonition-title">Note</p>
 <p>These are the fundamental choices made in ` asap` that significantly influence
@@ -551,7 +574,7 @@ in the IDE can also be done via command line.</p>
 </table>
 </section>
 <section id="recommended-environment">
-<h2>Recommended Environment<a class="headerlink" href="#recommended-environment" title="Permalink to this heading">#</a></h2>
+<h2>Recommended Environment<a class="headerlink" href="#recommended-environment" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is a setup that takes 100% out of <cite>asap</cite> and will work with most
@@ -586,9 +609,9 @@ and much faster to setup.</p>
 <li><p>Additional tools for development containers</p></li>
 </ol>
 <section id="foundation-tools">
-<h3>Foundation Tools<a class="headerlink" href="#foundation-tools" title="Permalink to this heading">#</a></h3>
+<h3>Foundation Tools<a class="headerlink" href="#foundation-tools" title="Link to this heading">#</a></h3>
 <section id="operating-system">
-<h4>Operating System<a class="headerlink" href="#operating-system" title="Permalink to this heading">#</a></h4>
+<h4>Operating System<a class="headerlink" href="#operating-system" title="Link to this heading">#</a></h4>
 <table class="table">
 <colgroup>
 <col style="width: 20.0%" />
@@ -609,7 +632,7 @@ desktop.</p>
 </div>
 </section>
 <section id="powershell-opensource">
-<h4>PowerShell (OpenSource)<a class="headerlink" href="#powershell-opensource" title="Permalink to this heading">#</a></h4>
+<h4>PowerShell (OpenSource)<a class="headerlink" href="#powershell-opensource" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://github.com/PowerShell/PowerShell">PowerShell</a> Core is a
 cross-platform (Windows, Linux, and macOS) automation and configuration
 tool/framework that works well with your existing tools and is optimized for
@@ -626,7 +649,7 @@ executing the following command <code class="docutils literal notranslate"><span
 </div>
 </section>
 <section id="windows-terminal">
-<h4>Windows Terminal<a class="headerlink" href="#windows-terminal" title="Permalink to this heading">#</a></h4>
+<h4>Windows Terminal<a class="headerlink" href="#windows-terminal" title="Link to this heading">#</a></h4>
 <p>Windows Terminal is a modern terminal application for users of command-line
 tools and shells like Command Prompt, PowerShell, and Windows Subsystem for
 Linux (WSL). Its main features include multiple tabs, panes, Unicode and UTF-8
@@ -650,7 +673,7 @@ Posh</cite>.</p>
 </div>
 </section>
 <section id="git">
-<h4>Git<a class="headerlink" href="#git" title="Permalink to this heading">#</a></h4>
+<h4>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h4>
 <p>Git is a free and open source distributed version control system designed to
 handle everything from small to very large projects with speed and efficiency.</p>
 <p>Git is easy to learn and has a tiny footprint with lightning fast performance.
@@ -665,7 +688,7 @@ executing the following command <code class="docutils literal notranslate"><span
 </div>
 </section>
 <section id="oh-my-posh">
-<h4>Oh My Posh<a class="headerlink" href="#oh-my-posh" title="Permalink to this heading">#</a></h4>
+<h4>Oh My Posh<a class="headerlink" href="#oh-my-posh" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://ohmyposh.dev/">Oh My Posh</a> is a custom prompt engine for any shell
 that has the ability to adjust the prompt string with a function or variable. It
 is customizable and offers many components in the prompt that can be useful
@@ -698,7 +721,7 @@ the documentation to do that is located at <a class="reference external" href="h
 </div>
 </section>
 <section id="id2">
-<h4>Visual Studio Code<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<h4>Visual Studio Code<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <p>Visual Studio Code is a lightweight but powerful source code editor which runs
 on your desktop and is available for Windows, macOS and Linux. It comes with
 built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem
@@ -715,9 +738,9 @@ executing the following command <code class="docutils literal notranslate"><span
 </section>
 </section>
 <section id="local-development">
-<h3>Local Development<a class="headerlink" href="#local-development" title="Permalink to this heading">#</a></h3>
+<h3>Local Development<a class="headerlink" href="#local-development" title="Link to this heading">#</a></h3>
 <section id="cmake">
-<h4>CMake<a class="headerlink" href="#cmake" title="Permalink to this heading">#</a></h4>
+<h4>CMake<a class="headerlink" href="#cmake" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://cmake.org/">CMake</a> is an open-source, cross-platform family of tools
 designed to build, test and package software. CMake is used to control the
 software compilation process using simple platform and compiler independent
@@ -732,7 +755,7 @@ executing the following command <code class="docutils literal notranslate"><span
 </div>
 </section>
 <section id="ninja-build">
-<h4>Ninja Build<a class="headerlink" href="#ninja-build" title="Permalink to this heading">#</a></h4>
+<h4>Ninja Build<a class="headerlink" href="#ninja-build" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://ninja-build.org/">Ninja</a> is a small build system with a focus on
 speed. It differs from other build systems in two major respects: it is designed
 to have its input files generated by a higher-level build system, and it is
@@ -742,7 +765,7 @@ CMake in ` asap`.</p>
 environment variable and restart your terminal.</p>
 </section>
 <section id="python-3-via-miniconda">
-<h4>Python 3 via Miniconda<a class="headerlink" href="#python-3-via-miniconda" title="Permalink to this heading">#</a></h4>
+<h4>Python 3 via Miniconda<a class="headerlink" href="#python-3-via-miniconda" title="Link to this heading">#</a></h4>
 <p>Miniconda is a free minimal installer for conda. It is a small, bootstrap
 version of Anaconda that includes only conda, Python, the packages they depend
 on, and a small number of other useful packages, including pip, zlib and a few
@@ -765,7 +788,7 @@ profile (<cite>notepad $PROFILE</cite>):</p>
 </div>
 </section>
 <section id="id4">
-<h4>Doxygen<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<h4>Doxygen<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <p>Doxygen is the de facto standard tool for generating documentation from
 annotated C++ sources. It is the selected tool for generating API documentation
 in <cite>asap</cite>.</p>
@@ -779,7 +802,7 @@ DimitriVanHeesch.Doxygen</cite>.</p>
 </div>
 </section>
 <section id="graphviz">
-<h4>Graphviz<a class="headerlink" href="#graphviz" title="Permalink to this heading">#</a></h4>
+<h4>Graphviz<a class="headerlink" href="#graphviz" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://graphviz.org/">Graphviz</a> is open source graph visualization software.
 Graph visualization is a way of representing structural information as diagrams
 of abstract graphs and networks. It is an optional tool used by doxygen to
@@ -794,7 +817,7 @@ executing the following command <code class="docutils literal notranslate"><span
 </div>
 </section>
 <section id="nodejs">
-<h4>NodeJS<a class="headerlink" href="#nodejs" title="Permalink to this heading">#</a></h4>
+<h4>NodeJS<a class="headerlink" href="#nodejs" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://nodejs.org/en/">NodeJS</a> is a JavaScript runtime built on Chrome’s V8
 JavaScript engine. It’s used in <cite>asap</cite> to take advantage of some of the many
 tools written for the JavaScript ecosystem.</p>
@@ -807,7 +830,7 @@ executing the following command <code class="docutils literal notranslate"><span
 </div>
 </section>
 <section id="visual-studio">
-<h4>Visual Studio<a class="headerlink" href="#visual-studio" title="Permalink to this heading">#</a></h4>
+<h4>Visual Studio<a class="headerlink" href="#visual-studio" title="Link to this heading">#</a></h4>
 <p>For the Windows Platform target you will need Visual Studio MSVC. You can
 install the community edition by following the instructions described in ‘Visual
 Studio Community Install&lt;<a class="reference external" href="https://visualstudio.microsoft.com/vs/community/">https://visualstudio.microsoft.com/vs/community/</a>&gt;`_
@@ -822,9 +845,9 @@ the following lines to it and save it.</p>
 </section>
 </section>
 <section id="dev-containers">
-<h3>Dev Containers<a class="headerlink" href="#dev-containers" title="Permalink to this heading">#</a></h3>
+<h3>Dev Containers<a class="headerlink" href="#dev-containers" title="Link to this heading">#</a></h3>
 <section id="windows-wsl2">
-<h4>Windows WSL2<a class="headerlink" href="#windows-wsl2" title="Permalink to this heading">#</a></h4>
+<h4>Windows WSL2<a class="headerlink" href="#windows-wsl2" title="Link to this heading">#</a></h4>
 <p>The Windows Subsystem for Linux lets developers run a GNU/Linux environment –
 including most command-line tools, utilities, and applications – directly on
 Windows, unmodified, without the overhead of a traditional virtual machine or
@@ -836,7 +859,7 @@ dual-boot setup.</p>
 </div>
 </section>
 <section id="docker-desktop">
-<h4>Docker Desktop<a class="headerlink" href="#docker-desktop" title="Permalink to this heading">#</a></h4>
+<h4>Docker Desktop<a class="headerlink" href="#docker-desktop" title="Link to this heading">#</a></h4>
 <p>Docker is an open platform for developing, shipping, and running applications.
 Docker enables you to separate your applications from your infrastructure so you
 can deliver software quickly. With Docker, you can manage your infrastructure in
@@ -860,7 +883,7 @@ executing the following command <code class="docutils literal notranslate"><span
 </div>
 </section>
 <section id="compiler-cache">
-<h4>Compiler Cache<a class="headerlink" href="#compiler-cache" title="Permalink to this heading">#</a></h4>
+<h4>Compiler Cache<a class="headerlink" href="#compiler-cache" title="Link to this heading">#</a></h4>
 <p>In <cite>asap</cite>, compiler cache is implemented through the use of
 [<cite>ccache</cite>](<a class="reference external" href="https://ccache.dev">https://ccache.dev</a>). While this is completely taken care of in CI
 build on GitHub workflows, it needs some attention in development environments.</p>
@@ -891,8 +914,10 @@ they automatically do that for you.</p>
 
               
               
-                <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="index.html"
@@ -920,6 +945,7 @@ they automatically do that for you.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -965,7 +991,7 @@ they automatically do that for you.</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -974,6 +1000,7 @@ they automatically do that for you.</p>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022, The Authors.
@@ -991,7 +1018,7 @@ they automatically do that for you.</p>
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1000,8 +1027,8 @@ they automatically do that for you.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

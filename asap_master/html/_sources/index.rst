@@ -22,7 +22,6 @@ Last Updated on |date|
    getting-started/index
    project-development/index
    documentation/index
-   library-modules/index
    tools/index
    license
    changelog.md
@@ -41,28 +40,19 @@ Parts of the documentation
 
 :doc:`Getting Started! <getting-started/index>`
 -----------------------------------------------
-
 *start here to understand how to use this project as a starter for your own
 project*
 
 :doc:`Project Development <project-development/index>`
 ------------------------------------------------------
-
 *refer to this part of the documentation to understand the build system
 specifics for this project, the development workflow, coding and unit testing
 guidelines*
 
 :doc:`Documentation <documentation/index>`
 ------------------------------------------
-
 *refer to this part of the documentation to understand how project documentation
 is structured and built from source using `doxygen` and `sphinx`.*
-
-:doc:`Library Modules <library-modules/index>`
-----------------------------------------------
-*check this out to explore the different modules part of this project. From
-there, you can also jump to the detailed API documentation of each of those
-modules.*
 
 :doc:`Project Tools <tools/index>`
 ----------------------------------
@@ -74,7 +64,7 @@ use the project artifacts.*
 Acknowledgements
 ================
 
-.. figure:: https://executablebooks.org/en/latest/_static/logo-wide.png
+.. figure:: https://executablebooks.org/en/latest/_static/logo-wide.svg
   :figclass: margin
   :alt: Executable Books Project
   :name: executable_book_logo
