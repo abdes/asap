@@ -8,12 +8,7 @@
 #
 # This modules defines SPHINX_EXECUTABLE SPHINX_FOUND
 
-find_program(
-  SPHINX_EXECUTABLE
-  NAMES sphinx-build
-  HINTS $ENV{SPHINX_DIR}
-  PATH_SUFFIXES bin
-  DOC "Sphinx documentation generator")
+find_program(SPHINX_EXECUTABLE NAMES sphinx-build DOC "Sphinx documentation generator")
 
 include(FindPackageHandleStandardArgs)
 

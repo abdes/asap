@@ -15,4 +15,3 @@ License
 Last Updated on |date|
 
 .. include:: ../LICENSE
-

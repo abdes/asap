@@ -29,7 +29,14 @@
 include(FindDoxygen)
 
 if(DOXYGEN_FOUND)
-  function(_configure_doxyfile MODULE_NAME VERSION TITLE BRIEF INPUT_PATH)
+  function(
+    _configure_doxyfile
+    MODULE_NAME
+    VERSION
+    TITLE
+    BRIEF
+    INPUT_PATH
+  )
     if(EXISTS "${CMAKE_SOURCE_DIR}/doxygen/Doxyfile.in")
       set(DOXY_OUTPUT_DIR "${MODULE_NAME}")
       set(DOXY_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
@@ -51,13 +58,9 @@ if(DOXYGEN_FOUND)
       if(NOT EXISTS "${DOXYGEN_BUILD_DIR}/${DOXY_OUTPUT_DIR}")
         file(MAKE_DIRECTORY "${DOXYGEN_BUILD_DIR}/${DOXY_OUTPUT_DIR}")
       endif()
-      configure_file("${CMAKE_SOURCE_DIR}/doxygen/Doxyfile.in"
-                     "${DOXYGEN_BUILD_DIR}/${MODULE_NAME}_Doxyfile" @ONLY)
+      configure_file("${CMAKE_SOURCE_DIR}/doxygen/Doxyfile.in" "${DOXYGEN_BUILD_DIR}/${MODULE_NAME}_Doxyfile" @ONLY)
     else()
-      message(
-        STATUS
-          "WARNING: The '${CMAKE_SOURCE_DIR}/doxygen/Doxyfile.in' file does not exist!"
-      )
+      message(STATUS "WARNING: The '${CMAKE_SOURCE_DIR}/doxygen/Doxyfile.in' file does not exist!")
     endif()
   endfunction()
 
@@ -66,13 +69,13 @@ if(DOXYGEN_FOUND)
     add_custom_target(
       ${MODULE_NAME}_dox
       COMMAND ${CMAKE_COMMAND} -E remove -f "${MODULE_NAME}_Doxyfile.out"
-      COMMAND ${CMAKE_COMMAND} -E copy "${MODULE_NAME}_Doxyfile"
-              "${MODULE_NAME}_Doxyfile.out"
+      COMMAND ${CMAKE_COMMAND} -E copy "${MODULE_NAME}_Doxyfile" "${MODULE_NAME}_Doxyfile.out"
       COMMAND ${DOXYGEN_EXECUTABLE} "${MODULE_NAME}_Doxyfile.out"
       COMMAND ${CMAKE_COMMAND} -E remove -f "${MODULE_NAME}_Doxyfile.out"
       WORKING_DIRECTORY "${DOXYGEN_BUILD_DIR}"
       COMMENT "Generating doxygen documentation for \"${MODULE_NAME}\""
-      VERBATIM)
+      VERBATIM
+    )
     set_target_properties(${MODULE_NAME}_dox PROPERTIES EXCLUDE_FROM_ALL TRUE)
     add_dependencies(dox ${MODULE_NAME}_dox)
   endfunction()
@@ -84,11 +87,17 @@ if(DOXYGEN_FOUND)
     endif()
 
     set(options)
-    set(oneValueArgs MODULE_NAME VERSION TITLE BRIEF INPUT_PATH)
+    set(
+      oneValueArgs
+      MODULE_NAME
+      VERSION
+      TITLE
+      BRIEF
+      INPUT_PATH
+    )
     set(multiValueArgs)
 
-    cmake_parse_arguments(x "${options}" "${oneValueArgs}" "${multiValueArgs}"
-                          ${ARGN})
+    cmake_parse_arguments(x "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
     if(NOT DEFINED x_MODULE_NAME)
       message(FATAL_ERROR "Module name is required.")
@@ -111,7 +120,8 @@ if(DOXYGEN_FOUND)
 
     # Substitute variables in the doxygen config file for the target
     _configure_doxyfile(${x_MODULE_NAME} ${x_VERSION} ${x_TITLE} ${x_BRIEF}
-                        ${x_INPUT_PATH})
+                        ${x_INPUT_PATH}
+    )
     # Add the target as a dependency to the master dox target
     _add_doxygen_target(${x_MODULE_NAME})
   endfunction()
@@ -131,7 +141,10 @@ if(DOXYGEN_FOUND)
 
     set(COLLECT_WARNINGS_SCRIPT "${DOXYGEN_BUILD_DIR}/collect_warnings.cmake")
     # cmake-format: off
-    file(WRITE "${COLLECT_WARNINGS_SCRIPT}" " \
+    file(
+      WRITE
+      "${COLLECT_WARNINGS_SCRIPT}"
+      " \
     # Collect warnings from submodules into the consolidated warnings file\n \
     file(WRITE \"${DOXYGEN_BUILD_DIR}/${MODULE_NAME}/doxygen_warnings.txt\" \"\")\n \
     file(GLOB_RECURSE DOX_MODULES \"module_warnings.txt\")\n \
@@ -145,7 +158,8 @@ if(DOXYGEN_FOUND)
     if(DOXYGEN_HAD_WARNINGS)\n \
       # Print the warnings\n \
       message(\"\${ALL_WARNINGS}\")\n \
-    endif(DOXYGEN_HAD_WARNINGS)\n")
+    endif(DOXYGEN_HAD_WARNINGS)\n"
+    )
     # cmake-format: on
 
     # Custom command to collect warnings and print them
@@ -154,14 +168,12 @@ if(DOXYGEN_FOUND)
       POST_BUILD
       COMMAND ${CMAKE_COMMAND} -P "${COLLECT_WARNINGS_SCRIPT}"
       WORKING_DIRECTORY "${DOXYGEN_BUILD_DIR}"
-      COMMENT "Running post-build command for dox")
+      COMMENT "Running post-build command for dox"
+    )
   endif()
-
 else()
-  message(WARNING "`doxygen` is not available on this system! "
-                  "API documentation generation targets will not be added.")
+  message(WARNING "`doxygen` is not available on this system! " "API documentation generation targets will not be added.")
 
   function(asap_with_doxygen)
-
   endfunction()
 endif()

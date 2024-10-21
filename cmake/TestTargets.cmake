@@ -27,7 +27,8 @@ macro(asap_add_test target)
     if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
       asap_set_compile_options(
         ${target} ADD "-Wno-used-but-marked-unused" "-Wno-global-constructors"
-        "-Wno-unused-member-function")
+        "-Wno-unused-member-function"
+      )
     endif()
   endif()
   set_target_properties(${target} PROPERTIES FOLDER "Unit Tests")
@@ -52,8 +53,6 @@ function(asap_add_test_library target)
   asap_set_compile_options(${target})
   set_target_properties(
     ${target}
-    PROPERTIES FOLDER "Test Libraries"
-               VERSION ${META_MODULE_VERSION}
-               SOVERSION ${META_MODULE_VERSION_MAJOR}
-               DEBUG_POSTFIX "d")
+    PROPERTIES FOLDER "Test Libraries" VERSION ${META_MODULE_VERSION} SOVERSION ${META_MODULE_VERSION_MAJOR} DEBUG_POSTFIX "d"
+  )
 endfunction()

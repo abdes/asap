@@ -18,8 +18,7 @@ cmake_minimum_required(VERSION 3.14)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 # But if this project is not the master project, prioritize the master project
 # cmake include dir if it exists.
-if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR
-   AND EXISTS "${CMAKE_SOURCE_DIR}/cmake")
+if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR AND EXISTS "${CMAKE_SOURCE_DIR}/cmake")
   list(PREPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 endif()
 # Include the log helpers module early so we can use early for logging the
@@ -43,7 +42,7 @@ if(NOT GIT_SHA1)
 endif()
 
 # Meta information about the project
-# cmake-format: off
+# gersemi: off
 set(META_PROJECT_NAME        "asap")
 set(META_PROJECT_DESCRIPTION "Instantly start with a fully loaded CMake project")
 set(META_AUTHOR_ORGANIZATION "The Authors")
@@ -56,7 +55,7 @@ set(META_VERSION_PATCH       "0")
 set(META_VERSION_REVISION    "${GIT_REV}")
 set(META_VERSION             "${META_VERSION_MAJOR}.${META_VERSION_MINOR}.${META_VERSION_PATCH}")
 set(META_NAME_VERSION        "${META_PROJECT_NAME} v${META_VERSION} (${META_VERSION_REVISION})")
-# cmake-format: on
+# gersemi: on
 
 string(MAKE_C_IDENTIFIER ${META_PROJECT_NAME} META_PROJECT_ID)
 string(TOUPPER ${META_PROJECT_ID} META_PROJECT_ID)
@@ -134,7 +133,8 @@ project(
   VERSION ${META_VERSION}
   DESCRIPTION ${META_PROJECT_DESCRIPTION}
   HOMEPAGE_URL ${META_GITHUB_REPO}
-  LANGUAGES C CXX)
+  LANGUAGES C CXX
+)
 
 # Set output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -161,9 +161,7 @@ include(cmake/FasterBuild.cmake)
 # ------------------------------------------------------------------------------
 
 # Generate version-header
-configure_file(
-  templates/version.h.in
-  ${CMAKE_CURRENT_BINARY_DIR}/include/${META_PROJECT_ID_LOWER}/version.h)
+configure_file(templates/version.h.in ${CMAKE_CURRENT_BINARY_DIR}/include/${META_PROJECT_ID_LOWER}/version.h)
 
 # Generate a clangd configuration file that points to the compilation database
 # in the cmake build directory. We need to do this as the build directory is
@@ -178,15 +176,15 @@ configure_file(.clangd.in ${CMAKE_SOURCE_DIR}/.clangd @ONLY)
 
 if(ASAP_BUILD_DOCS)
   if(ASAP_WITH_DOXYGEN)
-  # Doxygen
-  set(DOXYGEN_BUILD_DIR "${CMAKE_BINARY_DIR}/dox")
-  include(DoxGeneration)
+    # Doxygen
+    set(DOXYGEN_BUILD_DIR "${CMAKE_BINARY_DIR}/dox")
+    include(DoxGeneration)
   endif()
 
   if(ASAP_WITH_SPHINX)
-  # Sphinx/breathe/exhale
-  set(SPHINX_BUILD_DIR "${CMAKE_BINARY_DIR}/sphinx")
-  include(SphinxGeneration)
+    # Sphinx/breathe/exhale
+    set(SPHINX_BUILD_DIR "${CMAKE_BINARY_DIR}/sphinx")
+    include(SphinxGeneration)
   endif()
 endif()
 
@@ -201,7 +199,9 @@ if(ASAP_BUILD_TESTS)
   include(CodeCoverage)
   # Enable this target when the project has test cases
   asap_add_code_coverage_all_targets()
-  include(Valgrind)
+  if(ASAP_WITH_VALGRIND)
+    include(Valgrind)
+  endif()
 
   cpmaddpackage(
     NAME
@@ -212,7 +212,8 @@ if(ASAP_BUILD_TESTS)
     google/googletest
     OPTIONS
     "gtest_force_shared_crt ON"
-    "INSTALL_GTEST OFF")
+    "INSTALL_GTEST OFF"
+  )
 
   include(GoogleTest)
 endif()
@@ -245,14 +246,13 @@ include(AsapInstall)
 # optimization. For some projects you may want to set a default build type so
 # that you do not have to remember to set it.
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-  message(
-    STATUS "Setting build type to 'RelWithDebInfo' as none was specified.")
-  set(CMAKE_BUILD_TYPE
-      RelWithDebInfo
-      CACHE STRING "Choose the type of build." FORCE)
+  message(STATUS "Setting build type to 'RelWithDebInfo' as none was specified.")
+  set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Choose the type of build." FORCE)
   # Set the possible values of build type for cmake-gui
-  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release"
-                                               "MinSizeRel" "RelWithDebInfo")
+  set_property(
+    CACHE CMAKE_BUILD_TYPE
+    PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo"
+  )
 endif()
 
 # ------------------------------------------------------------------------------
@@ -265,7 +265,7 @@ endif()
 
 # Set runtime path
 set(CMAKE_SKIP_BUILD_RPATH FALSE) # Add absolute path to all dependencies for
-                                  # BUILD
+# BUILD
 set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH FALSE)
 
@@ -290,8 +290,8 @@ add_subdirectory(tools/version-info)
 
 if(${META_PROJECT_ID}_IS_MASTER_PROJECT)
   if(ASAP_WITH_CLANG_TIDY)
-  include(ClangTidy)
-  asap_create_clang_tidy_targets()
+    include(ClangTidy)
+    asap_create_clang_tidy_targets()
   endif()
 
   if(ASAP_WITH_CLANG_FORMAT)

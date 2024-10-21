@@ -8,7 +8,6 @@
 # Code coverage only works with clang/gcc.
 #
 if("${CMAKE_C_COMPILER_ID}" MATCHES "(Apple)?[Cc]lang|GNU")
-
   include(common/CodeCoverage)
 
   function(asap_add_code_coverage)
@@ -28,7 +27,6 @@ if("${CMAKE_C_COMPILER_ID}" MATCHES "(Apple)?[Cc]lang|GNU")
     endif()
     add_code_coverage_all_targets(EXCLUDE ${STANDARD_EXCLUDES} ${ARGV})
   endfunction()
-
 else()
   function(target_code_coverage)
     # empty
@@ -41,5 +39,4 @@ else()
   function(asap_add_code_coverage_all_targets)
     # empty
   endfunction()
-
 endif()

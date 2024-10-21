@@ -92,4 +92,3 @@ organization's policies and style.*
 *when using this starter project to build your own project, you might follow the
 instructions in this guide to customize it to fit your needs or your
 organization's policies and style.*
-

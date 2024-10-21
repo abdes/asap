@@ -34,17 +34,14 @@ macro(asap_push_project project_name)
   if(${META_PROJECT_ID}_IS_MASTER_PROJECT)
     message("=> [${depth}] in project ${ASAP_LOG_PROJECT_HIERARCHY} (master)")
   else()
-    message(
-      "=> [${depth}] in project ${ASAP_LOG_PROJECT_HIERARCHY} (sub-project)")
+    message("=> [${depth}] in project ${ASAP_LOG_PROJECT_HIERARCHY} (sub-project)")
   endif()
 endmacro()
 
 macro(asap_pop_project project_name)
   list(POP_BACK ASAP_LOG_PROJECT_HIERARCHY_STACK removed)
   if(NOT removed STREQUAL "[${project_name}]")
-    message(
-      FATAL_ERROR
-        "Project [${removed}] was pushed but not popped, please fix this")
+    message(FATAL_ERROR "Project [${removed}] was pushed but not popped, please fix this")
   endif()
   list(JOIN ASAP_LOG_PROJECT_HIERARCHY_STACK " > " ASAP_LOG_PROJECT_HIERARCHY)
   list(LENGTH ASAP_LOG_PROJECT_HIERARCHY_STACK depth)
@@ -63,9 +60,7 @@ endmacro()
 macro(asap_pop_module module_name)
   list(POP_BACK ASAP_LOG_PROJECT_HIERARCHY_STACK removed)
   if(NOT removed STREQUAL "(${module_name})")
-    message(
-      FATAL_ERROR
-        "Module [${removed}] was pushed but not popped, please fix this")
+    message(FATAL_ERROR "Module [${removed}] was pushed but not popped, please fix this")
   endif()
   list(JOIN ASAP_LOG_PROJECT_HIERARCHY_STACK " > " ASAP_LOG_PROJECT_HIERARCHY)
   list(LENGTH ASAP_LOG_PROJECT_HIERARCHY_STACK depth)

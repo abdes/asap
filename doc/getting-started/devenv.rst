@@ -563,7 +563,7 @@ recommend the following:
 
 * On Linux, you can of course use the distribution package manager to get a
   pre-built package, but they are in general quite old.
-  
+
 The better alternative is to download and manually install the [latest pre-built
 binaries](https://ccache.dev/download.html) from the `ccache` GitHub page.
 

@@ -18,6 +18,5 @@ function(asap_generate_export_headers target include_dir)
   set(TEMPLATE_INCLUDE_DIR "${include_dir}")
 
   # Create API export headers
-  generate_export_header(${target} EXPORT_FILE_NAME ${export_file}
-                         EXPORT_MACRO_NAME ${TEMPLATE_TARGET_ID}_API)
+  generate_export_header(${target} EXPORT_FILE_NAME ${export_file} EXPORT_MACRO_NAME ${TEMPLATE_TARGET_ID}_API)
 endfunction()

@@ -67,11 +67,9 @@ function(asap_set_compile_definitions target)
   list(APPEND all_definitions "$<$<CONFIG:Debug>:ASAP_IS_DEBUG_BUILD>")
 
   if(MSVC)
-    list(APPEND all_definitions "NOMINMAX" "WIN32_LEAN_AND_MEAN=1"
-         "_WIN32_WINNT=0x0600")
+    list(APPEND all_definitions "NOMINMAX" "WIN32_LEAN_AND_MEAN=1" "_WIN32_WINNT=0x0600")
     # Disabling warning for not using "secure-but-not-standard" STL algos
-    list(APPEND all_definitions "_CRT_SECURE_NO_WARNINGS"
-         "_SCL_SECURE_NO_WARNINGS")
+    list(APPEND all_definitions "_CRT_SECURE_NO_WARNINGS" "_SCL_SECURE_NO_WARNINGS")
   endif()
 
   if(x_REMOVE)
@@ -80,8 +78,9 @@ function(asap_set_compile_definitions target)
       if(found EQUAL -1)
         message(
           FATAL_ERROR
-            "Compiler definition '${definition}' specified for removal is not "
-            "part of the set of common compiler definitions.")
+          "Compiler definition '${definition}' specified for removal is not "
+          "part of the set of common compiler definitions."
+        )
       endif()
     endforeach()
     list(REMOVE_ITEM all_definitions ${x_REMOVE})
@@ -96,23 +95,25 @@ function(asap_set_compile_definitions target)
   # friendly with multi-config generators.
   if(NOT x_CONTRACTS STREQUAL "TESTING")
     if(x_CONTRACTS MATCHES "OFF|AUDIT|DEFAULT")
-      target_compile_definitions(${target}
-                                 PRIVATE "ASAP_CONTRACT_${x_CONTRACTS}")
+      target_compile_definitions(${target} PRIVATE "ASAP_CONTRACT_${x_CONTRACTS}")
     elseif(x_CONTRACTS STREQUAL "AUTO")
       if(NOT DEFINED OPTION_CONTRACT_MODE)
         target_compile_definitions(
           ${target}
-          PRIVATE $<$<CONFIG:Debug>:ASAP_CONTRACT_AUDIT>
-                  $<$<CONFIG:RelWithDebInfo>:ASAP_CONTRACT_DEFAULT>
-                  $<$<CONFIG:Release,RelMinSize>:ASAP_CONTRACT_OFF>)
+          PRIVATE
+            $<$<CONFIG:Debug>:ASAP_CONTRACT_AUDIT>
+            $<$<CONFIG:RelWithDebInfo>:ASAP_CONTRACT_DEFAULT>
+            $<$<CONFIG:Release,RelMinSize>:ASAP_CONTRACT_OFF>
+        )
       else()
-        target_compile_definitions(
-          ${target} PRIVATE "ASAP_CONTRACT_${OPTION_CONTRACT_MODE}")
+        target_compile_definitions(${target} PRIVATE "ASAP_CONTRACT_${OPTION_CONTRACT_MODE}")
       endif()
     else()
       message(
-        FATAL_ERROR "Contract mode '${x_CONTRACTS}' is not valid."
-                    "Valid values are: OFF, DEFAULT, AUDIT, AUTO and TESTING.")
+        FATAL_ERROR
+        "Contract mode '${x_CONTRACTS}' is not valid."
+        "Valid values are: OFF, DEFAULT, AUDIT, AUTO and TESTING."
+      )
     endif()
   endif()
 endfunction()
