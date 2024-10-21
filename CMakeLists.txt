@@ -79,17 +79,46 @@ asap_push_project(${META_PROJECT_NAME})
 # ------------------------------------------------------------------------------
 
 # Project options
-# cmake-format: off
-option(BUILD_SHARED_LIBS        "Build shared instead of static libraries."              ON)
-option(ASAP_BUILD_TESTS         "Setup target to build and run tests."                   OFF)
-option(ASAP_BUILD_EXAMPLES      "Setup target to build the examples."                    OFF)
-option(ASAP_BUILD_DOCS          "Setup target to build the doxygen and sphinx docs."     ON)
-option(ASAP_WITH_GOOGLE_ASAN    "Instrument code with address sanitizer"                 OFF)
-option(ASAP_WITH_GOOGLE_UBSAN   "Instrument code with undefined behavior sanitizer"      OFF)
-option(ASAP_WITH_GOOGLE_TSAN    "Instrument code with thread sanitizer"                  OFF)
-option(ASAP_WITH_VALGRIND       "Builds targets with valgrind profilers added"           OFF)
-option(USE_CCACHE               "Enable caching of compiled artifacts using ccache"      OFF)
-# cmake-format: on
+# gersemi: off
+set(OPTIONS_LIST
+  BUILD_SHARED_LIBS        "Build shared instead of static libraries." ON
+  ASAP_BUILD_TESTS         "Setup target to build and run tests." OFF
+  ASAP_BUILD_EXAMPLES      "Setup target to build the examples." OFF
+  ASAP_BUILD_DOCS          "Setup target to build the documentation." OFF
+  ASAP_WITH_GOOGLE_ASAN    "Instrument code with address sanitizer" OFF
+  ASAP_WITH_GOOGLE_UBSAN   "Instrument code with undefined behavior sanitizer" OFF
+  ASAP_WITH_GOOGLE_TSAN    "Instrument code with thread sanitizer" OFF
+  ASAP_WITH_VALGRIND       "Instrument code with valgrind profilers" OFF
+  ASAP_WITH_DOXYGEN        "Create targets for doxygen api docs" OFF
+  ASAP_WITH_SPHINX         "Create targets for sphinx docs" OFF
+  ASAP_WITH_CLANG_FORMAT   "Create targets for clang-format" ON
+  ASAP_WITH_CLANG_TIDY     "Create targets for clang-tidy" ON
+  USE_CCACHE               "Enable caching of compiled artifacts using ccache" OFF
+)
+# gersemi: on
+# Process each option
+
+message(STATUS "PROJECT OPTIONS:")
+list(LENGTH OPTIONS_LIST OPTIONS_LIST_length)
+math(EXPR OPTIONS_LIST_length "${OPTIONS_LIST_length}-1")
+foreach(index RANGE 0 ${OPTIONS_LIST_length} 3)
+  list(GET OPTIONS_LIST ${index} OPTION_NAME)
+  math(EXPR index "${index}+1")
+  list(GET OPTIONS_LIST ${index} OPTION_DESCRIPTION)
+  math(EXPR index "${index}+1")
+  list(GET OPTIONS_LIST ${index} OPTION_DEFAULT)
+
+  if(DEFINED ${OPTION_NAME})
+    if(NOT "${${OPTION_NAME}}" STREQUAL "$CACHE{${OPTION_NAME}}")
+      message(STATUS ". ${OPTION_NAME}: ${${OPTION_NAME}} - provided (cache: $CACHE{${OPTION_NAME}})")
+    else()
+      message(STATUS ". ${OPTION_NAME}: ${${OPTION_NAME}} - cache")
+    endif()
+  else()
+    set(${OPTION_NAME} ${OPTION_DEFAULT} CACHE BOOL ${OPTION_DESCRIPTION} FORCE)
+    message(STATUS ". ${OPTION_NAME}: ${${OPTION_NAME}} - force set")
+  endif()
+endforeach()
 
 # ------------------------------------------------------------------------------
 # Project Declaration
