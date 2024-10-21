@@ -11,7 +11,19 @@ include(CompileDefinitions)
 include(CompileOptions)
 
 # ------------------------------------------------------------------------------
-# Meta information about the this module
+# Meta information about this module.
+#
+# Of particular importance is the MODULE_NAME, which can be composed of multiple
+# segments separated by '.' or '_'. In such case, these segments will be used
+# as path segments for the `api_export` generated file, and as identifier segments
+# in the corresponding `_API` compiler defines.
+#
+# For example, `Super.Hero.Module` will produce a file that can be included as
+# "super/hero/module/api_export.h" and will provide the export macro as
+# `SUPER_HERO_MODULE_API`.
+#
+# It is a common practice and a recommended one to use a target name for that
+# module with the same name (i.e. Super.Hero.Module).
 # ------------------------------------------------------------------------------
 
 macro(asap_declare_module)

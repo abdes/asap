@@ -10,21 +10,37 @@
 
 function(identifier_to_upper_snake_case identifier)
   set(result)
-  string(MAKE_C_IDENTIFIER "${identifier}" c_identifier)
-  string(REGEX MATCHALL "^[A-Z][A-Z0-9]*[a-z0-9]*" words ${c_identifier})
+
+  # Extract words from the identifier expecting it to be using '_' or '.' to
+  # compose a hierarchy of segments
+  string(REGEX MATCHALL "[A-Za-z][^_.]*" words ${identifier})
+
+  # Process each word
   foreach(word IN LISTS words)
-    if(word STREQUAL "_")
+    if("${word}" STREQUAL "_" OR "${word}" STREQUAL ".")
       string(APPEND result "_")
     else()
       string(TOUPPER "${word}" word_upper)
       list(APPEND result "${word_upper}")
     endif()
   endforeach()
-  string(JOIN "_" out ${result})
-  set(base_name "${out}" PARENT_SCOPE)
-  string(JOIN "/" out ${result})
-  string(TOLOWER ${out} out)
-  set(template_include_dir "${META_PROJECT_ID_LOWER}/${out}" PARENT_SCOPE)
+
+  # Join words with underscores
+  string(JOIN "_" upper_snake_case_identifier ${result})
+
+  # Set the upper snake case identifier in the parent scope
+  set(base_name "${upper_snake_case_identifier}" PARENT_SCOPE)
+
+  # Join words with slashes and convert to lowercase
+  if(NOT result)
+    set(lower_case_path "")
+  else()
+    string(JOIN "/" lower_case_path ${result})
+    string(TOLOWER ${lower_case_path} lower_case_path)
+  endif()
+
+  # Set the template include directory in the parent scope
+  set(template_include_dir "${lower_case_path}" PARENT_SCOPE)
 endfunction()
 
 function(asap_generate_export_headers target)
