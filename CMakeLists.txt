@@ -176,14 +176,18 @@ configure_file(.clangd.in ${CMAKE_SOURCE_DIR}/.clangd @ONLY)
 # Documentation - doxygen, sphinx/breathe/exhale
 # ------------------------------------------------------------------------------
 
-if (ASAP_BUILD_DOCS)
+if(ASAP_BUILD_DOCS)
+  if(ASAP_WITH_DOXYGEN)
   # Doxygen
   set(DOXYGEN_BUILD_DIR "${CMAKE_BINARY_DIR}/dox")
   include(DoxGeneration)
+  endif()
 
+  if(ASAP_WITH_SPHINX)
   # Sphinx/breathe/exhale
   set(SPHINX_BUILD_DIR "${CMAKE_BINARY_DIR}/sphinx")
   include(SphinxGeneration)
+  endif()
 endif()
 
 # ------------------------------------------------------------------------------
