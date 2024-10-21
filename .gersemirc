@@ -5,7 +5,7 @@ color: false
 definitions: []
 indent: 2
 line_length: 130
-list_expansion: favour-inlining
+list_expansion: favour-expansion
 quiet: false
 unsafe: false
 warn_about_unknown_commands: false

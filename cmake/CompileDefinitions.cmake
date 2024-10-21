@@ -49,7 +49,11 @@ include_guard(GLOBAL)
 function(asap_set_compile_definitions target)
   set(argOption "")
   set(argSingle "CONTRACTS")
-  set(argMulti "ADD" "REMOVE")
+  set(
+    argMulti
+    "ADD"
+    "REMOVE"
+  )
 
   unset(x_CONTRACTS)
   unset(x_ADD)
@@ -67,9 +71,20 @@ function(asap_set_compile_definitions target)
   list(APPEND all_definitions "$<$<CONFIG:Debug>:ASAP_IS_DEBUG_BUILD>")
 
   if(MSVC)
-    list(APPEND all_definitions "NOMINMAX" "WIN32_LEAN_AND_MEAN=1" "_WIN32_WINNT=0x0600")
+    list(
+      APPEND
+      all_definitions
+      "NOMINMAX"
+      "WIN32_LEAN_AND_MEAN=1"
+      "_WIN32_WINNT=0x0600"
+    )
     # Disabling warning for not using "secure-but-not-standard" STL algos
-    list(APPEND all_definitions "_CRT_SECURE_NO_WARNINGS" "_SCL_SECURE_NO_WARNINGS")
+    list(
+      APPEND
+      all_definitions
+      "_CRT_SECURE_NO_WARNINGS"
+      "_SCL_SECURE_NO_WARNINGS"
+    )
   endif()
 
   if(x_REMOVE)

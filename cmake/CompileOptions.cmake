@@ -55,7 +55,13 @@ function(asap_set_compile_options)
     set(targets ${x_UNPARSED_ARGUMENTS})
 
     foreach(target ${targets})
-      target_compile_options(${target} PRIVATE /EHsc /MP /W4)
+      target_compile_options(
+        ${target}
+        PRIVATE
+          /EHsc
+          /MP
+          /W4
+      )
       if(NOT x_WARNING)
         target_compile_options(${target} PRIVATE /WX)
       endif()

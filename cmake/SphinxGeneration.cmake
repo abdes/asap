@@ -68,7 +68,12 @@ if(SPHINX_FOUND)
       VERBATIM
       COMMENT "Generating `sphinx` documentation for `${TARGET_NAME}`"
     )
-    set_target_properties(${TARGET_NAME}_sphinx PROPERTIES EXCLUDE_FROM_ALL TRUE)
+    set_target_properties(
+      ${TARGET_NAME}_sphinx
+      PROPERTIES
+        EXCLUDE_FROM_ALL
+          TRUE
+    )
     # Finally add the module sphinx target as a dependency for the overall
     # sphinx target
     if(${META_PROJECT_ID}_IS_MASTER_PROJECT)
@@ -84,7 +89,12 @@ if(SPHINX_FOUND)
     # We only build documentation through explicit invocation of the sphinx
     # target as it is pretty heavy and requires doxygen to be run before it is
     # invoked.
-    set_target_properties(sphinx PROPERTIES EXCLUDE_FROM_ALL TRUE)
+    set_target_properties(
+      sphinx
+      PROPERTIES
+        EXCLUDE_FROM_ALL
+          TRUE
+    )
 
     # Setup sphinx doc master target and add other submodules as dependencies
     function(_add_master_sphinx_target)
@@ -99,9 +109,12 @@ if(SPHINX_FOUND)
         # build dir. A dependency on this target will be added to the master
         # sphinx target.
         add_custom_command(
-          OUTPUT ${index_file_out}
-          COMMAND ${CMAKE_COMMAND} -E copy ${index_file_src} ${index_file_out}
-          DEPENDS ${index_file_src}
+          OUTPUT
+            ${index_file_out}
+          COMMAND
+            ${CMAKE_COMMAND} -E copy ${index_file_src} ${index_file_out}
+          DEPENDS
+            ${index_file_src}
         )
         add_custom_target(copy_doc_index ALL DEPENDS ${index_file_out})
         add_dependencies(${master_sphinx_target}_sphinx copy_doc_index)

@@ -7,7 +7,7 @@
 function(asap_create_clang_format_targets)
   include(common/ClangFormat)
   swift_setup_clang_format(
-    CLANG_FORMAT_NAMES 
+    CLANG_FORMAT_NAMES
       clang-format
       clang-format-19
       clang-format-18
@@ -15,5 +15,6 @@ function(asap_create_clang_format_targets)
       clang-format-16
       clang-format-15
       clang-format-14
-    ${ARGV})
+    ${ARGV}
+  )
 endfunction()

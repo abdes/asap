@@ -31,7 +31,12 @@ macro(asap_add_test target)
       )
     endif()
   endif()
-  set_target_properties(${target} PROPERTIES FOLDER "Unit Tests")
+  set_target_properties(
+    ${target}
+    PROPERTIES
+      FOLDER
+        "Unit Tests"
+  )
 endmacro()
 
 macro(asap_add_test_runner target)
@@ -53,6 +58,14 @@ function(asap_add_test_library target)
   asap_set_compile_options(${target})
   set_target_properties(
     ${target}
-    PROPERTIES FOLDER "Test Libraries" VERSION ${META_MODULE_VERSION} SOVERSION ${META_MODULE_VERSION_MAJOR} DEBUG_POSTFIX "d"
+    PROPERTIES
+      FOLDER
+        "Test Libraries"
+      VERSION
+        ${META_MODULE_VERSION}
+      SOVERSION
+        ${META_MODULE_VERSION_MAJOR}
+      DEBUG_POSTFIX
+        "d"
   )
 endfunction()

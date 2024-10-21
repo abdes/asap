@@ -92,7 +92,8 @@ function(git_describe _var)
   endif()
 
   execute_process(
-    COMMAND "${GIT_EXECUTABLE}" describe ${hash} ${ARGN}
+    COMMAND
+      "${GIT_EXECUTABLE}" describe ${hash} ${ARGN}
     WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
     RESULT_VARIABLE res
     OUTPUT_VARIABLE out

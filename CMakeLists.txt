@@ -124,7 +124,12 @@ endforeach()
 # ------------------------------------------------------------------------------
 
 # Generate folders for IDE targets (e.g., VisualStudio solutions)
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_property(
+  GLOBAL
+  PROPERTY
+    USE_FOLDERS
+      ON
+)
 set(IDE_FOLDER "${META_PROJECT_NAME}")
 
 # Declare project
@@ -133,7 +138,9 @@ project(
   VERSION ${META_VERSION}
   DESCRIPTION ${META_PROJECT_DESCRIPTION}
   HOMEPAGE_URL ${META_GITHUB_REPO}
-  LANGUAGES C CXX
+  LANGUAGES
+    C
+    CXX
 )
 
 # Set output directories
@@ -250,8 +257,14 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Choose the type of build." FORCE)
   # Set the possible values of build type for cmake-gui
   set_property(
-    CACHE CMAKE_BUILD_TYPE
-    PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo"
+    CACHE
+      CMAKE_BUILD_TYPE
+    PROPERTY
+      STRINGS
+        "Debug"
+        "Release"
+        "MinSizeRel"
+        "RelWithDebInfo"
   )
 endif()
 

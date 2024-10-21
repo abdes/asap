@@ -71,7 +71,9 @@ function(_module_cmake_config_files)
     ${CMAKE_CURRENT_SOURCE_DIR}/config.cmake.in
     "${CMAKE_CURRENT_BINARY_DIR}/${MODULE_TARGET_NAME}Config.cmake"
     INSTALL_DESTINATION "${ASAP_INSTALL_CMAKE}/${META_MODULE_NAME}"
-    PATH_VARS META_MODULE_VERSION MODULE_TARGET_NAME
+    PATH_VARS
+      META_MODULE_VERSION
+      MODULE_TARGET_NAME
   )
 
   # generate the version file for the config file
@@ -115,7 +117,12 @@ macro(_add_common_compiler_options target warnings)
 endmacro()
 
 function(asap_add_library target)
-  set(argOption EXCEPTIONS RTTI WARNING)
+  set(
+    argOption
+    EXCEPTIONS
+    RTTI
+    WARNING
+  )
   set(argSingle CONTRACTS)
   set(argMulti)
 
@@ -148,18 +155,29 @@ function(asap_add_library target)
     set_target_properties(
       ${target}
       PROPERTIES
-        FOLDER "Libraries"
-        VERSION ${META_MODULE_VERSION}
-        SOVERSION ${META_MODULE_VERSION_MAJOR}
-        DEBUG_POSTFIX "d"
-        CXX_VISIBILITY_PRESET hidden
-        VISIBILITY_INLINES_HIDDEN YES
+        FOLDER
+          "Libraries"
+        VERSION
+          ${META_MODULE_VERSION}
+        SOVERSION
+          ${META_MODULE_VERSION_MAJOR}
+        DEBUG_POSTFIX
+          "d"
+        CXX_VISIBILITY_PRESET
+          hidden
+        VISIBILITY_INLINES_HIDDEN
+          YES
     )
   endif()
 endfunction()
 
 function(asap_add_executable target)
-  set(argOption EXCEPTIONS RTTI WARNING)
+  set(
+    argOption
+    EXCEPTIONS
+    RTTI
+    WARNING
+  )
   set(argSingle CONTRACTS)
   set(argMulti)
 
@@ -179,15 +197,30 @@ function(asap_add_executable target)
   asap_set_compile_definitions(${target} CONTRACTS ${x_CONTRACTS})
   # Set common compiler options
   asap_set_compile_options(${target} ${warning_flag})
-  set_target_properties(${target} PROPERTIES FOLDER "Executables")
+  set_target_properties(
+    ${target}
+    PROPERTIES
+      FOLDER
+        "Executables"
+  )
 endfunction()
 
 function(asap_add_tool target)
   asap_add_executable(${target} ${ARGN})
-  set_target_properties(${target} PROPERTIES FOLDER "Tools")
+  set_target_properties(
+    ${target}
+    PROPERTIES
+      FOLDER
+        "Tools"
+  )
 endfunction()
 
 function(asap_add_tool_library target)
   asap_add_library(${target} ${ARGN})
-  set_target_properties(${target} PROPERTIES FOLDER "Tool Libraries")
+  set_target_properties(
+    ${target}
+    PROPERTIES
+      FOLDER
+        "Tool Libraries"
+  )
 endfunction()

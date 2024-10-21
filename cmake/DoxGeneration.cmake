@@ -68,15 +68,24 @@ if(DOXYGEN_FOUND)
     message(STATUS "[doxygen] Adding module doxygen target: ${MODULE_NAME}_dox")
     add_custom_target(
       ${MODULE_NAME}_dox
-      COMMAND ${CMAKE_COMMAND} -E remove -f "${MODULE_NAME}_Doxyfile.out"
-      COMMAND ${CMAKE_COMMAND} -E copy "${MODULE_NAME}_Doxyfile" "${MODULE_NAME}_Doxyfile.out"
-      COMMAND ${DOXYGEN_EXECUTABLE} "${MODULE_NAME}_Doxyfile.out"
-      COMMAND ${CMAKE_COMMAND} -E remove -f "${MODULE_NAME}_Doxyfile.out"
+      COMMAND
+        ${CMAKE_COMMAND} -E remove -f "${MODULE_NAME}_Doxyfile.out"
+      COMMAND
+        ${CMAKE_COMMAND} -E copy "${MODULE_NAME}_Doxyfile" "${MODULE_NAME}_Doxyfile.out"
+      COMMAND
+        ${DOXYGEN_EXECUTABLE} "${MODULE_NAME}_Doxyfile.out"
+      COMMAND
+        ${CMAKE_COMMAND} -E remove -f "${MODULE_NAME}_Doxyfile.out"
       WORKING_DIRECTORY "${DOXYGEN_BUILD_DIR}"
       COMMENT "Generating doxygen documentation for \"${MODULE_NAME}\""
       VERBATIM
     )
-    set_target_properties(${MODULE_NAME}_dox PROPERTIES EXCLUDE_FROM_ALL TRUE)
+    set_target_properties(
+      ${MODULE_NAME}_dox
+      PROPERTIES
+        EXCLUDE_FROM_ALL
+          TRUE
+    )
     add_dependencies(dox ${MODULE_NAME}_dox)
   endfunction()
 
@@ -132,7 +141,12 @@ if(DOXYGEN_FOUND)
     add_custom_target(dox)
     # We don't want it to be rebuilt everytime we build all. Need to explicitly
     # request it to be built.
-    set_target_properties(dox PROPERTIES EXCLUDE_FROM_ALL TRUE)
+    set_target_properties(
+      dox
+      PROPERTIES
+        EXCLUDE_FROM_ALL
+          TRUE
+    )
 
     # We'll make a special script to collect all doxygen warnings from
     # submodules and print them at the end of the doxygen run. This mwill make
@@ -166,13 +180,18 @@ if(DOXYGEN_FOUND)
     add_custom_command(
       TARGET dox
       POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -P "${COLLECT_WARNINGS_SCRIPT}"
+      COMMAND
+        ${CMAKE_COMMAND} -P "${COLLECT_WARNINGS_SCRIPT}"
       WORKING_DIRECTORY "${DOXYGEN_BUILD_DIR}"
       COMMENT "Running post-build command for dox"
     )
   endif()
 else()
-  message(WARNING "`doxygen` is not available on this system! " "API documentation generation targets will not be added.")
+  message(
+    WARNING
+    "`doxygen` is not available on this system! "
+    "API documentation generation targets will not be added."
+  )
 
   function(asap_with_doxygen)
   endfunction()

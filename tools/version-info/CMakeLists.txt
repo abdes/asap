@@ -52,8 +52,11 @@ target_compile_features(${MODULE_TARGET_NAME} PUBLIC cxx_constexpr)
 cmake_path(SET version_include_dir ${CMAKE_CURRENT_BINARY_DIR}/../../include NORMALIZE)
 target_include_directories(
   ${MODULE_TARGET_NAME}
-  PUBLIC $<INSTALL_INTERFACE:include> $<BUILD_INTERFACE:${version_include_dir}>
-  PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
+  PUBLIC
+    $<INSTALL_INTERFACE:include>
+    $<BUILD_INTERFACE:${version_include_dir}>
+  PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 # ------------------------------------------------------------------------------
@@ -74,19 +77,27 @@ if(${META_PROJECT_ID}_INSTALL)
 
   # Binaries
   install(
-    TARGETS ${MODULE_TARGET_NAME}
+    TARGETS
+      ${MODULE_TARGET_NAME}
     EXPORT "${TARGETS_EXPORT_NAME}"
     COMPONENT
     runtime
-    RUNTIME DESTINATION ${ASAP_INSTALL_BIN} COMPONENT ${runtime}
-    LIBRARY DESTINATION ${ASAP_INSTALL_SHARED} COMPONENT ${runtime}
-    ARCHIVE DESTINATION ${ASAP_INSTALL_LIB} COMPONENT ${dev}
+    RUNTIME
+      DESTINATION ${ASAP_INSTALL_BIN}
+      COMPONENT ${runtime}
+    LIBRARY
+      DESTINATION ${ASAP_INSTALL_SHARED}
+      COMPONENT ${runtime}
+    ARCHIVE
+      DESTINATION ${ASAP_INSTALL_LIB}
+      COMPONENT ${dev}
   )
 
   # Docs
   if(EXISTS ${SPHINX_BUILD_DIR}/${MODULE_TARGET_NAME})
     install(
-      DIRECTORY ${SPHINX_BUILD_DIR}/${MODULE_TARGET_NAME}
+      DIRECTORY
+        ${SPHINX_BUILD_DIR}/${MODULE_TARGET_NAME}
       DESTINATION ${ASAP_INSTALL_DOC}
       COMPONENT ${MODULE_TARGET_NAME}_docs
     )

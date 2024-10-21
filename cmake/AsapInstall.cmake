@@ -73,7 +73,8 @@ if(${META_PROJECT_ID}_INSTALL)
 
   # Install generated header files
   install(
-    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include/${META_PROJECT_ID_LOWER}
+    DIRECTORY
+      ${CMAKE_CURRENT_BINARY_DIR}/include/${META_PROJECT_ID_LOWER}
     DESTINATION ${ASAP_INSTALL_INCLUDE}
     COMPONENT ${dev}
   )

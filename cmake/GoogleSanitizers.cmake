@@ -50,13 +50,22 @@ function(_check_sanitizer_flags _flag _var)
   endif()
 
   # Normalize locale during test compilation.
-  set(_locale_vars LC_ALL LC_MESSAGES LANG)
+  set(
+    _locale_vars
+    LC_ALL
+    LC_MESSAGES
+    LANG
+  )
   foreach(v IN LISTS _locale_vars)
     set(_locale_vars_saved_${v} "$ENV{${v}}")
     set(ENV{${v}} C)
   endforeach()
   check_compiler_flag_common_patterns(_common_patterns)
-  check_cxx_source_compiles("int main() { return 0; }" ${_var} ${_common_patterns})
+  check_cxx_source_compiles(
+    "int main() { return 0; }"
+    ${_var}
+    ${_common_patterns}
+  )
   foreach(v IN LISTS _locale_vars)
     set(ENV{${v}} ${_locale_vars_saved_${v}})
   endforeach()
@@ -84,7 +93,11 @@ function(asap_add_google_asan target)
   # program using clang with the -fsanitize=address switch. To get a reasonable
   # performance add -O1 or higher. To get nicer stack traces in error messages
   # add -fno-omit-frame-pointer.
-  set(SANITIZER_FLAGS_ASAN "-fsanitize=address" "-fno-omit-frame-pointer")
+  set(
+    SANITIZER_FLAGS_ASAN
+    "-fsanitize=address"
+    "-fno-omit-frame-pointer"
+  )
 
   if(NOT DEFINED COMPILER_SUPPORTS_ASAN)
     # We'll use these flags to detect if the compiler supports ASan or not
@@ -101,7 +114,11 @@ function(asap_add_google_asan target)
       add_library(internal_asan INTERFACE IMPORTED)
       set_target_properties(
         internal_asan
-        PROPERTIES INTERFACE_COMPILE_OPTIONS "${SANITIZER_FLAGS_ASAN}" INTERFACE_LINK_OPTIONS "${SANITIZER_FLAGS_ASAN}"
+        PROPERTIES
+          INTERFACE_COMPILE_OPTIONS
+            "${SANITIZER_FLAGS_ASAN}"
+          INTERFACE_LINK_OPTIONS
+            "${SANITIZER_FLAGS_ASAN}"
       )
     endif()
     target_link_libraries(${target} PRIVATE internal_asan)
@@ -115,7 +132,11 @@ function(asap_add_google_ubsan target)
   # To use UBSan, compile and link your program with -fsanitize=undefined. To
   # get nicer output for file names, we'll only keep the last 3 components of
   # the path.
-  set(SANITIZER_FLAGS_UBSAN "-fsanitize=undefined" "-fsanitize-undefined-strip-path-components=-2")
+  set(
+    SANITIZER_FLAGS_UBSAN
+    "-fsanitize=undefined"
+    "-fsanitize-undefined-strip-path-components=-2"
+  )
 
   if(NOT DEFINED COMPILER_SUPPORTS_UBSAN)
     # We'll use these flags to detect if the compiler supports ASan or not
@@ -132,7 +153,11 @@ function(asap_add_google_ubsan target)
       add_library(internal_ubsan INTERFACE IMPORTED)
       set_target_properties(
         internal_ubsan
-        PROPERTIES INTERFACE_COMPILE_OPTIONS "${SANITIZER_FLAGS_UBSAN}" INTERFACE_LINK_OPTIONS "${SANITIZER_FLAGS_UBSAN}"
+        PROPERTIES
+          INTERFACE_COMPILE_OPTIONS
+            "${SANITIZER_FLAGS_UBSAN}"
+          INTERFACE_LINK_OPTIONS
+            "${SANITIZER_FLAGS_UBSAN}"
       )
     endif()
     target_link_libraries(${target} PRIVATE internal_ubsan)
@@ -161,7 +186,11 @@ function(asap_add_google_tsan target)
       add_library(internal_tsan INTERFACE IMPORTED)
       set_target_properties(
         internal_tsan
-        PROPERTIES INTERFACE_COMPILE_OPTIONS "${SANITIZER_FLAGS_TSAN}" INTERFACE_LINK_OPTIONS "${SANITIZER_FLAGS_TSAN}"
+        PROPERTIES
+          INTERFACE_COMPILE_OPTIONS
+            "${SANITIZER_FLAGS_TSAN}"
+          INTERFACE_LINK_OPTIONS
+            "${SANITIZER_FLAGS_TSAN}"
       )
     endif()
     target_link_libraries(${target} PRIVATE internal_tsan)
