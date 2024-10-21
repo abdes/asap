@@ -285,11 +285,15 @@ add_subdirectory(tools/version-info)
 # ------------------------------------------------------------------------------
 
 if(${META_PROJECT_ID}_IS_MASTER_PROJECT)
+  if(ASAP_WITH_CLANG_TIDY)
   include(ClangTidy)
   asap_create_clang_tidy_targets()
+  endif()
 
-  include(Format)
-  asap_create_format_targets()
+  if(ASAP_WITH_CLANG_FORMAT)
+    include(ClangFormat)
+    asap_create_clang_format_targets()
+  endif()
 endif()
 
 asap_pop_project(${META_PROJECT_NAME})
