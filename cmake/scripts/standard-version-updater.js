@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 // Distributed under the 3-Clause BSD License. See accompanying file LICENSE or
-// copy at https://opensource.org/licenses/BSD-3-Clause).
+// copy at https://opensource.org/licenses/BSD-3-Clause.
 // SPDX-License-Identifier: BSD-3-Clause
 //===----------------------------------------------------------------------===//
 
@@ -42,58 +42,58 @@ const minor_rex = /set\(META_VERSION_MINOR\s+\"(\d+)\"\)/;
 const patch_rex = /set\(META_VERSION_PATCH\s+\"(\d+)\"\)/;
 
 module.exports.readVersion =
-    function(contents) {
-  var major = null, minor = null, patch = null;
+  function (contents) {
+    var major = null, minor = null, patch = null;
 
-  const lines = contents.split(/\r?\n/);
-  for (let index in lines) {
-    let line = lines[index];
-    var match = null;
-    if (major == null) {
-      var match = major_rex.exec(line);
-      if (match != null) {
-        major = match[1];
+    const lines = contents.split(/\r?\n/);
+    for (let index in lines) {
+      let line = lines[index];
+      var match = null;
+      if (major == null) {
+        var match = major_rex.exec(line);
+        if (match != null) {
+          major = match[1];
+        }
       }
-    }
-    if (match == null && minor == null) {
-      var match = minor_rex.exec(line);
-      if (match != null) {
-        minor = match[1];
+      if (match == null && minor == null) {
+        var match = minor_rex.exec(line);
+        if (match != null) {
+          minor = match[1];
+        }
       }
-    }
-    if (match == null && patch == null) {
-      var match = patch_rex.exec(line);
-      if (match != null) {
-        patch = match[1];
+      if (match == null && patch == null) {
+        var match = patch_rex.exec(line);
+        if (match != null) {
+          patch = match[1];
+        }
       }
-    }
-    if (major != null && minor != null && patch != null) break;
-  };
+      if (major != null && minor != null && patch != null) break;
+    };
 
-  if (major == null)
-    console.error(
+    if (major == null)
+      console.error(
         'Your CmakeLists.txt is missing META_VERSION_MAJOR variable!');
-  if (minor == null)
-    console.error(
+    if (minor == null)
+      console.error(
         'Your CmakeLists.txt is missing META_VERSION_MINOR variable!');
-  if (patch == null)
-    console.error(
+    if (patch == null)
+      console.error(
         'Your CmakeLists.txt is missing META_VERSION_PATCH variable!');
 
-  return major + '.' + minor + '.' + patch;
-}
+    return major + '.' + minor + '.' + patch;
+  }
 
-    module.exports.writeVersion = function(contents, version) {
+module.exports.writeVersion = function (contents, version) {
   var [major, minor, patch] = version.split('.');
   var newContents = [];
 
   const lines = contents.split(/\r?\n/);
   lines.forEach(line => {
     var newLine =
-        line.replace(major_rex, 'set(META_VERSION_MAJOR       "' + major + '")')
-            .replace(minor_rex, 'set(META_VERSION_MINOR       "' + minor + '")')
-            .replace(
-                patch_rex, 'set(META_VERSION_PATCH       "' + patch + '")');
+      line.replace(major_rex, 'set(META_VERSION_MAJOR       "' + major + '")')
+        .replace(minor_rex, 'set(META_VERSION_MINOR       "' + minor + '")')
+        .replace(
+          patch_rex, 'set(META_VERSION_PATCH       "' + patch + '")');
     newContents.push(newLine);
   });
 
