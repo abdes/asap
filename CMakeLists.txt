@@ -175,7 +175,9 @@ configure_file(templates/version.h.in ${CMAKE_CURRENT_BINARY_DIR}/include/${META
 # different for every preset and can be different as well when the user decides
 # to build somewhere else. Currently we cannot configure this properly in vscode
 # settings. See https://github.com/clangd/vscode-clangd/issues/48
-configure_file(.clangd.in ${CMAKE_SOURCE_DIR}/.clangd @ONLY)
+if(NOT EXISTS ${CMAKE_SOURCE_DIR}/.clangd)
+  configure_file(.clangd.in ${CMAKE_SOURCE_DIR}/.clangd @ONLY)
+endif()
 
 # ------------------------------------------------------------------------------
 # Documentation - doxygen, sphinx/breathe/exhale
