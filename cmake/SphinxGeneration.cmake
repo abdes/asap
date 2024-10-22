@@ -32,15 +32,8 @@ if(SPHINX_FOUND)
   macro(_master_sphinx_target)
     string(MAKE_C_IDENTIFIER ${META_PROJECT_NAME} project_id)
     string(TOLOWER ${project_id} project_id)
-    set(master_sphinx_target ${project_id}_master)
+    set(master_sphinx_target ${project_id})
   endmacro()
-
-  function(_add_dependecy_to_master module_sphinx_target)
-    if(${META_PROJECT_ID}_IS_MASTER_PROJECT)
-      _master_sphinx_target()
-      add_dependencies(${master_sphinx_target}_sphinx ${module_sphinx_target}_sphinx)
-    endif()
-  endfunction()
 
   # The macro to add a submodule as a sphinx target.
   function(asap_with_sphinx TARGET_NAME)
@@ -77,7 +70,8 @@ if(SPHINX_FOUND)
     # Finally add the module sphinx target as a dependency for the overall
     # sphinx target
     if(${META_PROJECT_ID}_IS_MASTER_PROJECT)
-      _add_dependecy_to_master(${TARGET_NAME})
+      _master_sphinx_target()
+      add_dependencies(${master_sphinx_target}_sphinx ${TARGET_NAME}_sphinx)
     endif()
   endfunction()
 
