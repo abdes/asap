@@ -36,8 +36,9 @@ asap_declare_module(
 # Code generation
 # ------------------------------------------------------------------------------
 
-# Generate version-header
-configure_file(src/main.cpp.in ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
+# Generate the main.cpp file
+set(generated_main ${CMAKE_CURRENT_BINARY_DIR}/src/main.cpp)
+configure_file(src/main.cpp.in ${generated_main})
 
 # ------------------------------------------------------------------------------
 # Main module target
@@ -45,7 +46,7 @@ configure_file(src/main.cpp.in ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
 
 set(MODULE_TARGET_NAME "${META_PROJECT_NAME}-${META_MODULE_NAME}")
 
-asap_add_executable(${MODULE_TARGET_NAME} WARNING SOURCES "src/main.cpp")
+asap_add_executable(${MODULE_TARGET_NAME} WARNING SOURCES ${generated_main})
 
 target_compile_features(${MODULE_TARGET_NAME} PUBLIC cxx_constexpr)
 
