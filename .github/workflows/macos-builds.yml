@@ -37,12 +37,6 @@ jobs:
           update_packager_index: false
           prepend_symlinks_to_path: false
 
-      - name: Setup XCode
-        if: matrix.generator == 'Xcode'
-        uses: mobiledevops/xcode-select-version-action@v1
-        with:
-          xcode-select-version: 15.0
-
       - name: Log environment properties
         run: |
           echo "Build Type   : ${{matrix.build_type}}"
@@ -50,6 +44,7 @@ jobs:
           cmake --version
           clang --version
           ccache --version
+          xcodebuild -version
 
       - uses: actions/checkout@v3
         with:
