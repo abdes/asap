@@ -1,7 +1,8 @@
 on:
   push:
     branches:
-      - main
+      - master
+      - develop
 
 permissions:
   contents: write
@@ -22,3 +23,4 @@ jobs:
           # this is a built-in strategy in release-please, see "Action Inputs"
           # for more options
           release-type: simple
+          manifest-file: .release-please-manifest.json

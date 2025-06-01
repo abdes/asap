@@ -49,9 +49,9 @@ set(META_AUTHOR_ORGANIZATION "The Authors")
 set(META_GITHUB_REPO         "https://github.com/abdes/asap")
 set(META_AUTHOR_DOMAIN       "https://github.com/abdes/asap")
 set(META_AUTHOR_MAINTAINER   "Abdessattar Sassi")
-set(META_VERSION_MAJOR       "4")
-set(META_VERSION_MINOR       "7")
-set(META_VERSION_PATCH       "0")
+set(META_VERSION_MAJOR       "4") # x-release-please-major
+set(META_VERSION_MINOR       "7") # x-release-please-minor
+set(META_VERSION_PATCH       "0") # x-release-please-patch
 set(META_VERSION_REVISION    "${GIT_REV}")
 set(META_VERSION             "${META_VERSION_MAJOR}.${META_VERSION_MINOR}.${META_VERSION_PATCH}")
 set(META_NAME_VERSION        "${META_PROJECT_NAME} v${META_VERSION} (${META_VERSION_REVISION})")
