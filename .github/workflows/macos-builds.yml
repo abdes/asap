@@ -14,7 +14,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        generator: ['Unix Makefiles', Xcode]
+        generator: ['Unix Makefiles', 'Ninja']
         build_type: [Debug, Release]
         include:
           - build_type: Debug
@@ -26,9 +26,15 @@ jobs:
 
     steps:
       - name: Setup cmake
-        uses: jwlawson/actions-setup-cmake@v1
+        uses: jwlawson/actions-setup-cmake@v2
         with:
           cmake-version: ${{ env.CMAKE_VERSION }}
+
+      - name: Setup ninja (only if the generator is 'Ninja')
+        if: matrix.generator == 'Ninja'
+        uses: abdes/gha-setup-ninja@master
+        with:
+          version: ${{ env.NINJA_VERSION }}
 
       - name: Setup ccache
         uses: Chocobo1/setup-ccache-action@v1
@@ -37,12 +43,6 @@ jobs:
           update_packager_index: false
           prepend_symlinks_to_path: false
 
-      - name: Setup XCode
-        if: matrix.generator == 'Xcode'
-        uses: mobiledevops/xcode-select-version-action@v1
-        with:
-          xcode-select-version: 13.1
-
       - name: Log environment properties
         run: |
           echo "Build Type   : ${{matrix.build_type}}"
@@ -50,6 +50,7 @@ jobs:
           cmake --version
           clang --version
           ccache --version
+          xcodebuild -version
 
       - uses: actions/checkout@v3
         with:
