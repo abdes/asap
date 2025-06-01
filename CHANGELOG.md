@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.8.1](https://github.com/abdes/asap/compare/v4.8.0...v4.8.1) (2025-06-01)
+
+
+### Bug Fixes
+
+* adapt versioning for release-please simple strategy ([06014b5](https://github.com/abdes/asap/commit/06014b5387adaf1536582f17096f39a05c149829))
+
 ## [4.8.0](https://github.com/abdes/asap/compare/v4.7.0...v4.8.0) (2025-06-01)
 
 
