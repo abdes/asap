@@ -37,7 +37,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=2d8e62d8"></script>
+    <script src="../_static/documentation_options.js?v=d0ee7f50"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -515,55 +515,13 @@ there is always a dedicated merge commit)</p>
 </tbody>
 </table>
 </div>
-<div class="margin admonition tip">
-<p class="admonition-title">Tip</p>
-<p>This will generate the changelog, update version numbers in <cite>CMakeLists.txt</cite>,
-and create a new tag.</p>
-<p>See <a class="reference external" href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a>
-for more information on how conventional commit messages can simplify
-changelog preparation.</p>
-</div>
 <div class="pst-scrollable-table-container"><table class="table">
 <colgroup>
 <col style="width: 10.0%" />
 <col style="width: 90.0%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>8</p></td>
-<td><p>Release a new version with <cite>standard-version</cite>.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>standard-version<span class="w"> </span>--help
-
-npx<span class="w"> </span>standard-version<span class="w"> </span>--dry-run
-
-npx<span class="w"> </span>standard-version<span class="w"> </span>--skip.commit<span class="w"> </span>--skip.tag
-</pre></div>
-</div>
-<p>Check the generated changelog and edit if needed. Verify the updated
-version number is correct.</p>
-<p>Commit the cnhages and push to the remote.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-a<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;version bump to M.m.p&quot;</span>
-git<span class="w"> </span>push
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>These steps can be automatic with standard-version, but it is
-recommended to not automate them as often the generated changelog
-needs some refinements before it is committed and a release tag is
-made.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="pst-scrollable-table-container"><table class="table">
-<colgroup>
-<col style="width: 10.0%" />
-<col style="width: 90.0%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>9</p></td>
+<tr class="row-odd"><td><p>8 (OPTIONAL)</p></td>
 <td><p>Create a new tag on the <cite>master</cite> branch with appropriate label and push
 it to the remote.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>M.m.p<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;release M.m.p&quot;</span>
@@ -572,7 +530,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>10</p></td>
+<tr class="row-even"><td><p>9</p></td>
 <td><p>Merge master back into develop to include the merge commit (see –no-ff
 notes below)</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>develop
