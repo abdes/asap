@@ -1,6 +1,6 @@
 # ===-----------------------------------------------------------------------===#
 # Distributed under the 3-Clause BSD License. See accompanying file LICENSE or
-# copy at https://opensource.org/licenses/BSD-3-Clause).
+# copy at https://opensource.org/licenses/BSD-3-Clause.
 # SPDX-License-Identifier: BSD-3-Clause
 # ===-----------------------------------------------------------------------===#
 
@@ -25,7 +25,8 @@ function(asap_set_compile_options)
       -Wno-c++98-compat-pedantic
       -Wno-c++98-c++11-compat-pedantic
       -Wno-padded
-      -Wno-documentation-unknown-command)
+      -Wno-documentation-unknown-command
+    )
     # -Wno-switch-enum -Wno-unused-macros -Wno-disabled-macro-expansion)
   elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     # using GCC
@@ -38,7 +39,8 @@ function(asap_set_compile_options)
       -Woverloaded-virtual
       -Wsign-conversion
       -Wsign-promo
-      -Wundef)
+      -Wundef
+    )
     if(NOT DEFINED CMAKE_CXX_CLANG_TIDY)
       swift_set_compile_options(ADD -Wlogical-op -Wstrict-null-sentinel)
     endif()
@@ -53,7 +55,13 @@ function(asap_set_compile_options)
     set(targets ${x_UNPARSED_ARGUMENTS})
 
     foreach(target ${targets})
-      target_compile_options(${target} PRIVATE /EHsc /MP /W4)
+      target_compile_options(
+        ${target}
+        PRIVATE
+          /EHsc
+          /MP
+          /W4
+      )
       if(NOT x_WARNING)
         target_compile_options(${target} PRIVATE /WX)
       endif()
@@ -62,7 +70,6 @@ function(asap_set_compile_options)
       target_link_options(${target} PRIVATE $<$<CONFIG:Debug>:/PROFILE>)
     endforeach()
   endif()
-
 endfunction()
 
 # ------------------------------------------------------------------------------

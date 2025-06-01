@@ -1,5 +1,5 @@
 # We need to configure the location of the compilation database in this file
-# and not in vscode `.settings` until we have a way to get the cmake build 
+# and not in vscode `.settings` until we have a way to get the cmake build
 # directory or preset name as a subsititution variable.
 #
 # See https://github.com/clangd/vscode-clangd/issues/48

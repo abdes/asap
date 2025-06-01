@@ -1,6 +1,6 @@
 # ===-----------------------------------------------------------------------===#
 # Distributed under the 3-Clause BSD License. See accompanying file LICENSE or
-# copy at https://opensource.org/licenses/BSD-3-Clause).
+# copy at https://opensource.org/licenses/BSD-3-Clause.
 # SPDX-License-Identifier: BSD-3-Clause
 # ===-----------------------------------------------------------------------===#
 
@@ -50,20 +50,26 @@ function(_check_sanitizer_flags _flag _var)
   endif()
 
   # Normalize locale during test compilation.
-  set(_locale_vars LC_ALL LC_MESSAGES LANG)
+  set(
+    _locale_vars
+    LC_ALL
+    LC_MESSAGES
+    LANG
+  )
   foreach(v IN LISTS _locale_vars)
     set(_locale_vars_saved_${v} "$ENV{${v}}")
     set(ENV{${v}} C)
   endforeach()
   check_compiler_flag_common_patterns(_common_patterns)
-  check_cxx_source_compiles("int main() { return 0; }" ${_var}
-                            ${_common_patterns})
+  check_cxx_source_compiles(
+    "int main() { return 0; }"
+    ${_var}
+    ${_common_patterns}
+  )
   foreach(v IN LISTS _locale_vars)
     set(ENV{${v}} ${_locale_vars_saved_${v}})
   endforeach()
-  set(${_var}
-      "${${_var}}"
-      PARENT_SCOPE)
+  set(${_var} "${${_var}}" PARENT_SCOPE)
 
   cmake_pop_check_state()
 endfunction()
@@ -71,11 +77,12 @@ endfunction()
 macro(_report_error sanitizer sanitizer_lib)
   message(
     STATUS
-      "\
+    "\
 WARNING: ${sanitizer} Sanitizer was requested but is not working!\n\
 --   => You may want to do the following:\n\
 --   1- Check that your compiler(${CMAKE_CXX_COMPILER}) does support it,\n\
---   2- Make sure ${sanitizer_lib} is installed.")
+--   2- Make sure ${sanitizer_lib} is installed."
+  )
 endmacro()
 
 # ---- Address Sanitizer
@@ -86,7 +93,11 @@ function(asap_add_google_asan target)
   # program using clang with the -fsanitize=address switch. To get a reasonable
   # performance add -O1 or higher. To get nicer stack traces in error messages
   # add -fno-omit-frame-pointer.
-  set(SANITIZER_FLAGS_ASAN "-fsanitize=address" "-fno-omit-frame-pointer")
+  set(
+    SANITIZER_FLAGS_ASAN
+    "-fsanitize=address"
+    "-fno-omit-frame-pointer"
+  )
 
   if(NOT DEFINED COMPILER_SUPPORTS_ASAN)
     # We'll use these flags to detect if the compiler supports ASan or not
@@ -103,8 +114,12 @@ function(asap_add_google_asan target)
       add_library(internal_asan INTERFACE IMPORTED)
       set_target_properties(
         internal_asan
-        PROPERTIES INTERFACE_COMPILE_OPTIONS "${SANITIZER_FLAGS_ASAN}"
-                   INTERFACE_LINK_OPTIONS "${SANITIZER_FLAGS_ASAN}")
+        PROPERTIES
+          INTERFACE_COMPILE_OPTIONS
+            "${SANITIZER_FLAGS_ASAN}"
+          INTERFACE_LINK_OPTIONS
+            "${SANITIZER_FLAGS_ASAN}"
+      )
     endif()
     target_link_libraries(${target} PRIVATE internal_asan)
   endif()
@@ -117,8 +132,11 @@ function(asap_add_google_ubsan target)
   # To use UBSan, compile and link your program with -fsanitize=undefined. To
   # get nicer output for file names, we'll only keep the last 3 components of
   # the path.
-  set(SANITIZER_FLAGS_UBSAN "-fsanitize=undefined"
-                            "-fsanitize-undefined-strip-path-components=-2")
+  set(
+    SANITIZER_FLAGS_UBSAN
+    "-fsanitize=undefined"
+    "-fsanitize-undefined-strip-path-components=-2"
+  )
 
   if(NOT DEFINED COMPILER_SUPPORTS_UBSAN)
     # We'll use these flags to detect if the compiler supports ASan or not
@@ -135,8 +153,12 @@ function(asap_add_google_ubsan target)
       add_library(internal_ubsan INTERFACE IMPORTED)
       set_target_properties(
         internal_ubsan
-        PROPERTIES INTERFACE_COMPILE_OPTIONS "${SANITIZER_FLAGS_UBSAN}"
-                   INTERFACE_LINK_OPTIONS "${SANITIZER_FLAGS_UBSAN}")
+        PROPERTIES
+          INTERFACE_COMPILE_OPTIONS
+            "${SANITIZER_FLAGS_UBSAN}"
+          INTERFACE_LINK_OPTIONS
+            "${SANITIZER_FLAGS_UBSAN}"
+      )
     endif()
     target_link_libraries(${target} PRIVATE internal_ubsan)
   endif()
@@ -164,8 +186,12 @@ function(asap_add_google_tsan target)
       add_library(internal_tsan INTERFACE IMPORTED)
       set_target_properties(
         internal_tsan
-        PROPERTIES INTERFACE_COMPILE_OPTIONS "${SANITIZER_FLAGS_TSAN}"
-                   INTERFACE_LINK_OPTIONS "${SANITIZER_FLAGS_TSAN}")
+        PROPERTIES
+          INTERFACE_COMPILE_OPTIONS
+            "${SANITIZER_FLAGS_TSAN}"
+          INTERFACE_LINK_OPTIONS
+            "${SANITIZER_FLAGS_TSAN}"
+      )
     endif()
     target_link_libraries(${target} PRIVATE internal_tsan)
   endif()
@@ -186,9 +212,7 @@ function(asap_add_sanitizers target)
   endif()
 
   # Add -O2 to get some reasonable performance during the test
-  if(ASAP_WITH_GOOGLE_ASAN
-     OR ASAP_WITH_GOOGLE_UBSAN
-     OR ASAP_WITH_GOOGLE_TSAN)
+  if(ASAP_WITH_GOOGLE_ASAN OR ASAP_WITH_GOOGLE_UBSAN OR ASAP_WITH_GOOGLE_TSAN)
     target_compile_options(${target} PRIVATE -O2)
   endif()
 endfunction()

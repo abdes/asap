@@ -1,6 +1,6 @@
 # ===-----------------------------------------------------------------------===#
 # Distributed under the 3-Clause BSD License. See accompanying file LICENSE or
-# copy at https://opensource.org/licenses/BSD-3-Clause).
+# copy at https://opensource.org/licenses/BSD-3-Clause.
 # SPDX-License-Identifier: BSD-3-Clause
 # ===-----------------------------------------------------------------------===#
 
@@ -18,8 +18,7 @@ cmake_minimum_required(VERSION 3.14)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 # But if this project is not the master project, prioritize the master project
 # cmake include dir if it exists.
-if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR
-   AND EXISTS "${CMAKE_SOURCE_DIR}/cmake")
+if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR AND EXISTS "${CMAKE_SOURCE_DIR}/cmake")
   list(PREPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 endif()
 # Include the log helpers module early so we can use early for logging the
@@ -43,7 +42,7 @@ if(NOT GIT_SHA1)
 endif()
 
 # Meta information about the project
-# cmake-format: off
+# gersemi: off
 set(META_PROJECT_NAME        "asap")
 set(META_PROJECT_DESCRIPTION "Instantly start with a fully loaded CMake project")
 set(META_AUTHOR_ORGANIZATION "The Authors")
@@ -56,7 +55,7 @@ set(META_VERSION_PATCH       "0")
 set(META_VERSION_REVISION    "${GIT_REV}")
 set(META_VERSION             "${META_VERSION_MAJOR}.${META_VERSION_MINOR}.${META_VERSION_PATCH}")
 set(META_NAME_VERSION        "${META_PROJECT_NAME} v${META_VERSION} (${META_VERSION_REVISION})")
-# cmake-format: on
+# gersemi: on
 
 string(MAKE_C_IDENTIFIER ${META_PROJECT_NAME} META_PROJECT_ID)
 string(TOUPPER ${META_PROJECT_ID} META_PROJECT_ID)
@@ -79,24 +78,58 @@ asap_push_project(${META_PROJECT_NAME})
 # ------------------------------------------------------------------------------
 
 # Project options
-# cmake-format: off
-option(BUILD_SHARED_LIBS        "Build shared instead of static libraries."              ON)
-option(ASAP_BUILD_TESTS         "Setup target to build and run tests."                   OFF)
-option(ASAP_BUILD_EXAMPLES      "Setup target to build the examples."                    OFF)
-option(ASAP_BUILD_DOCS          "Setup target to build the doxygen and sphinx docs."     ON)
-option(ASAP_WITH_GOOGLE_ASAN    "Instrument code with address sanitizer"                 OFF)
-option(ASAP_WITH_GOOGLE_UBSAN   "Instrument code with undefined behavior sanitizer"      OFF)
-option(ASAP_WITH_GOOGLE_TSAN    "Instrument code with thread sanitizer"                  OFF)
-option(ASAP_WITH_VALGRIND       "Builds targets with valgrind profilers added"           OFF)
-option(USE_CCACHE               "Enable caching of compiled artifacts using ccache"      OFF)
-# cmake-format: on
+# gersemi: off
+set(OPTIONS_LIST
+  BUILD_SHARED_LIBS        "Build shared instead of static libraries." ON
+  ASAP_BUILD_TESTS         "Setup target to build and run tests." OFF
+  ASAP_BUILD_EXAMPLES      "Setup target to build the examples." OFF
+  ASAP_BUILD_DOCS          "Setup target to build the documentation." OFF
+  ASAP_WITH_GOOGLE_ASAN    "Instrument code with address sanitizer" OFF
+  ASAP_WITH_GOOGLE_UBSAN   "Instrument code with undefined behavior sanitizer" OFF
+  ASAP_WITH_GOOGLE_TSAN    "Instrument code with thread sanitizer" OFF
+  ASAP_WITH_VALGRIND       "Instrument code with valgrind profilers" OFF
+  ASAP_WITH_DOXYGEN        "Create targets for doxygen api docs" OFF
+  ASAP_WITH_SPHINX         "Create targets for sphinx docs" OFF
+  ASAP_WITH_CLANG_FORMAT   "Create targets for clang-format" ON
+  ASAP_WITH_CLANG_TIDY     "Create targets for clang-tidy" ON
+  USE_CCACHE               "Enable caching of compiled artifacts using ccache" OFF
+)
+# gersemi: on
+# Process each option
+
+message(STATUS "PROJECT OPTIONS:")
+list(LENGTH OPTIONS_LIST OPTIONS_LIST_length)
+math(EXPR OPTIONS_LIST_length "${OPTIONS_LIST_length}-1")
+foreach(index RANGE 0 ${OPTIONS_LIST_length} 3)
+  list(GET OPTIONS_LIST ${index} OPTION_NAME)
+  math(EXPR index "${index}+1")
+  list(GET OPTIONS_LIST ${index} OPTION_DESCRIPTION)
+  math(EXPR index "${index}+1")
+  list(GET OPTIONS_LIST ${index} OPTION_DEFAULT)
+
+  if(DEFINED ${OPTION_NAME})
+    if(NOT "${${OPTION_NAME}}" STREQUAL "$CACHE{${OPTION_NAME}}")
+      message(STATUS ". ${OPTION_NAME}: ${${OPTION_NAME}} - provided (cache: $CACHE{${OPTION_NAME}})")
+    else()
+      message(STATUS ". ${OPTION_NAME}: ${${OPTION_NAME}} - cache")
+    endif()
+  else()
+    set(${OPTION_NAME} ${OPTION_DEFAULT} CACHE BOOL ${OPTION_DESCRIPTION} FORCE)
+    message(STATUS ". ${OPTION_NAME}: ${${OPTION_NAME}} - force set")
+  endif()
+endforeach()
 
 # ------------------------------------------------------------------------------
 # Project Declaration
 # ------------------------------------------------------------------------------
 
 # Generate folders for IDE targets (e.g., VisualStudio solutions)
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_property(
+  GLOBAL
+  PROPERTY
+    USE_FOLDERS
+      ON
+)
 set(IDE_FOLDER "${META_PROJECT_NAME}")
 
 # Declare project
@@ -105,7 +138,10 @@ project(
   VERSION ${META_VERSION}
   DESCRIPTION ${META_PROJECT_DESCRIPTION}
   HOMEPAGE_URL ${META_GITHUB_REPO}
-  LANGUAGES C CXX)
+  LANGUAGES
+    C
+    CXX
+)
 
 # Set output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -132,29 +168,33 @@ include(cmake/FasterBuild.cmake)
 # ------------------------------------------------------------------------------
 
 # Generate version-header
-configure_file(
-  templates/version.h.in
-  ${CMAKE_CURRENT_BINARY_DIR}/include/${META_PROJECT_ID_LOWER}/version.h)
+configure_file(templates/version.h.in ${CMAKE_CURRENT_BINARY_DIR}/include/${META_PROJECT_ID_LOWER}/version.h)
 
 # Generate a clangd configuration file that points to the compilation database
 # in the cmake build directory. We need to do this as the build directory is
 # different for every preset and can be different as well when the user decides
 # to build somewhere else. Currently we cannot configure this properly in vscode
 # settings. See https://github.com/clangd/vscode-clangd/issues/48
-configure_file(.clangd.in ${CMAKE_SOURCE_DIR}/.clangd @ONLY)
+if(NOT EXISTS ${CMAKE_SOURCE_DIR}/.clangd)
+  configure_file(.clangd.in ${CMAKE_SOURCE_DIR}/.clangd @ONLY)
+endif()
 
 # ------------------------------------------------------------------------------
 # Documentation - doxygen, sphinx/breathe/exhale
 # ------------------------------------------------------------------------------
 
-if (ASAP_BUILD_DOCS)
-  # Doxygen
-  set(DOXYGEN_BUILD_DIR "${CMAKE_BINARY_DIR}/dox")
-  include(DoxGeneration)
+if(ASAP_BUILD_DOCS)
+  if(ASAP_WITH_DOXYGEN)
+    # Doxygen
+    set(DOXYGEN_BUILD_DIR "${CMAKE_BINARY_DIR}/dox")
+    include(DoxGeneration)
+  endif()
 
-  # Sphinx/breathe/exhale
-  set(SPHINX_BUILD_DIR "${CMAKE_BINARY_DIR}/sphinx")
-  include(SphinxGeneration)
+  if(ASAP_WITH_SPHINX)
+    # Sphinx/breathe/exhale
+    set(SPHINX_BUILD_DIR "${CMAKE_BINARY_DIR}/sphinx")
+    include(SphinxGeneration)
+  endif()
 endif()
 
 # ------------------------------------------------------------------------------
@@ -168,7 +208,9 @@ if(ASAP_BUILD_TESTS)
   include(CodeCoverage)
   # Enable this target when the project has test cases
   asap_add_code_coverage_all_targets()
-  include(Valgrind)
+  if(ASAP_WITH_VALGRIND)
+    include(Valgrind)
+  endif()
 
   cpmaddpackage(
     NAME
@@ -179,7 +221,8 @@ if(ASAP_BUILD_TESTS)
     google/googletest
     OPTIONS
     "gtest_force_shared_crt ON"
-    "INSTALL_GTEST OFF")
+    "INSTALL_GTEST OFF"
+  )
 
   include(GoogleTest)
 endif()
@@ -212,14 +255,19 @@ include(AsapInstall)
 # optimization. For some projects you may want to set a default build type so
 # that you do not have to remember to set it.
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-  message(
-    STATUS "Setting build type to 'RelWithDebInfo' as none was specified.")
-  set(CMAKE_BUILD_TYPE
-      RelWithDebInfo
-      CACHE STRING "Choose the type of build." FORCE)
+  message(STATUS "Setting build type to 'RelWithDebInfo' as none was specified.")
+  set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "Choose the type of build." FORCE)
   # Set the possible values of build type for cmake-gui
-  set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release"
-                                               "MinSizeRel" "RelWithDebInfo")
+  set_property(
+    CACHE
+      CMAKE_BUILD_TYPE
+    PROPERTY
+      STRINGS
+        "Debug"
+        "Release"
+        "MinSizeRel"
+        "RelWithDebInfo"
+  )
 endif()
 
 # ------------------------------------------------------------------------------
@@ -232,7 +280,7 @@ endif()
 
 # Set runtime path
 set(CMAKE_SKIP_BUILD_RPATH FALSE) # Add absolute path to all dependencies for
-                                  # BUILD
+# BUILD
 set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH FALSE)
 
@@ -256,11 +304,15 @@ add_subdirectory(tools/version-info)
 # ------------------------------------------------------------------------------
 
 if(${META_PROJECT_ID}_IS_MASTER_PROJECT)
-  include(ClangTidy)
-  asap_create_clang_tidy_targets()
+  if(ASAP_WITH_CLANG_TIDY)
+    include(ClangTidy)
+    asap_create_clang_tidy_targets()
+  endif()
 
-  include(Format)
-  asap_create_format_targets()
+  if(ASAP_WITH_CLANG_FORMAT)
+    include(ClangFormat)
+    asap_create_clang_format_targets()
+  endif()
 endif()
 
 asap_pop_project(${META_PROJECT_NAME})

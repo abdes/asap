@@ -6,7 +6,8 @@ _build/
 _build-*/
 cmake-build*/
 out/
-
+vcpkg_installed/
+.python-version
 .vs
 .sphinx
 .cache
@@ -237,3 +238,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Runtime lock files created by tools/scripts
+*.lock
+.python-version

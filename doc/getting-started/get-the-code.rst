@@ -105,20 +105,19 @@ submodules, you can use the foolproof ```git submodule update --init
   the hooks and additional tools needed for commit message linting and automatic
   changelog generation.
 
-Husky, commitlint and standard-version
---------------------------------------
+Pre-commit (requires python)
+----------------------------
 
 Only once, after the project is cloned, do the following:
 
 .. code-block:: bash
 
-  npx husky install
-  npm install -g @commitlint/cli @commitlint/config-conventional standard-version
+  ./init
 
 .. hint::
 
-  You may want to consider installing npm global packages in the user's home
-  directory to avoid permission issues. Google search how to do that :-)
+  This will install the `pre-commit` pip package for python and setup the hooks
+  for the project.
 
 Configuring a remote for the fork
 ---------------------------------

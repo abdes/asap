@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 // Distributed under the 3-Clause BSD License. See accompanying file LICENSE or
-// copy at https://opensource.org/licenses/BSD-3-Clause).
+// copy at https://opensource.org/licenses/BSD-3-Clause.
 // SPDX-License-Identifier: BSD-3-Clause
 //===----------------------------------------------------------------------===//
 
@@ -16,9 +16,9 @@ namespace @META_PROJECT_ID_LOWER@ {
     constexpr auto cAuthorDomain = "@META_AUTHOR_DOMAIN@";
     constexpr auto cAuthor = "@META_AUTHOR_MAINTAINER@";
 
-    constexpr auto cVersionMajor = "@META_VERSION_MAJOR@";
-    constexpr auto cVersionMinor = "@META_VERSION_MINOR@";
-    constexpr auto cVersionPatch = "@META_VERSION_PATCH@";
+    constexpr auto cVersionMajor = @META_VERSION_MAJOR@;
+    constexpr auto cVersionMinor = @META_VERSION_MINOR@;
+    constexpr auto cVersionPatch = @META_VERSION_PATCH@;
     constexpr auto cVersionRevision = "@META_VERSION_REVISION@";
 
     constexpr auto cVersion = "@META_VERSION@";

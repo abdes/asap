@@ -46,12 +46,8 @@ function(get_git_head_revision _refspecvar _hashvar)
     get_filename_component(GIT_PARENT_DIR ${GIT_PARENT_DIR} PATH)
     if(GIT_PARENT_DIR STREQUAL GIT_PREVIOUS_PARENT)
       # We have reached the root directory, we are not in git
-      set(${_refspecvar}
-          "GITDIR-NOTFOUND"
-          PARENT_SCOPE)
-      set(${_hashvar}
-          "GITDIR-NOTFOUND"
-          PARENT_SCOPE)
+      set(${_refspecvar} "GITDIR-NOTFOUND" PARENT_SCOPE)
+      set(${_hashvar} "GITDIR-NOTFOUND" PARENT_SCOPE)
       return()
     endif()
     set(GIT_DIR "${GIT_PARENT_DIR}/.git")
@@ -61,8 +57,7 @@ function(get_git_head_revision _refspecvar _hashvar)
     file(READ ${GIT_DIR} submodule)
     string(REGEX REPLACE "gitdir: (.*)\n$" "\\1" GIT_DIR_RELATIVE ${submodule})
     get_filename_component(SUBMODULE_DIR ${GIT_DIR} PATH)
-    get_filename_component(GIT_DIR ${SUBMODULE_DIR}/${GIT_DIR_RELATIVE}
-                           ABSOLUTE)
+    get_filename_component(GIT_DIR ${SUBMODULE_DIR}/${GIT_DIR_RELATIVE} ABSOLUTE)
   endif()
   set(GIT_DATA "${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/git-data")
   if(NOT EXISTS "${GIT_DATA}")
@@ -75,16 +70,11 @@ function(get_git_head_revision _refspecvar _hashvar)
   set(HEAD_FILE "${GIT_DATA}/HEAD")
   configure_file("${GIT_DIR}/HEAD" "${HEAD_FILE}" COPYONLY)
 
-  configure_file("${_gitdescmoddir}/GetGitRevisionDescription.cmake.in"
-                 "${GIT_DATA}/grabRef.cmake" @ONLY)
+  configure_file("${_gitdescmoddir}/GetGitRevisionDescription.cmake.in" "${GIT_DATA}/grabRef.cmake" @ONLY)
   include("${GIT_DATA}/grabRef.cmake")
 
-  set(${_refspecvar}
-      "${HEAD_REF}"
-      PARENT_SCOPE)
-  set(${_hashvar}
-      "${HEAD_HASH}"
-      PARENT_SCOPE)
+  set(${_refspecvar} "${HEAD_REF}" PARENT_SCOPE)
+  set(${_hashvar} "${HEAD_HASH}" PARENT_SCOPE)
 endfunction()
 
 function(git_describe _var)
@@ -93,36 +83,31 @@ function(git_describe _var)
   endif()
   get_git_head_revision(refspec hash)
   if(NOT GIT_FOUND)
-    set(${_var}
-        "GIT-NOTFOUND"
-        PARENT_SCOPE)
+    set(${_var} "GIT-NOTFOUND" PARENT_SCOPE)
     return()
   endif()
   if(NOT hash)
-    set(${_var}
-        "HEAD-HASH-NOTFOUND"
-        PARENT_SCOPE)
+    set(${_var} "HEAD-HASH-NOTFOUND" PARENT_SCOPE)
     return()
   endif()
 
   execute_process(
-    COMMAND "${GIT_EXECUTABLE}" describe ${hash} ${ARGN}
+    COMMAND
+      "${GIT_EXECUTABLE}" describe ${hash} ${ARGN}
     WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
     RESULT_VARIABLE res
     OUTPUT_VARIABLE out
-    ERROR_QUIET OUTPUT_STRIP_TRAILING_WHITESPACE)
+    ERROR_QUIET
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
   if(NOT res EQUAL 0)
     set(out "${out}-${res}-NOTFOUND")
   endif()
 
-  set(${_var}
-      "${out}"
-      PARENT_SCOPE)
+  set(${_var} "${out}" PARENT_SCOPE)
 endfunction()
 
 function(git_get_exact_tag _var)
   git_describe(out --exact-match ${ARGN})
-  set(${_var}
-      "${out}"
-      PARENT_SCOPE)
+  set(${_var} "${out}" PARENT_SCOPE)
 endfunction()
