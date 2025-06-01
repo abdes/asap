@@ -9,5 +9,6 @@
       "path": "version.json",
       "jsonpath": "$.version"
     }
-  ]
+  ],
+  ".": "4.8.0"
 }

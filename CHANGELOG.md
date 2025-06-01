@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.8.0](https://github.com/abdes/asap/compare/v4.7.0...v4.8.0) (2025-06-01)
+
+
+### Features
+
+* add GitHub Actions workflow for release-please automation ([69d96da](https://github.com/abdes/asap/commit/69d96dad7cc56570067f825b420e1dabc4270693))
+* customize release-please workflow ([b3504fb](https://github.com/abdes/asap/commit/b3504fbfc033deebc8d7fc578e3e7c160d42b927))
+* customize release-please workflow to update versions ([c4921d6](https://github.com/abdes/asap/commit/c4921d64bcc979b45f58933813155c1d38ec9bbb))
+* support for qualified module names ([0c01c12](https://github.com/abdes/asap/commit/0c01c1222b0bf5877811ff19f2626163f7cc9e40))
+* use pre-commit instead of husky ([551e1a1](https://github.com/abdes/asap/commit/551e1a16e3c106d0e48629932fc5121de86f83ec))
+
+
+### Bug Fixes
+
+* add .python-version to .gitignore ([9c8957c](https://github.com/abdes/asap/commit/9c8957c833e6553daa1f6e8c8584b318fc78aef9))
+* add 'Ninja' generator to macos-builds workflow ([32bcb28](https://github.com/abdes/asap/commit/32bcb28b97d3c904a1dd2841aa28602293cbf718))
+* allow project options to be overriden from master projects or command line ([2812446](https://github.com/abdes/asap/commit/2812446053301c9ebb6ff0ce5a37a74a95535d8d))
+* api export generated header does not respect project layout ([571ac3f](https://github.com/abdes/asap/commit/571ac3f7b24b1805ebad46c3ccf38b13aeee72ae))
+* create .clangd only if it does not exists ([8942178](https://github.com/abdes/asap/commit/8942178bb3e6049bcc5e75863982a03698e3fd2d))
+* enable docs build for pages ([010fc52](https://github.com/abdes/asap/commit/010fc52841c19585508f5337072bc323dfaea598))
+* generate version numbers as numbers ([b3491d1](https://github.com/abdes/asap/commit/b3491d149dd2272f6bc547d4970e3cc34128e5cf))
+* honor the options to disable doc, docygen, sphinx ([2d66564](https://github.com/abdes/asap/commit/2d66564ba97a3fbcf0ea5b856dad801a8718796f))
+* main.cpp generation fails when multiple build configs are running ([e7eb314](https://github.com/abdes/asap/commit/e7eb31400ef177d7d161501bc209005721d354f2))
+* remove unnecessary esbonio settings ([5f5ada2](https://github.com/abdes/asap/commit/5f5ada26c0c1a1204aa056c90180e2e866b7db03))
+* remove Xcode generator from macos-builds workflow ([fde6a3b](https://github.com/abdes/asap/commit/fde6a3b79554a218834aaf8b816b2c371c74beed))
+* remove Xcode setup step from macos-builds workflow ([a97b42a](https://github.com/abdes/asap/commit/a97b42ac48902e7f23d98e6d8fecc2a1eff91e9c))
+* sphinx generation targets not properly setup ([a06b9a1](https://github.com/abdes/asap/commit/a06b9a177ca551849be712552424c578e1953f8d))
+* update actions to latest versions in workflows ([dac90de](https://github.com/abdes/asap/commit/dac90de17a92b1be90b46090070d0c0a1ce912a4))
+* update branch name from main to master in release workflow ([802960e](https://github.com/abdes/asap/commit/802960e6e314b86b0437cd983daf09a6c314e4d2))
+* update GitHub Actions to use latest versions of actions and Python ([52c983d](https://github.com/abdes/asap/commit/52c983dbae057a217e2e45bc00aa73d31b8cf31b))
+* update GitHub Actions to use latest versions of actions and Python ([40cc904](https://github.com/abdes/asap/commit/40cc90402c07c4cefbcad5077a0c967c4b280ca7))
+* update macos workflow and fix issues ([7575f81](https://github.com/abdes/asap/commit/7575f8109d44a6113b96bdee0c342ec67d0814e9))
+* update Xcode versions in macos-builds workflow ([f93fc1f](https://github.com/abdes/asap/commit/f93fc1f8dceb067ad82de623a3cf3b3775afc7b5))
+* use swift common for clang format/tidy and gersemi for cmake format ([dc22af9](https://github.com/abdes/asap/commit/dc22af91ba2fdcf8eb60542644949d6ede44a388))
+
 ## [4.7.0](http://github.com/abdes/asap/compare/v4.6.3...v4.7.0) (2024-01-29)
 
 ### Features
