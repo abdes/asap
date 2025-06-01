@@ -88,7 +88,7 @@ jobs:
             clang-tools-${{steps.split.outputs.clang_version}} \
             clang-tidy-${{steps.split.outputs.clang_version}}
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: recursive
 
@@ -125,7 +125,7 @@ jobs:
       - name: Setup cmake
         # Do not use cmake from the distro repos as it is not the version we
         # want
-        uses: jwlawson/actions-setup-cmake@v1
+        uses: jwlawson/actions-setup-cmake@v2
         with:
           cmake-version: ${{ env.CMAKE_VERSION }}
 
