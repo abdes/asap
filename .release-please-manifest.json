@@ -1,0 +1,13 @@
+{
+  "extra-files": [
+    {
+      "type": "generic",
+      "path": "CMakeLists.txt"
+    },
+    {
+      "type": "json",
+      "path": "version.json",
+      "jsonpath": "$.version"
+    }
+  ]
+}
