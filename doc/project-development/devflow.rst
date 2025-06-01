@@ -116,53 +116,11 @@ release branch.  Instead, the process is:
 
           git merge --no-ff develop
 
-.. tip::
-  :class: margin
-
-  This will generate the changelog, update version numbers in `CMakeLists.txt`,
-  and create a new tag.
-
-  See `Conventional Commits <https://www.conventionalcommits.org/en/v1.0.0/>`_
-  for more information on how conventional commit messages can simplify
-  changelog preparation.
-
 .. list-table::
    :widths: 10 90
    :header-rows: 0
 
-   * - 8
-     - Release a new version with `standard-version`.
-
-       .. code-block:: shell
-
-         npx standard-version --help
-
-         npx standard-version --dry-run
-
-         npx standard-version --skip.commit --skip.tag
-
-       Check the generated changelog and edit if needed. Verify the updated
-       version number is correct.
-
-       Commit the cnhages and push to the remote.
-
-       .. code-block:: shell
-
-          git commit -a -m "version bump to M.m.p"
-          git push
-
-       .. note::
-
-          These steps can be automatic with standard-version, but it is
-          recommended to not automate them as often the generated changelog
-          needs some refinements before it is committed and a release tag is
-          made.
-
-.. list-table::
-   :widths: 10 90
-   :header-rows: 0
-
-   * - 9
+   * - 8 (OPTIONAL)
      - Create a new tag on the `master` branch with appropriate label and push
        it to the remote.
 
@@ -171,7 +129,7 @@ release branch.  Instead, the process is:
           git tag -a M.m.p -m "release M.m.p"
           git push origin M.m.p
 
-   * - 10
+   * - 9
      - Merge master back into develop to include the merge commit (see --no-ff
        notes below)
 
